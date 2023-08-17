@@ -4,15 +4,13 @@ import Header from "./Components/Header.js";
 import SectionOne from "./Components/SectionOne";
 import SectionTwo from "./Components/SectionTwo";
 import Footer from "./Components/Footer";
-import { useState, useContext } from "react";
-import { GlobalContext } from "./context/GlobalState";
 
 import { Routes, Route } from "react-router-dom";
 
 
 function App() {
 
-  const productos = useContext(GlobalContext);
+
 
   return (
     <div className="App">
