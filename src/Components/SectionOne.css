@@ -1,67 +1,104 @@
 .first-section {
-    background-image: url('../assets//fondo.jpg'); /* Ruta de la imagen de fondo */
-    opacity: 2;
-    background-size: cover;
-    object-fit: contain;
-    background-position: center;
-    height: 100vh;
-    display: flex;
-    width: 100%;
-    justify-content: flex-start;
-    align-items: flex-start;
-    color: #ffffff;
-    text-align: left;
-    overflow: hidden;
+  background-image: url("../assets//fondo.webp"); /* Ruta de la imagen de fondo */
+  opacity: 2;
+  background-size: cover;
+  object-fit: contain;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: flex-start;
+  color: #ffffff;
+  text-align: left;
+  overflow: hidden;
+}
+
+.content {
+  max-width: 600px;
+  padding: 50px;
+  margin-top: 100px;
+}
+
+.title-f {
+  font-size: 36px;
+  margin-bottom: 5px;
+}
+
+.subtitle {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin-bottom: 20px;
+}
+
+.start-button {
+  background: #3ed02a;
+  color: #ffffffd0;
+  border: none;
+  padding: 10px 20px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.a-button {
+  text-decoration: none;
+  color: #ffffffd0;
+}
+
+.start-button:hover {
+  background: #000000;
+  color: #fff;
+  opacity: 0.8;
+  transition: all 0.5s ease-in-out;
+}
+
+.down-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  left: 85%;
+  margin-top: 220px;
+  width: 100%;
+  height: 100%;
+  animation: updown infinite 1.9s;
+}
+
+@keyframes updown {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0);
   }
 
-  .content {
-    max-width: 600px;
-    padding: 50px;
-    margin-top: 100px;
+}
+
+.down-div img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  background-position: center;
+  background-size: cover;
+  animation: animateDown infinite 1.5s;
+}
+
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
   }
-
-  .title-f {
-    font-size: 36px;
-    margin-bottom: 5px;
+  100% {
+    transform: translateX(0);
+    opacity: 1;
   }
+}
 
-  .subtitle {
-    font-size: 16px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    margin-bottom: 20px;
-  }
-
-  .start-button {
-    background: #3ed02a;
-    color: #000000;
-    border: none;
-    padding: 10px 20px;
-    font-size: 15px;
-    font-weight: 600;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-
-    .start-button:hover {
-        background: #000000;
-        color: #fff;
-        opacity: 0.8;
-        transition: all 0.5s ease-in-out;
-    }
-
-
-  @keyframes slideInLeft {
-    0% {
-      transform: translateX(-100%);
-      opacity: 0;
-    }
-    100% {
-      transform: translateX(0);
-      opacity: 1;
-    }
-  }
-
-  .animate-left {
-    animation: slideInLeft 1.5s ease forwards;
-  }
+.animate-left {
+  animation: slideInLeft 1.5s ease forwards;
+}

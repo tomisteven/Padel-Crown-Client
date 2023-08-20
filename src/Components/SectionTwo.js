@@ -18,19 +18,25 @@ export default function SectionTwo() {
   const [productImage, setProductImage] = useState({});
 
   const categorias = [
-    "Fibra Carbono",
+    "Fibra de Carbono",
     "Fibra de Vidrio",
     "Foam",
     "Eva",
     "Evasoft",
     "Sin Ploteo",
+    "Control",
+    "Potencia",
+    "Nada"
   ];
 
+  const $productos = useContext(GlobalContext);
+
   const [products, setProducts] = useState(useContext(GlobalContext));
-  console.log("render", products);
+  const [productsCategory, setProductsCategory] = useState(
+    useContext(GlobalContext)
+  );
   useEffect(() => {
     setLoading(true);
-    console.log("Efect", products);
     setLoading(false);
   }, [products]);
 
@@ -73,14 +79,16 @@ export default function SectionTwo() {
 
   const filterData = (category) => {
     setLoading(true);
-    let arr = products.filter((item) => item.category === category);
-    if (arr.length === 0) {
-      swal("No hay productos en esta categoria", "", "warning").then(() => {
-        setLoading(false);
-      });
-    }
+    setProducts(
+      $productos.filter((p) => {
+        if (category === "") {
+          return p;
+        } else {
+          return p.category.includes(category)
+        }
+      })
+    );
     setValue(category);
-    setProducts({ ...products, productos: arr });
     setLoading(false);
   };
 
@@ -94,7 +102,12 @@ export default function SectionTwo() {
               className="btn-ver-todos"
               size="small"
               onClick={() => {
-                setProducts({ ...products, productos: products });
+                filterData("");
+                setProducts(
+                  $productos.filter((p) => {
+                    return p;
+                  })
+                )
                 setValue("");
               }}
               primary
@@ -110,12 +123,18 @@ export default function SectionTwo() {
                 vertical={window.innerWidth > 768 ? true : false}
               >
                 {categorias.map((item, k) => (
-                  <Menu.Item key={k} onClick={() => filterData(item)}>
-                    <Label color="green">
-                      {products.filter((prod) => prod.category === item)
+                  <Menu.Item disabled={
+                    productsCategory.filter((p) => p.category.includes(item)).length === 0
+
+                  } key={k} onClick={() => filterData(item)}>
+                    <Label color={
+                      productsCategory.filter((p) => p.category.includes(item)).length === 0 ? "yellow" : "green"
+                    }>
+                      {productsCategory.filter((p) => p.category.includes(item))
                         .length > 0
-                        ? products.filter((prod) => prod.category === item)
-                            .length
+                        ? productsCategory.filter((p) =>
+                            p.category.includes(item)
+                          ).length
                         : 0}
                     </Label>
                     {item}
@@ -160,6 +179,7 @@ export default function SectionTwo() {
                 <div className="card-body">
                   <div className="cont-name">
                     <h5 className="card-body-name">{item.name}</h5>
+
                     <Label
                       as="a"
                       content={"Comprar en Tienda Onlinne"}
@@ -209,17 +229,24 @@ export default function SectionTwo() {
                   <div className="cont-price">
                     <Button
                       className="btn-add-cart"
+                      disabled={!item.stock}
                       color="orange"
                       size="mini"
                       icon="add"
                       label={
-                        <Label size="tiny" color="blue">
-                          $
-                          {new Intl.NumberFormat("de-DE", {
-                            style: "currency",
-                            currency: "ARS",
-                          }).format(item.price)}
-                        </Label>
+                        item.stock ? (
+                          <Label size="tiny" color="blue">
+                            $
+                            {new Intl.NumberFormat("de-DE", {
+                              style: "currency",
+                              currency: "ARS",
+                            }).format(item.price)}
+                          </Label>
+                        ) : (
+                          <Label size="tiny" color="red">
+                            Sin Stock
+                          </Label>
+                        )
                       }
                       onClick={() => {
                         addItems(item);

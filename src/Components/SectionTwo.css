@@ -17,9 +17,9 @@
 }
 
 .title-section-two {
-  font-family: "Roboto", sans-serif;
+  font-family: "Satisfy", cursive;
   font-size: 1.5rem;
-  font-weight: 700;
+  font-weight: 400;
   color: #000000;
   margin: 0;
   padding: 10px;
@@ -46,21 +46,20 @@
   width: 100%;
   height: 100%;
   padding: 10px;
-  margin-bottom: 10px;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-start;
+  margin-bottom: 50px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+
   cursor: pointer;
 }
 
 .card-product {
-  width: 24%;
-  height: 455px;
+  width: 100%;
+  height: 485px;
   background: #ffffff;
   border-radius: 25px;
-  margin-top: 15px;
+  margin-top: 45px;
   margin-bottom: 15px;
 
   -webkit-box-shadow: 1px 19px 27px 0px rgba(102, 102, 102, 0.43);
