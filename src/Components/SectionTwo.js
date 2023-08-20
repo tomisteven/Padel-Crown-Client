@@ -347,8 +347,8 @@ export default function SectionTwo() {
       >
         <Button
           disabled={productsSelected.length === 0}
-          icon={stateCart ? "close" : "shopping cart"}
-          color={stateCart ? "red" : "orange"}
+          icon={stateCart ? "shopping cart" : "close"}
+          color={stateCart ? "blue" : "red"}
           circular
         />
         {productsSelected.length > 0 ? (

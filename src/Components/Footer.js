@@ -1,7 +1,7 @@
 import React from 'react';
 import './Footer.css';
 import { Icon } from 'semantic-ui-react';
-import logo from '../assets/CataLoger.webp';
+import logo from '../assets/LOGO ACTUAL.png';
 
 const Footer = () => {
   return (
@@ -15,39 +15,33 @@ const Footer = () => {
           <div className="contact-card">
             <div className="contact-info">
               <i className="fa fa-phone"></i>
-              <p>+1 234 5678</p>
+              <p>+54 11 64764108</p>
             </div>
             <div className="contact-info">
               <i className="fa fa-envelope"></i>
-              <p>info@example.com</p>
+              <p>padelcrown@gmail.com</p>
             </div>
             <div className="contact-info">
               <i className="fa fa-map-marker"></i>
-              <p>123 Main St, City, Country</p>
+              <p>Buenos Aires, Argentina</p>
             </div>
-            <div className="contact-info">
-              <i className="fa fa-clock"></i>
-              <p>Mon - Fri: 9:00 AM - 5:00 PM</p>
-            </div>
+
           </div>
         </div>
         <div className="footer-column">
           <h4>Redes Sociales</h4>
           <div className="social-links">
-            <a href="https://www.facebook.com/" target="_blank" rel="noreferrer" className="social-icon">
+            <a href="https://www.facebook.com/profile.php?id=100091851862886" target="_blank" rel="noreferrer" className="social-icon">
               <Icon name='facebook' color="blue" size='big' />
             </a>
-            <a href="https://www.facebook.com/" target="_blank" rel="noreferrer" className="social-icon">
+            <a href="https://api.whatsapp.com/send?phone=1164764108" target="_blank" rel="noreferrer" className="social-icon">
               <Icon name='whatsapp' color='green' size='big' />
             </a>
-            <a href="https://www.instagram.com/" target="_blank" rel="noreferrer" className="social-icon">
+            <a href="https://www.instagram.com/padelcrown/" target="_blank" rel="noreferrer" className="social-icon">
               <Icon name='instagram' color="pink" size='big' />
             </a>
-            <a href="https://www.twitter.com/" target="_blank" rel="noreferrer" className="social-icon">
-              <Icon name='twitter' color="teal" size='big' />
-            </a>
-            <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer" className="social-icon">
-              <Icon name='linkedin' color='orange' size='big' />
+            <a href="https://padelcrown.com.ar/" target="_blank" rel="noreferrer" className="social-icon">
+              <Icon name='shop' color='orange' size='big' />
             </a>
         </div>
         </div>
