@@ -4,7 +4,6 @@ import "./SectionTwo.css";
 import "./responsiveSectionTwo.css";
 import icon_pelota from "../assets/tenis.png";
 import { Label, Menu, Button, Dropdown, Modal, Image } from "semantic-ui-react";
-import swal from "sweetalert";
 import { GlobalContext } from "../context/GlobalState";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -32,9 +31,7 @@ export default function SectionTwo() {
   const $productos = useContext(GlobalContext);
 
   const [products, setProducts] = useState(useContext(GlobalContext));
-  const [productsCategory, setProductsCategory] = useState(
-    useContext(GlobalContext)
-  );
+  const productsCategory = useContext(GlobalContext);
   useEffect(() => {
     setLoading(true);
     setLoading(false);
