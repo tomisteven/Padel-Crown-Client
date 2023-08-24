@@ -1,6 +1,6 @@
 import React from "react";
 import "./Header.css";
-import logo from "../assets/LOGO ACTUAL.png";
+import logo from "../../assets/LOGO ACTUAL.png";
 import "./responsiveHeader.css";
 
 const Header = () => {
@@ -24,7 +24,7 @@ const Header = () => {
         </div>
         <ul className="nav-menu">
           <li className="nav-item">
-            <a href="#home" className="nav-link">
+            <a href="/" className="nav-link">
               Inicio
             </a>
           </li>
@@ -36,6 +36,16 @@ const Header = () => {
           <li className="nav-item">
             <a href="#productos" className="nav-link">
               Productos
+            </a>
+          </li>
+          <li className="nav-item">
+            <a href="#productos" className="nav-link">
+              Mayoristas
+            </a>
+          </li>
+          <li className="nav-item">
+            <a href="/que-pala-comprar" className="nav-link">
+              Que Pala Comprar ?
             </a>
           </li>
 

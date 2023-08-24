@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'fuenteHeader';
-  src: url("../assets/Quicksand-Regular.otf") format('truetype');
+  src: url("../../assets/Quicksand-Regular.otf") format('truetype');
   /* Ajusta la ruta de la fuente según la ubicación real en tu proyecto */
 }
 
