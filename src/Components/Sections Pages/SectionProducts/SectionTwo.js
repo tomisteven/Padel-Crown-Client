@@ -2,15 +2,15 @@ import React, { useEffect, useState, useContext } from "react";
 import { Dna } from "react-loader-spinner";
 import "./SectionTwo.css";
 import "./responsiveSectionTwo.css";
-import SectionProducts from "../SectionProducts";
-import SectionFilters from "../SectionFilters";
-import ExpandMenu from "../ExpandMenu";
-import BtnMenuExpandible from "../BtnMenuExpandible";
-import ModalComponent from "../ModalComponent";
-import { GlobalContext } from "../../context/GlobalState";
+import SectionProducts from "../../SectionProducts";
+import SectionFilters from "../../SectionFilters";
+import ExpandMenu from "../../ExpandMenu";
+import BtnMenuExpandible from "../../BtnMenuExpandible";
+import ModalComponent from "../../ModalComponent";
+import { GlobalContext } from "../../../context/GlobalState";
 import { ToastContainer} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import SectionOne from "./SectionOne";
+import SectionOne from "../SectionOne/SectionOne";
 
 export default function SectionTwo() {
   const [loading, setLoading] = useState(true);

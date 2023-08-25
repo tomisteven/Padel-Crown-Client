@@ -1,0 +1,184 @@
+@font-face {
+  font-family: "fuenteHeader";
+  src: url("../../../assets/Quicksand-Regular.otf") format("truetype");
+  /* Ajusta la ruta de la fuente según la ubicación real en tu proyecto */
+}
+.container-que-pala-comprar {
+  margin-top: 100px;
+  width: 100%;
+  height: auto;
+  cursor: url("../../../assets/cursor.png"), auto !important;
+  display: flex;
+  flex-direction: column;
+}
+.title-container-quepalacomprar {
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  margin-top: 35px;
+  margin-bottom: 25px;
+  color: #000000;
+  border-bottom: #00000014 2px solid;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 15px;
+  font-family: "fuenteHeader";
+  letter-spacing: -1px;
+}
+
+.section-post1 {
+  margin: auto;
+  width: 85%;
+  background-color: #0000000e;
+  height: 500px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  border-radius: 10px;
+}
+.title-info {
+  font-size: 24px;
+  font-weight: bold;
+  color: #000000;
+  text-align: center;
+  width: 80%;
+  position: relative;
+  top: 10px;
+  font-family: "fuenteHeader";
+  border-radius: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.cont-cualidades {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 80%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgba(255, 192, 56, 0.162);
+  border-radius: 10px;
+  padding: 10px;
+  height: 100px;
+}
+.cont-cualidades-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 250px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 15px;
+  margin-right: auto;
+  background-color: rgba(249, 198, 87, 0.866);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.necesita-quepalacomprar {
+  font-size: 17px;
+  font-weight: bold;
+  color: #000000;
+
+  margin-bottom: 20px;
+  margin-left: 10px;
+  text-align: center;
+  width: 100%;
+  position: relative;
+  top: 10px;
+  font-family: "fuenteHeader";
+}
+.item-description-paletacomprar {
+  font-size: 13px;
+  color: #00000082;
+  text-align: justify;
+  width: 90%;
+  margin: auto;
+  position: relative;
+  top: 10px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  margin-bottom: 15px;
+}
+.item-description-paletacomprar span {
+  font-size: 15px;
+  color: #000000;
+  text-align: justify;
+  width: 90%;
+  margin: auto;
+  position: relative;
+  font-family: "fuenteHeader";
+}
+
+.cont-info-quepalacomprar {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.img-cualidades {
+  width: 35px;
+  height: 100%;
+}
+
+.cont-img-quepalacomprar {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+    align-items: center;
+}
+
+.img-quepalacomprar {
+  width: 400px;
+  height: auto;
+  margin-right: 15px;
+  border-radius: 10px;
+}
+
+.descripcion-paletacomprar {
+  margin-bottom: 25px;
+}
+
+
+/* section2 */
+
+.section2{
+  margin: auto;
+  width: 90%;
+
+  height: 650px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  border-radius: 10px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.section-avanzados {
+  margin: auto;
+  width: 47%;
+  background-color: #0000000e;
+  height: 650px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border-radius: 10px;
+}
+.section-intermedios{
+  margin: auto;
+  width: 47%;
+  background-color: #0000000e;
+  height: 650px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border-radius: 10px;
+}

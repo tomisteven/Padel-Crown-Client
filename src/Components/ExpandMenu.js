@@ -1,5 +1,6 @@
 import React from 'react'
 import { Button, Label } from 'semantic-ui-react'
+import "./ExpandMenu.css";
 
 export default function ExpandMenu({
     productsSelected,

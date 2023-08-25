@@ -1,5 +1,5 @@
 .first-section {
-  background-image: url("../../assets//fondo.webp"); /* Ruta de la imagen de fondo */
+  background-image: url("../../../assets//fondo.webp"); /* Ruta de la imagen de fondo */
   opacity: 2;
   background-size: cover;
   object-fit: contain;

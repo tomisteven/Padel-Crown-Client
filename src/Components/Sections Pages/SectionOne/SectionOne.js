@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import "./SectionOne.css";
-import down from "../../assets/down.png";
-import LoadBall from "../LoadBall";
+import down from "../../../assets/down.png";
+import LoadBall from "../../LoadBall";
 
 export default function SectionOne() {
   const [state, setState] = React.useState(true);
