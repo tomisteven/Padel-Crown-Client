@@ -25,6 +25,7 @@
     height: 35px;
     top: 60px;
     left: 0;
+    padding-left: 15px;
     background-color: #ffffff;
     display: flex;
     flex-direction: row;
