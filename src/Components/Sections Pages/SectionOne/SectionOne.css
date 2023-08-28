@@ -102,3 +102,26 @@
 .animate-left {
   animation: slideInLeft 1.5s ease forwards;
 }
+
+
+/* responsive */
+
+@media screen and (max-width: 767px) {
+  .title-f{
+    font-size: 23px;
+  }
+  .subtitle{
+    font-size: 13px;
+  }
+  .content{
+    padding: 20px;
+  }
+  .start-button{
+    font-size: 12px;
+    padding: 10px 17px;
+    background-color: #1d9a0c
+  }
+  .a-button{
+    color: #ffffff;
+  }
+}

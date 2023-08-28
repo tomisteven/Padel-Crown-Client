@@ -1,37 +1,47 @@
 @media screen and (max-width: 767px) {
-    /* Agrega aquí los estilos específicos para dispositivos móviles */
-    .navbar{
-        width: 100%;
-        display: flex;
-        justify-content: center;
-    }
-
-    .logo-container{
-        position: relative;
-        width: 100%;
-        display: flex;
-        justify-content: flex-start;
-        right: 55px;
-
-    }
-
-    .nav-link{
-        font-size: 13px;
-        padding: 0px 15px;
-        position: relative;
-        top: 10px;
-    }
-
-    .disable{
-        display: none;
-    }
-
-    .nav-item::before{
-        bottom: -15px
-    }
-
+  /* Agrega aquí los estilos específicos para dispositivos móviles */
+  .navbar {
+    width: 100%;
+    display: flex;
+    justify-content: center;
   }
 
-  @media screen and (min-width: 768px) and (max-width: 1023px) {
-    /* Agrega aquí los estilos específicos para computadoras portátiles */
+  .logo-container {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: center;
   }
+  .logo{
+    width: 75px;
+    height: 75px;
+    position: relative;
+    top: 15px;
+  }
+
+  .nav-menu{
+    position: absolute;
+    width: 100%;
+    height: 35px;
+    top: 60px;
+    left: 0;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 100;
+  }
+  .nav-link{
+    font-size: 10px;
+    color: #000000;
+  }
+  .nav-link:hover{
+    color: #000000;
+  }
+
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  /* Agrega aquí los estilos específicos para computadoras portátiles */
+}

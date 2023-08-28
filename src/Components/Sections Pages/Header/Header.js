@@ -17,7 +17,8 @@ const Header = () => {
   window.addEventListener("scroll", scollEvent);
 
   return (
-    <header className="header">
+    <>
+      <header className="header">
       <nav className="navbar">
         <div className="logo-container">
           <img src={logo} alt="Logo" className="logo" />
@@ -48,16 +49,46 @@ const Header = () => {
               Que Pala Comprar ?
             </a>
           </li>
-
-          <li className="nav-item disable">
-            <a href="#contacto" className="nav-link">
-              Contacto
-            </a>
-          </li>
         </ul>
       </nav>
-    </header>
+      </header>
+    </>
   );
 };
 
 export default Header;
+
+{
+  /* <nav className="navbar">
+        <div className="logo-container">
+          <img src={logo} alt="Logo" className="logo" />
+        </div>
+        <ul className="nav-menu">
+          <li className="nav-item">
+            <a href="/#productos" className="nav-link">
+              Inicio
+            </a>
+          </li>
+          <li className="nav-item disable">
+            <a href="/nosotros" className="nav-link">
+              Nosotros
+            </a>
+          </li>
+          <li className="nav-item">
+            <a href="/#productos" className="nav-link">
+              Productos
+            </a>
+          </li>
+          <li className="nav-item">
+            <a href="#productos" className="nav-link">
+              Mayoristas
+            </a>
+          </li>
+          <li className="nav-item">
+            <a href="/que-pala-comprar" className="nav-link">
+              Que Pala Comprar ?
+            </a>
+          </li>
+        </ul>
+      </nav> */
+}
