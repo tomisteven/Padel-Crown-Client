@@ -11,6 +11,8 @@ import { GlobalContext } from "../../../context/GlobalState";
 import { ToastContainer} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import SectionOne from "../SectionOne/SectionOne";
+import SectionEnvios from "./SectionEnvios";
+import SectionImgs from "./SectionImgs.js";
 
 export default function SectionTwo() {
   const [loading, setLoading] = useState(true);
@@ -74,9 +76,17 @@ export default function SectionTwo() {
           setProductImage={setProductImage}
           setOpen={setOpen}
         />
+
+
+
+
         <ExpandMenu setProductsSelected={setProductsSelected} productsSelected={productsSelected} />
 
       </section>
+
+      <SectionImgs />
+
+      <SectionEnvios />
 
       <BtnMenuExpandible
         productsSelected={productsSelected}

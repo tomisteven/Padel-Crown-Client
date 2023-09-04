@@ -27,10 +27,8 @@ export default function SectionProducts({
   return (
     <div className="section-products">
       <h5 className="title-section-two">
-        {productsSelected.length > 0
-          ? productsSelected.length
-          : products.length}{" "}
-        Productos
+        {products.length}
+        {" "} Productos disponibles para la venta online
       </h5>
       <div className="container-products">
         {products.map((item, k) => (
@@ -109,7 +107,7 @@ export default function SectionProducts({
                         $
                         {new Intl.NumberFormat("de-DE", {
                           style: "currency",
-                          currency: "ARS"
+                          currency: "ARS",
                         }).format(item.price)}
                       </Label>
                     ) : (

@@ -23,7 +23,7 @@ const Footer = () => {
             </div>
             <div className="contact-info">
               <i className="fa fa-map-marker"></i>
-              <p>Buenos Aires, Argentina</p>
+              <p>Moreno, Buenos Aires, Argentina</p>
             </div>
 
           </div>

@@ -2,8 +2,7 @@
   height: 100%;
   width: 100%;
   display: flex;
-  margin-bottom: 200px;
-
+  margin-bottom: 250px;
 }
 .section-two::after {
   content: "";
@@ -23,6 +22,9 @@
   margin: 0;
   padding: 10px;
   text-align: center;
+  border-bottom: #0000005d 1px solid;
+  border-top: #0000005d 1px solid;
+  padding: 10px;
 }
 
 /* products */
