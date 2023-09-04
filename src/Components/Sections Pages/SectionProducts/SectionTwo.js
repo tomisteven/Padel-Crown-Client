@@ -13,6 +13,7 @@ import "react-toastify/dist/ReactToastify.css";
 import SectionOne from "../SectionOne/SectionOne";
 import SectionEnvios from "./SectionEnvios";
 import SectionImgs from "./SectionImgs.js";
+import BtnWhatssapp from "../../BtnWhatssapp.js";
 
 export default function SectionTwo() {
   const [loading, setLoading] = useState(true);
@@ -31,7 +32,7 @@ export default function SectionTwo() {
     "Sin Ploteo",
     "Control",
     "Potencia",
-    "Nada",
+    "Accesorios",
   ];
 
   const $productos = useContext(GlobalContext);
@@ -88,6 +89,7 @@ export default function SectionTwo() {
 
       <SectionEnvios />
 
+      <BtnWhatssapp />
       <BtnMenuExpandible
         productsSelected={productsSelected}
         stateCart={stateCart}
