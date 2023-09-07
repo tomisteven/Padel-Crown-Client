@@ -33,9 +33,9 @@ export default function SectionProducts({
       <div className="container-products">
         {products.map((item, k) => (
           <div key={k} className="card-product">
-            <h5 className="ultimo-stock">Ultimos {
-              Math.floor(Math.random()*7) + 1 === 0 ? null : Math.floor(Math.random()*7) + 1
-            } en Stock!</h5>
+            <h5 className="ultimo-stock"> {
+              item.cantidad === 0 ? "Sin stock" : "Ultimo/s " + item.cantidad + " en Stock!"
+            }</h5>
             <img
               onClick={() => {
                 setProductImage(item);

@@ -79,6 +79,7 @@ export default function SectionTwo() {
         />
 
         <ExpandMenu
+        setStateCart={setStateCart}
           setProductsSelected={setProductsSelected}
           productsSelected={productsSelected}
         />
