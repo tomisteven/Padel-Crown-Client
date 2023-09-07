@@ -1,7 +1,7 @@
 import React from "react";
 import "./Nosotros.css";
-import padelcrown from "../../../assets/LOGO ACTUAL.png";
-import fg from "../../../assets/fglogo.png";
+import padelcrown from "../../../assets/LOGO ACTUAL.webp";
+import fg from "../../../assets/fglogo.webp";
 
 export default function Nosotros() {
   return (

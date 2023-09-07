@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import "./SectionOne.css";
-import down from "../../../assets/down.png";
+import down from "../../../assets/down.webp";
 import LoadBall from "../../LoadBall";
 
 export default function SectionOne() {
@@ -43,6 +43,7 @@ export default function SectionOne() {
           </button>
 
           <div className="down-div">
+              Hace Click aca y encontra la paleta ideal para vos!
             <a href="#productos">
               <img src={down} alt="" />
             </a>

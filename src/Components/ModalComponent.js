@@ -1,8 +1,8 @@
 import React from "react";
 import { Button, Image, Modal, Label } from "semantic-ui-react";
 import "./ModalComponent.css";
-import icon_pelota from "../assets/tenis.png";
-import logoActual from "../assets/LOGO ACTUAL.png";
+import icon_pelota from "../assets/tenis.webp";
+import logoActual from "../assets/LOGO ACTUAL.webp";
 
 export default function ModalComponent({ open, setOpen, productImage }) {
   return (

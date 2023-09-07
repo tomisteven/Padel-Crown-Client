@@ -1,7 +1,7 @@
 import React from 'react';
 import './Footer.css';
 import { Icon } from 'semantic-ui-react';
-import logo from '../../../assets/LOGO ACTUAL.png';
+import logo from '../../../assets/LOGO ACTUAL.webp';
 
 const Footer = () => {
   return (

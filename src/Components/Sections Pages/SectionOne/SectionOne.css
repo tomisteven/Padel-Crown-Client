@@ -1,5 +1,5 @@
 .first-section {
-  background-image: url("../../../assets//f.webp"); /* Ruta de la imagen de fondo */
+  background-image: url("../../../assets/fondo1.webp"); /* Ruta de la imagen de fondo */
   background-size: cover;
   background-position: center;
   object-fit: cover;
@@ -55,7 +55,9 @@
 }
 
 .down-div {
+  font-size: 16px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   position: relative;

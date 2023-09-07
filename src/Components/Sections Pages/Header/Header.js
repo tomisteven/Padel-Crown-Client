@@ -1,6 +1,6 @@
 import React from "react";
 import "./Header.css";
-import logo from "../../../assets/LOGO ACTUAL.png";
+import logo from "../../../assets/LOGO ACTUAL.webp";
 import "./responsiveHeader.css";
 
 const Header = () => {
