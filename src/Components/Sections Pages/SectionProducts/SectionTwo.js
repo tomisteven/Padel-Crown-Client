@@ -8,7 +8,7 @@ import ExpandMenu from "../../ExpandMenu";
 import BtnMenuExpandible from "../../BtnMenuExpandible";
 import ModalComponent from "../../ModalComponent";
 import { GlobalContext } from "../../../context/GlobalState";
-import { ToastContainer} from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import SectionOne from "../SectionOne/SectionOne";
 import SectionEnvios from "./SectionEnvios";
@@ -59,7 +59,7 @@ export default function SectionTwo() {
 
   return (
     <>
-    <SectionOne />
+      <SectionOne />
       <section id="productos" className="section-two">
         <SectionFilters
           categorias={categorias}
@@ -78,11 +78,10 @@ export default function SectionTwo() {
           setOpen={setOpen}
         />
 
-
-
-
-        <ExpandMenu setProductsSelected={setProductsSelected} productsSelected={productsSelected} />
-
+        <ExpandMenu
+          setProductsSelected={setProductsSelected}
+          productsSelected={productsSelected}
+        />
       </section>
 
       <SectionImgs />

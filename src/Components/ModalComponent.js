@@ -9,7 +9,6 @@ export default function ModalComponent({ open, setOpen, productImage }) {
     <div>
       {" "}
       <Modal
-
         size="large"
         onClose={() => setOpen(false)}
         onOpen={() => setOpen(true)}
@@ -52,8 +51,7 @@ export default function ModalComponent({ open, setOpen, productImage }) {
                   icon="question"
                   label={"Que pala me conviene?"}
                   onClick={() => {
-                    window.location.href =
-                      "http://localhost:3000/que-pala-comprar";
+                    window.location.href = "/que-pala-comprar";
                   }}
                 ></Button>
                 <Button

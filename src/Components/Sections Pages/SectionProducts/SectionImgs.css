@@ -29,3 +29,29 @@
     border-radius: 10px;
     margin: 5px;
 }
+
+
+/* responsive */
+
+@media screen and (max-width: 1024px) {
+    .cont-section-img{
+        margin-top: 1000px;
+    }
+    .cont-img-sections{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        margin: auto;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 55px;
+    }
+    .cont-img-sections img {
+        width: 400px;
+        height: 100%;
+        object-fit: contain;
+        border-radius: 10px;
+        margin: 5px;
+    }
+}

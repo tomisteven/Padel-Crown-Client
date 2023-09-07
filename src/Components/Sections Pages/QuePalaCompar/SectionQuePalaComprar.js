@@ -7,11 +7,21 @@ import LoadBall from "../../LoadBall";
 export default function SectionQuePalaComprar() {
   const [state, setState] = React.useState(true);
 
+  const contruction = true
+
   React.useEffect(() => {
     setTimeout(() => {
       setState(false);
     }, 700);
   }, []);
+
+  if(contruction){
+    return (
+      <>
+      <LoadBall status={"flex"} />
+      </>
+    )
+  }
   return (
     <>
     <LoadBall status={state ? "flex" : "none"} />

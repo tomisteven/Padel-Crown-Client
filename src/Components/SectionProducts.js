@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, Label } from "semantic-ui-react";
-import icon_pelota from "../assets/tenis.png";
+import icon_pelota from "../assets/tenis.webp";
 import { toast } from "react-toastify";
 
 export default function SectionProducts({
@@ -45,18 +45,18 @@ export default function SectionProducts({
             <div className="card-body">
               <div className="cont-name">
                 <h5 className="card-body-name">{item.name}</h5>
-                {window.innerWidth > 768 ? (
+
                   <Label
                     className="btn-buy"
                     as="a"
-                    content={"Comprar en Tienda Onlinne"}
+                    content={"Ver en Tienda Onlinne"}
                     color={"green"}
                     icon="shopping cart"
                     onClick={() => {
                       window.open(item.url, "_blank");
                     }}
                   />
-                ) : null}
+
               </div>
               <p className="card-body-description">
                 {item.description ? (
@@ -98,9 +98,11 @@ export default function SectionProducts({
                 <Button
                   className="btn-add-cart"
                   disabled={!item.stock}
-                  color="orange"
+                  color={
+                    item.stock ? "orange" : "red"
+                  }
                   size="tiny"
-                  icon="add"
+                  icon={item.stock ? "dollar sign" : "ban"}
                   label={
                     item.stock ? (
                       <Label className="label-btn-add" size="tiny" color="blue">
@@ -111,9 +113,7 @@ export default function SectionProducts({
                         }).format(item.price)}
                       </Label>
                     ) : (
-                      <Label size="tiny" color="red">
-                        Sin Stock
-                      </Label>
+                      null
                     )
                   }
                   onClick={() => {
