@@ -17,6 +17,7 @@ import BtnWhatssapp from "../../BtnWhatssapp.js";
 
 export default function SectionTwo() {
   const [loading, setLoading] = useState(true);
+  const [onChange, setOnChange] = useState(false)
   const [value, setValue] = useState("");
   const [productsSelected, setProductsSelected] = useState([]);
   const [stateCart, setStateCart] = useState(false);
@@ -42,7 +43,7 @@ export default function SectionTwo() {
   useEffect(() => {
     setLoading(true);
     setLoading(false);
-  }, [products]);
+  }, [products, onChange]);
 
   if (loading) {
     return (
@@ -71,6 +72,9 @@ export default function SectionTwo() {
           setLoading={setLoading}
         />
         <SectionProducts
+          setOnChange={setOnChange}
+          onChange={onChange}
+          setProducts={setProducts}
           products={products}
           setProductsSelected={setProductsSelected}
           productsSelected={productsSelected}

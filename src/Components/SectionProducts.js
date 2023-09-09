@@ -2,14 +2,20 @@ import React from "react";
 import { Button, Label } from "semantic-ui-react";
 import icon_pelota from "../assets/tenis.webp";
 import { toast } from "react-toastify";
+import { Dna } from "react-loader-spinner";
 
 export default function SectionProducts({
   products,
+  setProducts,
   productsSelected,
   setProductImage,
   setOpen,
   setProductsSelected,
+  setOnChange,
+  onChange,
 }) {
+  const [load, setLoad] = React.useState(false);
+
   const addItems = (item) => {
     toast.success("Producto agregado al carrito", {
       position: "top-right",
@@ -24,18 +30,68 @@ export default function SectionProducts({
     setProductsSelected([...productsSelected, item]);
   };
 
+  if (load) {
+    return (
+      <div className="section-products-load">
+        <Dna
+          visible={true}
+          height="60"
+          width="60"
+          ariaLabel="dna-loading"
+          wrapperStyle={{}}
+          wrapperClass="dna-wrapper"
+        />
+      </div>
+    );
+  }
+
+  const ordernarPrecios = (t) => {
+    if (t) {
+      setLoad(true);
+      setProducts(products.sort((a, b) => b.price - a.price));
+      setOnChange(!onChange);
+      setLoad(false);
+    }else{
+      setLoad(true);
+      setProducts(products.sort((a, b) => a.price - b.price));
+      setOnChange(!onChange);
+      setLoad(false);
+    }
+  };
+
   return (
     <div className="section-products">
       <h5 className="title-section-two">
-        {products.length}
-        {" "} Productos disponibles para la venta online
+        {products.length} Productos disponibles para la venta online
       </h5>
+      <button className="btn-ordenar"
+        onClick={() => {
+          ordernarPrecios(true);
+        }}
+      >
+        Menor Precio
+      </button>
+      <button className="btn-ordenar"
+        onClick={() => {
+          ordernarPrecios(false);
+        }}
+      >
+        Mayor Precio
+      </button>
       <div className="container-products">
         {products.map((item, k) => (
           <div key={k} className="card-product">
-            <h5 className="ultimo-stock"> {
-              item.cantidad === 0 ? "Sin stock" : "Ultimo/s " + item.cantidad + " en Stock!"
-            }</h5>
+            <h5
+              className="ultimo-stock"
+              style={
+                item.cantidad === 0 ? { color: "red" } : { color: "white" }
+              }
+            >
+              {" "}
+              {item.cantidad === 0
+                ? "Sin stock"
+                : "Ultimo/s " + item.cantidad + " en Stock!"}
+            </h5>
             <img
               onClick={() => {
                 setProductImage(item);
@@ -49,17 +105,16 @@ export default function SectionProducts({
               <div className="cont-name">
                 <h5 className="card-body-name">{item.name}</h5>
 
-                  <Label
-                    className="btn-buy"
-                    as="a"
-                    content={"Ver en Tienda Onlinne"}
-                    color={"green"}
-                    icon="shopping cart"
-                    onClick={() => {
-                      window.open(item.url, "_blank");
-                    }}
-                  />
-
+                <Label
+                  className="btn-buy"
+                  as="a"
+                  content={"Ver en Tienda Onlinne"}
+                  color={"green"}
+                  icon="shopping cart"
+                  onClick={() => {
+                    window.open(item.url, "_blank");
+                  }}
+                />
               </div>
               <p className="card-body-description">
                 {item.description ? (
@@ -101,9 +156,7 @@ export default function SectionProducts({
                 <Button
                   className="btn-add-cart"
                   disabled={!item.stock}
-                  color={
-                    item.stock ? "orange" : "red"
-                  }
+                  color={item.stock ? "orange" : "red"}
                   size="tiny"
                   icon={item.stock ? "shop" : "ban"}
                   label={
@@ -115,9 +168,7 @@ export default function SectionProducts({
                           currency: "ARS",
                         }).format(item.price)}
                       </Label>
-                    ) : (
-                      null
-                    )
+                    ) : null
                   }
                   onClick={() => {
                     addItems(item);
