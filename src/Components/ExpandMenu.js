@@ -18,6 +18,44 @@ export default function ExpandMenu({
   return (
     <div className="menu-expandible">
       <div className="cont-title-menu-expandible">
+      <div className="cont-btn">
+
+          <div className="tag-price">
+            <Label size="large" as="a" color="blue" tag>
+              {new Intl.NumberFormat("de-DE", {
+                style: "currency",
+                currency: "ARS",
+              }).format(productsSelected.reduce((a, b) => a + b.price, 0))}
+            </Label>
+          </div>
+          <div>
+            <Button
+              color="green"
+              icon="whatsapp"
+              label={
+                <Label color="blue" size="large">
+                  Comprar
+                </Label>
+              }
+              onClick={() => {
+                sendWhatssap();
+              }}
+            ></Button>
+
+            <Button
+              color="red"
+              icon="trash"
+              label={
+                <Label color="blue" size="large">
+                  Vaciar Carrito
+                </Label>
+              }
+              onClick={() => {
+                setProductsSelected([]);
+              }}
+            ></Button>
+          </div>
+        </div>
         <h3 className="">Productos Seleccionados</h3>
         <p>Para comprar seleccione el boton de WhatssApp</p>
         <Button
@@ -35,6 +73,7 @@ export default function ExpandMenu({
           }}
         />
         <span className="span"></span>
+
       </div>
       {productsSelected.length === 0 ? (
         <div className="cont-empty">
@@ -59,44 +98,6 @@ export default function ExpandMenu({
           ))}
         </ul>
       )}
-
-      <div className="cont-btn">
-        <div className="tag-price">
-          <Label size="large" as="a" color="blue" tag>
-            {new Intl.NumberFormat("de-DE", {
-              style: "currency",
-              currency: "ARS",
-            }).format(productsSelected.reduce((a, b) => a + b.price, 0))}
-          </Label>
-        </div>
-        <div>
-          <Button
-            color="green"
-            icon="whatsapp"
-            label={
-              <Label color="blue" size="large">
-                Comprar
-              </Label>
-            }
-            onClick={() => {
-              sendWhatssap();
-            }}
-          ></Button>
-
-          <Button
-            color="red"
-            icon="trash"
-            label={
-              <Label color="blue" size="large">
-                Vaciar Carrito
-              </Label>
-            }
-            onClick={() => {
-              setProductsSelected([]);
-            }}
-          ></Button>
-        </div>
-      </div>
     </div>
   );
 }
