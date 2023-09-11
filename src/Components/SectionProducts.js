@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Label } from "semantic-ui-react";
+import {Label } from "semantic-ui-react";
 import icon_pelota from "../assets/tenis.webp";
 import { toast } from "react-toastify";
 import { Dna } from "react-loader-spinner";
@@ -51,7 +51,7 @@ export default function SectionProducts({
       setProducts(products.sort((a, b) => b.price - a.price));
       setOnChange(!onChange);
       setLoad(false);
-    }else{
+    } else {
       setLoad(true);
       setProducts(products.sort((a, b) => a.price - b.price));
       setOnChange(!onChange);
@@ -64,14 +64,16 @@ export default function SectionProducts({
       <h5 className="title-section-two">
         {products.length} Productos disponibles para la venta online
       </h5>
-      <button className="btn-ordenar"
+      <button
+        className="btn-ordenar"
         onClick={() => {
           ordernarPrecios(true);
         }}
       >
         Menor Precio
       </button>
-      <button className="btn-ordenar"
+      <button
+        className="btn-ordenar"
         onClick={() => {
           ordernarPrecios(false);
         }}
@@ -108,7 +110,7 @@ export default function SectionProducts({
                 <Label
                   className="btn-buy"
                   as="a"
-                  content={"Ver en Tienda Onlinne"}
+                  content={"Ver Oferta Online"}
                   color={"green"}
                   icon="shopping cart"
                   onClick={() => {
@@ -153,27 +155,18 @@ export default function SectionProducts({
                 )}
               </div>
               <div className="cont-price">
-                <Button
-                  className="btn-add-cart"
-                  disabled={!item.stock}
-                  color={item.stock ? "orange" : "red"}
-                  size="tiny"
-                  icon={item.stock ? "shop" : "ban"}
-                  label={
-                    item.stock ? (
-                      <Label className="label-btn-add" size="tiny" color="blue">
-                        $
-                        {new Intl.NumberFormat("de-DE", {
-                          style: "currency",
-                          currency: "ARS",
-                        }).format(item.price)}
-                      </Label>
-                    ) : null
-                  }
-                  onClick={() => {
-                    addItems(item);
-                  }}
-                ></Button>
+                <div class="price1">
+                  $
+                  {new Intl.NumberFormat("de-DE", {
+                    style: "currency",
+                    currency: "ARS",
+                  }).format(item.price)}
+                </div>
+                <div class="add">${item.price + 5000}</div>
+                <button onClick={() => addItems(item)} className="btn-new-add">
+                  {" "}
+                  Añadir al Carrito{" "}
+                </button>
               </div>
             </div>
           </div>

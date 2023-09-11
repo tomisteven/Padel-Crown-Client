@@ -1,6 +1,12 @@
 /* Estilos para dispositivos móviles */
 @media screen and (max-width: 767px) {
+    .btn-new-add{
+        font-size: 14px;
+        font-weight: 500;
+    }
     /* Agrega aquí los estilos específicos para dispositivos móviles */
+
+
     .section-two{
         display: flex;
         flex-direction: column;
@@ -93,14 +99,17 @@
     .btn-cart{
         right: -5px;
     }
-
-
-
-
-
   }
 
   @media screen and (max-width: 640px){
+    .btn-ordenar{
+        width:25%;
+        font-size: 13px;
+    }
+    .btn-ordenar:hover{
+        background-color: #ffbe63;
+        color: white;
+    }
     .section-two{
         display: flex;
         flex-direction: column;
@@ -120,7 +129,7 @@
     .card-product{
         width: 80%;
         margin: auto;
-        margin-bottom: 25px;
+        margin-bottom: 55px;
         height: 470px;
     }
     .img-product{
@@ -194,4 +203,7 @@
     .btn-cart{
         right: -5px;
     }
+
+
+
   }

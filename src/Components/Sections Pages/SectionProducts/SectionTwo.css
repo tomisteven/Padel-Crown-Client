@@ -95,16 +95,15 @@
 
 .card-product {
   width: 98%;
-  height: 485px;
+  height: auto;
   background: #ffffff;
-  border-radius: 25px;
+  border-top-right-radius: 25px;
+  border-top-left-radius: 25px;
   margin-top: 45px;
   margin-bottom: 15px;
-
   -webkit-box-shadow: 1px 19px 27px 0px rgba(102, 102, 102, 0.43);
   -moz-box-shadow: 1px 19px 27px 0px rgba(102, 102, 102, 0.43);
   box-shadow: 1px 19px 27px 0px rgba(102, 102, 102, 0.43);
-
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -250,4 +249,48 @@
 .card-body-description-menu {
   font-size: 12px;
   font-weight: 400;
+}
+
+
+
+.price1 {
+  width: 50%;
+  height: 100%;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 600;
+  position: relative;
+  top: -6px;
+  left: 70px;
+}
+
+.add {
+  width: 50%;
+  height: 100%;
+  position: relative;
+  top: -22px;
+  left: 66px;
+  color: red;
+  font-size: 15px;
+  text-decoration: line-through;
+}
+.btn-new-add {
+  margin: auto;
+  position:absolute;
+  top: 0px;
+  width: 100%;
+  height: 30px;
+  background-color: #f7b854;
+border-bottom-right-radius: 10px;
+border-bottom-left-radius: 10px;
+  border: none;
+  color: white;
+  font-weight: 800;
+  font-size: 15px;
+  margin-top: 20px;
+  cursor: pointer;
 }
