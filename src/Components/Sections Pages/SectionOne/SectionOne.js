@@ -26,7 +26,7 @@ export default function SectionOne() {
   }, []);
   return (
     <>
-      <LoadBall status={state ? "flex" : "none"} />
+      <LoadBall title={"Padel Crown"} status={state ? "flex" : "none"} />
       <section id="home" className="first-section">
         <div className="content">
           <h1 className="title-f">Bienvenido a Padel Crown!</h1>

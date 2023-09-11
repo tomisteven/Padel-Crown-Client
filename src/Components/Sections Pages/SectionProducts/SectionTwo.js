@@ -14,6 +14,7 @@ import SectionOne from "../SectionOne/SectionOne";
 import SectionEnvios from "./SectionEnvios";
 import SectionImgs from "./SectionImgs.js";
 import BtnWhatssapp from "../../BtnWhatssapp.js";
+import ClockPromocion from "../../ClockPromocion.js";
 
 export default function SectionTwo() {
   const [loading, setLoading] = useState(true);
@@ -93,12 +94,17 @@ export default function SectionTwo() {
 
       <SectionEnvios />
 
-      <BtnWhatssapp />
+      <BtnWhatssapp /> {/* boton flotante w app */}
+
+
+
       <BtnMenuExpandible
         productsSelected={productsSelected}
         stateCart={stateCart}
         setStateCart={setStateCart}
       />
+
+      <ClockPromocion /> {/* reloj promocion */}
 
       <ModalComponent
         open={open}

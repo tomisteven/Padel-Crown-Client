@@ -2,7 +2,7 @@ import React from 'react'
 import './LoadBall.css'
 import ball from '../assets/load-ball.png'
 
-export default function LoadBall({status}) {
+export default function LoadBall({status, title}) {
   return (
     <div className='load-ball' style={
       {
@@ -10,7 +10,7 @@ export default function LoadBall({status}) {
       }
     }>
         <img className='ball-img' src={ball} alt=""/>
-        <h6 className='title-ball'>Padel Crown</h6>
+        <h6 className='title-ball'>{title}</h6>
     </div>
   )
 }

@@ -111,7 +111,7 @@ export default function SectionProducts({
                   className="btn-buy"
                   as="a"
                   content={"Ver Oferta Online"}
-                  color={"green"}
+                  color={"pink"}
                   icon="shopping cart"
                   onClick={() => {
                     window.open(item.url, "_blank");

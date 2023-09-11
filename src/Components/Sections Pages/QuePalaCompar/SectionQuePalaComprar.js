@@ -18,7 +18,7 @@ export default function SectionQuePalaComprar() {
   if(contruction){
     return (
       <>
-      <LoadBall status={"flex"} />
+      <LoadBall title={"Proximamente..."} status={"flex"} />
       </>
     )
   }
