@@ -25,11 +25,11 @@
   animation: load 2s linear infinite;
 }
 .title-ball {
-  font-size: 30px;
+  font-size: 20px;
   margin-top: 30px;
   color: white;
   text-align: center;
-  font-family: "Parisienne", cursive;
+  font-family: cursive;
 }
 
 @keyframes load {

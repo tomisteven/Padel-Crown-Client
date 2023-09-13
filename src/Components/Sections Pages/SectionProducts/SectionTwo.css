@@ -109,6 +109,12 @@
   justify-content: space-between;
   align-items: flex-start;
 }
+.card-product:hover {
+  -webkit-box-shadow: 1px 19px 27px 0px rgba(233, 168, 29, 0.73);
+  -moz-box-shadow: 1px 19px 27px 0px rgba(227, 176, 47, 0.73);
+  box-shadow: 1px 19px 27px 0px rgba(236, 176, 23, 0.73);
+  transition: 0.5s;
+}
 
 .img-product {
   width: 100%;
@@ -293,4 +299,10 @@ border-bottom-left-radius: 10px;
   font-size: 15px;
   margin-top: 20px;
   cursor: pointer;
+}
+
+.btn-new-add:hover {
+  background-color: #58eb50;
+  transition:0.7s;
+  color: white;
 }

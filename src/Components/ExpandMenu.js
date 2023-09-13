@@ -12,7 +12,7 @@ export default function ExpandMenu({
       "Hola, me gustaria comprar los siguientes productos: " +
       productsSelected.map((item) => item.name).join(", ") +
       " que vi en la Web Gracias!";
-    const url = `https://api.whatsapp.com/send?phone=1164764108&text=${message}`;
+    const url = `https://api.whatsapp.com/send?phone=+541164764108&text=${message}`;
     window.open(url, "_blank");
   };
   return (

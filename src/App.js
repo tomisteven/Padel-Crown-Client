@@ -5,6 +5,7 @@ import Header from "./Components/Sections Pages/Header/Header.js";
 import SectionTwo from "./Components/Sections Pages/SectionProducts/SectionTwo";
 import SectionQuePalaComprar from "./Components/Sections Pages/QuePalaCompar/SectionQuePalaComprar";
 import Nosotros from "./Components/Sections Pages/Nosotros/Nosotros";
+import Revendedores from "./Components/Sections Pages/Revendedores/Revendedores";
 
 import Footer from "./Components/Sections Pages/Footer/Footer";
 
@@ -18,6 +19,7 @@ function App() {
         <Route path="/" element={<SectionTwo />} exact />
         <Route path="/que-pala-comprar" element={<SectionQuePalaComprar />} exact />
         <Route path="/nosotros" element={<Nosotros />} />
+        <Route path="/revendedores" element={<Revendedores />} />
       </Routes>
 
       <Footer />

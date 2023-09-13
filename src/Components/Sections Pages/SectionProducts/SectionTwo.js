@@ -37,10 +37,10 @@ export default function SectionTwo() {
     "Accesorios",
   ];
 
-  const $productos = useContext(GlobalContext);
+  const $productos = useContext(GlobalContext)[0];
 
-  const [products, setProducts] = useState(useContext(GlobalContext));
-  const productsCategory = useContext(GlobalContext);
+  const [products, setProducts] = useState(useContext(GlobalContext)[0]);
+  const productsCategory = useContext(GlobalContext)[0];
   useEffect(() => {
     setLoading(true);
     setLoading(false);
