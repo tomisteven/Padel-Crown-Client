@@ -105,7 +105,9 @@ export default function SectionProducts({
             />
             <div className="card-body">
               <div className="cont-name">
-                <h5 className="card-body-name">{item.name}</h5>
+                <h5 className="card-body-name" style={
+                  item.name.length > 30 ? {fontSize: "12px"} : {fontSize: "14px"}
+                }>{item.name}</h5>
 
                 <Label
                   className="btn-buy"
