@@ -1,10 +1,8 @@
 .first-section {
-  background-image: url("../../../assets/fondo1.webp"); /* Ruta de la imagen de fondo */
-  background-size: cover;
+  background-size: contain;
+  object-fit: contain;
   background-position: center;
-  object-fit: cover;
-  background-position: center;
-  height: 100%;
+  height: auto;
   display: flex;
   width: 100%;
   justify-content: flex-start;
@@ -33,7 +31,7 @@
 }
 
 .start-button {
-  background: #3ed02a;
+  background: #00BF63;
   color: #ffffffd0;
   border: none;
   padding: 10px 20px;
@@ -42,9 +40,25 @@
   border-radius: 5px;
   cursor: pointer;
 }
+.start-button-m{
+  background: #fcff30;
+  color: #ffffffd0;
+  border: none;
+  padding: 10px 20px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+.a-button-m{
+  text-decoration: none;
+  color: #000000;
+}
 .a-button {
   text-decoration: none;
-  color: #ffffffd0;
+  color: #000000d0;
 }
 
 .start-button:hover {
@@ -109,6 +123,15 @@
 /* responsive */
 
 @media screen and (max-width: 767px) {
+  .first-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: auto;
+    padding: 0;
+  }
   .title-f{
     font-size: 23px;
   }

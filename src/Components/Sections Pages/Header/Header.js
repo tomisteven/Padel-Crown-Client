@@ -49,11 +49,11 @@ const Header = () => {
               Revendedores
             </a>
           </li>
-          <li className="nav-item">
+          {/* <li className="nav-item">
             <a href="/que-pala-comprar" className="nav-link">
               Que Pala Comprar ?
             </a>
-          </li>
+          </li> */}
         </ul>
       </nav>
       </header>

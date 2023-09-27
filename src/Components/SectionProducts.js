@@ -48,12 +48,13 @@ export default function SectionProducts({
   const ordernarPrecios = (t) => {
     if (t) {
       setLoad(true);
-      setProducts(products.sort((a, b) => b.price - a.price));
+      setProducts(products.sort((a, b) => a.price - b.price));
       setOnChange(!onChange);
       setLoad(false);
+
     } else {
       setLoad(true);
-      setProducts(products.sort((a, b) => a.price - b.price));
+      setProducts(products.sort((a, b) => b.price - a.price));
       setOnChange(!onChange);
       setLoad(false);
     }

@@ -3,6 +3,7 @@ import { Dna } from "react-loader-spinner";
 import "./SectionTwo.css";
 import "./responsiveSectionTwo.css";
 import SectionProducts from "../../SectionProducts";
+import PopPush from "../../PopPush.js";
 import SectionFilters from "../../SectionFilters";
 import ExpandMenu from "../../ExpandMenu";
 import BtnMenuExpandible from "../../BtnMenuExpandible";
@@ -14,7 +15,7 @@ import SectionOne from "../SectionOne/SectionOne";
 import SectionEnvios from "./SectionEnvios";
 import SectionImgs from "./SectionImgs.js";
 import BtnWhatssapp from "../../BtnWhatssapp.js";
-import ClockPromocion from "../../ClockPromocion.js";
+/* import ClockPromocion from "../../ClockPromocion.js"; */
 
 export default function SectionTwo() {
   const [loading, setLoading] = useState(true);
@@ -23,6 +24,7 @@ export default function SectionTwo() {
   const [productsSelected, setProductsSelected] = useState([]);
   const [stateCart, setStateCart] = useState(false);
   const [open, setOpen] = React.useState(false);
+  const [openPopPush, setOpenPopPush] = React.useState(false);
   const [productImage, setProductImage] = useState({});
 
   const categorias = [
@@ -44,7 +46,15 @@ export default function SectionTwo() {
   useEffect(() => {
     setLoading(true);
     setLoading(false);
+    //initPopPush();
   }, [products, onChange]);
+
+  /* const initPopPush = () => {
+    setTimeout(() => {
+      setOpenPopPush(true);
+    }
+    , 110000);
+  } */
 
   if (loading) {
     return (
@@ -104,13 +114,15 @@ export default function SectionTwo() {
         setStateCart={setStateCart}
       />
 
-      <ClockPromocion /> {/* reloj promocion */}
+      {/* <ClockPromocion /> {/* reloj promocion */} */
 
       <ModalComponent
         open={open}
         setOpen={setOpen}
         productImage={productImage}
       />
+
+      <PopPush setOpenPopPush={setOpenPopPush} openPopPush={openPopPush}/>
       <ToastContainer />
     </>
   );

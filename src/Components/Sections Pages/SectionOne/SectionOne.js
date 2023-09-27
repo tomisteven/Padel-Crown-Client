@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import "./SectionOne.css";
 import down from "../../../assets/down.webp";
 import LoadBall from "../../LoadBall";
+import fondo_g from "../../../assets/fondox.webp"
+import fondo_m from "../../../assets/fondo_m.webp"
 
 export default function SectionOne() {
   const [state, setState] = React.useState(true);
@@ -27,7 +29,9 @@ export default function SectionOne() {
   return (
     <>
       <LoadBall title={"Padel Crown"} status={state ? "flex" : "none"} />
-      <section id="home" className="first-section">
+      <section id="home" className="first-section" style={
+        window.innerWidth < 768 ? {backgroundImage:`url(${fondo_m})` } : {backgroundImage: `url(${fondo_g})`}
+      }>
         <div className="content">
           <h1 className="title-f">Bienvenido a Padel Crown!</h1>
           <h2 className="subtitle">
@@ -41,9 +45,14 @@ export default function SectionOne() {
               Ver Catalogo
             </a>
           </button>
+          <button className="start-button-m">
+            <a className="a-button-m" href="#productos">
+              Ver en Mercado Libre
+            </a>
+          </button>
 
           <div className="down-div">
-              Hace Click aca y encontra la paleta ideal para vos!
+            Hace Click aca y encontra la paleta ideal para vos!
             <a href="#productos">
               <img src={down} alt="" />
             </a>

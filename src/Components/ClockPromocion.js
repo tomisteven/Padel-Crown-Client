@@ -2,8 +2,8 @@ import React from "react";
 import  "./ClockPromocion.css";
 
 export default function ClockPromocion() {
-  const [horas, setHoras] = React.useState(new Date().getHours() - Math.random()*15 < 0 ? 1 : new Date().getHours() - Math.floor(Math.random()*15));
-  const [minutos, setMinutos] = React.useState(Math.floor(Math.random()*59));
+  const [horas, setHoras] = React.useState(0);
+  const [minutos, setMinutos] = React.useState(Math.floor(Math.random()*15));
   const [segundos, setSegundos] = React.useState(59);
 
   React.useEffect(() => {
@@ -11,9 +11,10 @@ export default function ClockPromocion() {
       if (segundos === 0) {
         if (minutos === 0) {
           if (horas === 0) {
+            document.querySelector(".clock-container").innerHTML = "Tiempo Finalizado";
             clearInterval(interval);
           } else {
-            setHoras(horas - 1);
+            setHoras(horas);
             setMinutos(59);
             setSegundos(59);
           }
