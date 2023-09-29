@@ -110,16 +110,34 @@ export default function SectionProducts({
                   item.name.length > 30 ? {fontSize: "12px"} : {fontSize: "14px"}
                 }>{item.name}</h5>
 
+                <div className="cont-btn-ml-tw">
                 <Label
                   className="btn-buy"
                   as="a"
-                  content={"Ver Oferta Online"}
-                  color={"pink"}
+                  content={"Ver en Tienda"}
+                  color={"violet"}
                   icon="shopping cart"
                   onClick={() => {
                     window.open(item.url, "_blank");
                   }}
                 />
+                {
+                  item.mercadoLibre ? (
+                    <Label
+                  className="btn-buy"
+                  as="a"
+                  content={"Mercado Libre"}
+                  color={"yellow"}
+                  icon="shopping cart"
+                  onClick={() => {
+                    window.open(item.urlMl, "_blank");
+                  }}
+                />
+                  ) : (
+                    <></>
+                  )
+                }
+                </div>
               </div>
               <p className="card-body-description">
                 {item.description ? (
