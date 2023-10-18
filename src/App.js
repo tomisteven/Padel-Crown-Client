@@ -10,6 +10,7 @@ import Revendedores from "./Components/Sections Pages/Revendedores/Revendedores"
 import Footer from "./Components/Sections Pages/Footer/Footer";
 
 import { Routes, Route } from "react-router-dom";
+import PersonalizarMain from "./Components/Sections Pages/Personalizar/PersonalizarMain";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/que-pala-comprar" element={<SectionQuePalaComprar />} exact />
         <Route path="/nosotros" element={<Nosotros />} />
         <Route path="/revendedores" element={<Revendedores />} />
+        <Route path="/personalizar/paleta" element={<PersonalizarMain />} />
       </Routes>
 
       <Footer />

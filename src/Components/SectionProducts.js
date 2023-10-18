@@ -52,7 +52,15 @@ export default function SectionProducts({
       setOnChange(!onChange);
       setLoad(false);
 
-    } else {
+    }
+    else if (t === "Mercado") {
+      setLoad(true);
+      const productsMl = products.filter((p) => p.mercadoLibre === true);
+      setProducts(productsMl);
+      setOnChange(!onChange);
+      setLoad(false);
+    }
+    else {
       setLoad(true);
       setProducts(products.sort((a, b) => b.price - a.price));
       setOnChange(!onChange);
@@ -80,6 +88,14 @@ export default function SectionProducts({
         }}
       >
         Mayor Precio
+      </button>
+      <button
+        className="btn-ordenar"
+        onClick={() => {
+          ordernarPrecios("Mercado");
+        }}
+      >
+        Link Mercado Libre
       </button>
       <div className="container-products">
         {products.map((item, k) => (

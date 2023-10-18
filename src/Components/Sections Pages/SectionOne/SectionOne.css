@@ -2,7 +2,7 @@
   background-size: contain;
   object-fit: contain;
   background-position: center;
-  height: auto;
+  height: 100vh;
   display: flex;
   width: 100%;
   justify-content: flex-start;

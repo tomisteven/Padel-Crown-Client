@@ -15,6 +15,7 @@ import SectionOne from "../SectionOne/SectionOne";
 import SectionEnvios from "./SectionEnvios";
 import SectionImgs from "./SectionImgs.js";
 import BtnWhatssapp from "../../BtnWhatssapp.js";
+import BtnPaletaPersonalizada from "./BtnPaletaPersonalizada.js";
 /* import ClockPromocion from "../../ClockPromocion.js"; */
 
 export default function SectionTwo() {
@@ -106,6 +107,7 @@ export default function SectionTwo() {
 
       <BtnWhatssapp /> {/* boton flotante w app */}
 
+      <BtnPaletaPersonalizada /> {/* boton flotante paleta personalizada */}
 
 
       <BtnMenuExpandible
