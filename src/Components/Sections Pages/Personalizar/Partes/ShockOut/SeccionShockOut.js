@@ -22,17 +22,17 @@ export default function SeccionShockOut({
       <ul className="ul-shocks">
         <li  className="li-shock">
           <p>
-            <span className="span-title-s">Balance</span>: Modifica el balance de la paleta al medio, lo que permite un mejor control de la pelota y una mayor maniobrabilidad en la pista. Cada shock out pesa 0.5 Gramos{" "} <span className="span-sub"> Precio $4000</span>
+            <span className="span-title-s">Balance</span>: Modifica el balance de la paleta al medio, lo que permite un mejor control de la pelota y una mayor maniobrabilidad en la pista. Cada shock out pesa 0.5 Gramos{" "} <span className="span-sub"> Precio $5000</span>
           </p>
         </li>
         <li className="li-shock">
           <p>
-            <span className="span-title-s">Control </span>: <span className="span-sub"> Modifica el balance de la paleta al mango </span>:  lo que facilita el movimiento rápido y la maniobrabilidad en la pista.{" "}  <span className="span-sub"> Precio $4000</span>
+            <span className="span-title-s">Control </span>: <span className="span-sub"> Modifica el balance de la paleta al mango </span>:  lo que facilita el movimiento rápido y la maniobrabilidad en la pista.{" "}  <span className="span-sub"> Precio $5000</span>
           </p>
         </li>
         <li className="li-shock">
           <p>
-            <span className="span-title-s">Power </span>: <span className="span-sub"> Modifica el balance de la paleta a la cabeza </span>:  lo que facilita la potencia de la paleta al situar el peso en la punta.{" "}  <span className="span-sub"> Precio $4000</span>
+            <span className="span-title-s">Power </span>: <span className="span-sub"> Modifica el balance de la paleta a la cabeza </span>:  lo que facilita la potencia de la paleta al situar el peso en la punta.{" "}  <span className="span-sub"> Precio $5000</span>
           </p>
         </li>
       </ul>
@@ -50,13 +50,13 @@ export default function SeccionShockOut({
               value={"Balance"}
               onChange={(e) => {
                 changeForm("shockOut", e.target.value);
-                localStorage.setItem("precioShockOut", 4000);
+                localStorage.setItem("precioShockOut", 5000);
               }}
               type="checkbox"
               checked={shockOuts === "Balance"}
               class="cyberpunk-checkbox"
             />
-            Balance, $4000
+            Balance, $5000
           </label>
         </div>
         <div class="option-shock">
@@ -70,12 +70,12 @@ export default function SeccionShockOut({
               checked={shockOuts === "Control"}
               onChange={(e) => {
                 changeForm("shockOut", e.target.value);
-                localStorage.setItem("precioShockOut", 4000);
+                localStorage.setItem("precioShockOut", 5000);
               }}
               type="checkbox"
               class="cyberpunk-checkbox"
             />
-            Control, $4000
+            Control, $5000
           </label>
         </div>
         <div class="option-shock">
@@ -89,12 +89,12 @@ export default function SeccionShockOut({
               checked={shockOuts === "Power"}
               onChange={(e) => {
                 changeForm("shockOut", e.target.value);
-                localStorage.setItem("precioShockOut", 4000);
+                localStorage.setItem("precioShockOut", 5000);
               }}
               type="checkbox"
               class="cyberpunk-checkbox"
             />
-            Power, $4000
+            Power, $5000
           </label>
         </div>
         <div class="option-shock">
