@@ -53,7 +53,7 @@ export default function PersonalizarMain() {
 
   const sendMessageToWhatsapp = () => {
     const url =
-      `https://wa.me/1134750981?text=Hola%20mi%20nombre%20es%20*${formContact.nombre}*%0APersonalicé%20mi%20paleta%20en%20la%20web%20y%20quiero%20encargarla!%20Las%20características%20son:%0A%0A*Forma*:%20${form.forma},%20%0A*Materiales*:%20${form.material},%20%0A*Núcleo*:%20${form.nucleo},%20%0A*Peso*:%20${form.peso}%20gramos,%20%0A*Rugoso*:%20${form.rugoso},%20%0A*ShockOuts*:%20${form.shockOut},%20%0A*Total*:%20$${form.total}`;
+      `https://wa.me/1164764108?text=Hola%20mi%20nombre%20es%20*${formContact.nombre}*%0APersonalicé%20mi%20paleta%20en%20la%20web%20y%20quiero%20encargarla!%20Las%20características%20son:%0A%0A*Forma*:%20${form.forma},%20%0A*Materiales*:%20${form.material},%20%0A*Núcleo*:%20${form.nucleo},%20%0A*Peso*:%20${form.peso}%20gramos,%20%0A*Rugoso*:%20${form.rugoso},%20%0A*ShockOuts*:%20${form.shockOut},%20%0A*Total*:%20$${form.total}`;
 
     window.open(url, "_blank");
 
