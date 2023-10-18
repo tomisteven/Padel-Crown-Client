@@ -1,5 +1,5 @@
 import React from "react";
-import { Modal, Button, Header, Input, Form } from "semantic-ui-react";
+import { Modal, Button, Form } from "semantic-ui-react";
 
 export default function ModalMensaje({ open, setOpen, formContact, setForm }) {
   return (
