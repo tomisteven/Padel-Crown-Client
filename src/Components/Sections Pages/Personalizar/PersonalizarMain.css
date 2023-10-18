@@ -67,6 +67,22 @@
   font-weight: 500;
   border-radius: 10px;
 }
+.button-siguiente-e {
+  border: none;
+  display: block;
+  position: relative;
+  padding: 0.7em 2.4em;
+  font-size: 15px;
+  background: green;
+  cursor: pointer;
+  user-select: none;
+  overflow: hidden;
+  color: rgb(255, 255, 255);
+  z-index: 1;
+  font-family: inherit;
+  font-weight: 500;
+  border-radius: 10px;
+}
 
 .button-siguiente span {
   border-radius: 10px;
@@ -144,11 +160,13 @@
   /* Agrega aquí los estilos específicos para dispositivos móviles */
   .personalizar-container {
     margin-top: 100px;
+
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 100vw;
+    width: 100%;
+    overflow-x: hidden;
     height: auto;
   }
   .personalizar-container-title{

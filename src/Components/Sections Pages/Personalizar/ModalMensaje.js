@@ -45,12 +45,31 @@ export default function ModalMensaje({ open, setOpen, formContact, setForm }) {
                 />
               </Form.Group>
               <Form.Group widths="equal">
+
                 <Form.Input
                   fluid
                   label="Email"
                   placeholder="Email"
                   onChange={(e) => {
                     setForm({ ...formContact, email: e.target.value });
+                  }}
+                />
+                <Form.Dropdown
+                inline
+                  fluid
+                  label="Medio de pago deseado"
+                  placeholder="Medio de pago"
+                  options={[
+                    {
+                      key: "1",
+                      text: "Debito/Credito",
+                      value: "Debito/Credito",
+                    },
+                    { key: "m", text: "Transferencia", value: "Transferencia" },
+                    { key: "l", text: "Cuotas", value: "Cuotas" },
+                  ]}
+                  onChange={(e) => {
+                    setForm({ ...formContact, mediopago:e.target.outerText });
                   }}
                 />
               </Form.Group>
