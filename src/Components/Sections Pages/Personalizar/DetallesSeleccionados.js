@@ -10,6 +10,20 @@ export default function DetallesSeleccionados({ form, clientInfo }) {
     return total;
   };
 
+  const borrarTodo = () => {
+    localStorage.setItem("forma", "");
+    localStorage.setItem("material", "");
+    localStorage.setItem("nucleo", "");
+    localStorage.setItem("peso", "");
+    localStorage.setItem("rugoso", "");
+    localStorage.setItem("shockOut", "");
+    localStorage.setItem("precioMaterial", "");
+    localStorage.setItem("precioRugoso", "");
+    localStorage.setItem("precioShockOut", "");
+
+    window.location.reload();
+  }
+
   return (
     <div class="cont-precios-detalles">
       <h4 className="title-personalizar">Detalles de tu paleta</h4>
@@ -55,7 +69,11 @@ export default function DetallesSeleccionados({ form, clientInfo }) {
         <div class="label-total">
           <h5>Total: ${calularTotal() || 0} </h5>
         </div>
-        <div class="label-confirmar">
+        <div class="label-confirmar" onClick={
+          () => {
+            borrarTodo();
+          }
+        }>
           <h5>Borrar Todo</h5>
         </div>
       </div>
