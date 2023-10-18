@@ -6,7 +6,7 @@ import SeccionNucleo from "./Partes/Nucleo/SeccionNucleo";
 import SeccionPeso from "./Partes/Peso/SeccionPeso";
 import SeccionRugoso from "./Partes/Rugoso/SeccionRugoso";
 import SeccionShockOut from "./Partes/ShockOut/SeccionShockOut";
-import SectionAccesorios from "./Partes/Accesorios/SectionAccesorios";
+/* import SectionAccesorios from "./Partes/Accesorios/SectionAccesorios"; */
 import LoaderPersonalizada from "./LoaderPersonalizada";
 import DetallesSeleccionados from "./DetallesSeleccionados";
 import ModalMensaje from "./ModalMensaje";
@@ -89,8 +89,8 @@ export default function PersonalizarMain() {
         return (
           <SeccionShockOut setLoading={setLoading} shockOuts={form.shockOut} />
         );
-        case 7:
-          return <SectionAccesorios setLoading={setLoading} accesorios={form.accesorios} />
+        /* case 7:
+          return <SectionAccesorios setLoading={setLoading} accesorios={form.accesorios} /> */
 
       default:
         return <SeccionForma setLoading={setLoading} rugosos={form.rugoso} />;
@@ -121,7 +121,7 @@ export default function PersonalizarMain() {
                 <span></span>
               </button>
             ) : null}
-            {paso !== 7 ? (
+            {paso !== 6 ? (
               <button
                 onClick={() => setPaso(paso + 1)}
                 className="button-siguiente"
@@ -131,7 +131,7 @@ export default function PersonalizarMain() {
                 <span></span>
               </button>
             ) : null}
-            {paso === 7 ? (
+            {paso === 6 ? (
               <button
                 className="personalizar-button-enviar"
                 onClick={() => sendMessageToWhatsapp()}

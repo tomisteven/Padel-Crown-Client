@@ -1,8 +1,6 @@
 import React from 'react'
 import "./SeccionNucleo.css";
 
-import eva from "../../../../../assets/ev.jpg";
-import foam from "../../../../../assets/foam.jpg";
 
 export default function SeccionNucleo({
   setLoading, nucleos
