@@ -16,7 +16,6 @@ import SectionEnvios from "./SectionEnvios";
 import SectionImgs from "./SectionImgs.js";
 import BtnWhatssapp from "../../BtnWhatssapp.js";
 import BtnPaletaPersonalizada from "./BtnPaletaPersonalizada.js";
-/* import ClockPromocion from "../../ClockPromocion.js"; */
 
 export default function SectionTwo() {
   const [loading, setLoading] = useState(true);

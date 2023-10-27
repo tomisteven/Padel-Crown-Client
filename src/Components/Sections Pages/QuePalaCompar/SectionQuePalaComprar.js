@@ -1,158 +1,348 @@
-import React from "react";
+import React, { useState } from "react";
 import "./SectionQuePalaComprar.css";
-import paleta from "../../../assets/paleta.png";
-import LoadBall from "../../LoadBall";
-
-
+import { Radio, Button } from "semantic-ui-react";
+import logo from "../../../assets/LOGO ACTUAL.webp";
+import { useEffect } from "react";
+import ModalVer from "./ModalVer";
 export default function SectionQuePalaComprar() {
-  const [state, setState] = React.useState(true);
+  const [step, setStep] = useState(0);
 
-  const contruction = true
+  const [open, setOpen] = useState(false);
 
-  React.useEffect(() => {
-    setTimeout(() => {
-      setState(false);
-    }, 700);
+  const [paletaElegida, setPaletaElegida] = useState([]);
+  const questions = [
+    {
+      key: "tipoJugador",
+      title: "¿Qué tipo de jugador sos?",
+      options: ["Profesional", "Amateur", "Principiante"],
+    },
+    {
+      key: "posicionJuego",
+      title: "¿Posicion donde juegas?",
+      options: ["Revez", "Drive", "Ambas"],
+    },
+    {
+      key: "modoJuego",
+      title: "¿Modo de juego?",
+      options: ["Ataque/Potencia", "Mixto/Hibrido", "Defensa/Control"],
+    },
+    {
+      key: "golpeFavorito",
+      title: "¿Golpe Favorito?",
+      options: ["Voleas", "Bandeja/Vibora", "Smash", "Todas las anteriores"],
+    },
+    {
+      key: "fijasCompra",
+      title: "¿Que es lo primero que te fijas cuando vas a comprar una paleta?",
+      options: ["Peso", "Calidad Materiales", "Balance", "Precio"],
+    },
+    {
+      key: "tipoPaleta",
+      title: "¿Que tipo de Forma te gusta?",
+      options: [
+        "Redonda (Control)",
+        "Lagrima (Hibrido)",
+        "Diamante (Potencia)",
+      ],
+    },
+    {
+      key: "balance",
+      title: "¿Que balance te parece mas comodo?",
+      options: ["Bajo", "Medio", "Alto"],
+    },
+    {
+      key: "goma",
+      title: "¿Que tipo de goma te gusta?",
+      options: ["Blanda", "Dura", "Media"],
+    },
+    {
+      title: "Listo! Ya tenemos tu paleta ideal, ahora solo elige una! al finalizar te mostraremos las paletas que mas se adaptan a tu juego! podras comprarlas directamente desde nuestra pagina web!",
+      options: [],
+    },
+  ]
+
+  useEffect(() => {
+    localStorage.setItem("tipoJugador", "");
+    localStorage.setItem("posicionJuego", "");
+    localStorage.setItem("modoJuego", "");
+    localStorage.setItem("golpeFavorito", "");
+    localStorage.setItem("fijasCompra", "");
+    localStorage.setItem("tipoPaleta", "");
+    localStorage.setItem("balance", "");
+    localStorage.setItem("goma", "");
   }, []);
 
-  if(contruction){
-    return (
-      <>
-      <LoadBall title={"Proximamente..."} status={"flex"} />
-      </>
-    )
-  }
+  const variantes = [
+    {
+      producto: "Fg Atos FOAM - Control",
+      link: "https://padelcrown.com.ar/productos/fg-atos-full-carbono-nucleo-foam/",
+    },
+    {
+      producto: "Fg Atos EVA - Potencia",
+      link: "https://padelcrown.com.ar/productos/fg-atos-full-carbono-eva-soft/",
+    },
+    {
+      producto: "Full Carbono REDONDA -FOAM - Control",
+      link: "https://padelcrown.com.ar/productos/paleta-sin-ploteo-full-carbono/",
+    },
+    {
+      producto: "Full Carbono - Lagrima - EVA - Control",
+      link: "https://padelcrown.com.ar/productos/paleta-sin-ploteo-full-carbono/",
+    },
+    {
+      producto: "Full Carbono EVA - Diamante - POTENCIA",
+      link: "https://padelcrown.com.ar/productos/paleta-sin-ploteo-full-carbono/",
+    },
+    {
+      producto: "Full Carbono FOAM - Diamante - Control",
+      link: "https://padelcrown.com.ar/productos/paleta-sin-ploteo-full-carbono/",
+    },
+    {
+      producto: "Fibra de Vidrio EVA - Diamante - Potencia", //ss 6
+      link: "https://padelcrown.com.ar/productos/paletas-fibra-de-vidrio-sin-ploteo/",
+    },
+    {
+      producto: "Fibra de Vidrio - Redonda - Control", //ss 7
+      link: "https://padelcrown.com.ar/productos/paletas-fibra-de-vidrio-sin-ploteo/",
+    },
+    {
+      producto: "Fibra de Vidrio - Gota - Control/Potencia", //ss 8
+      link: "https://padelcrown.com.ar/productos/paletas-fibra-de-vidrio-sin-ploteo/",
+    },
+    {
+      producto: "Fg Kripton - Redonda - Foam - Control", //ss 9
+      link: "https://padelcrown.com.ar/productos/fg-kripton-fibra-de-vidrio-foam/",
+    },
+    {
+      producto: "Fg Horus - Redonda - EvaSoft - Potencia", //ss 10
+      link: "https://padelcrown.com.ar/productos/fg-horus-fibra-de-vidrio-evasoft/",
+    },
+    {
+      producto: "12k Importado - Eva - Lagrima - Control/Potencia",
+      link: "https://padelcrown.com.ar/productos/fg-edicion-limitada-carbono-12k-importado/",
+    },
+    {
+      producto: "12k Importado - Foam - Lagrima - Control",
+      link: "https://padelcrown.com.ar/productos/fg-edicion-limitada-carbono-12k-importado/",
+    },
+    {
+      producto: "12k Importado - Foam - Redonda - Control",
+      link: "https://padelcrown.com.ar/productos/fg-edicion-limitada-carbono-12k-importado/",
+    },
+  ];
+  const chooseVariant = (values) => {
+    //console.log(values);
+    if (
+      values.tipoJugador === "Principiante" &&
+      values.modoJuego === "Defensa/Control" &&
+      (values.tipoPaleta === "Redonda (Control)" ||
+        values.tipoPaleta === "Lagrima (Hibrido)")
+    ) {
+      return [variantes[7], variantes[9]];
+    } else if (
+      values.tipoJugador === "Principiante" &&
+      values.modoJuego === "Ataque/Potencia" &&
+      (values.tipoPaleta === "Diamante (Potencia)" ||
+        values.tipoPaleta === "Lagrima (Hibrido)")
+    ) {
+      return [variantes[6], variantes[10]];
+    } else if (
+      values.tipoJugador === "Principiante" &&
+      values.modoJuego === "Mixto/Hibrido" &&
+      (values.tipoPaleta === "Redonda (Control)" ||
+        values.tipoPaleta === "Lagrima (Hibrido)")
+    ) {
+      return [variantes[8]];
+    } else if (
+      values.tipoJugador === "Amateur" &&
+      (values.modoJuego === "Mixto/Hibrido" ||
+        values.modoJuego === "Defensa/Control") &&
+      values.tipoPaleta === "Redonda (Control)"
+    ) {
+      return [variantes[2], variantes[12]];
+    } else if (
+      values.tipoJugador === "Amateur" &&
+      (values.modoJuego === "Mixto/Hibrido" ||
+        values.modoJuego === "Ataque/Potencia") &&
+      values.tipoPaleta === "Diamante (Potencia)"
+    ) {
+      return [variantes[4], variantes[1], variantes[13]];
+    } else if (
+      values.tipoJugador === "Amateur" &&
+      (values.modoJuego === "Mixto/Hibrido" ||
+        values.modoJuego === "Defensa/Control") &&
+      values.tipoPaleta === "Redonda (Control)"
+    ) {
+      return [variantes[2], variantes[12]];
+    } else if (
+      values.tipoJugador === "Amateur" &&
+      (values.modoJuego === "Mixto/Hibrido" ||
+        values.modoJuego === "Defensa/Control") &&
+      values.tipoPaleta === "Lagrima (Hibrido)"
+    ) {
+      return [variantes[5], variantes[0], variantes[12]];
+    } else if (
+      values.tipoJugador === "Profesional" &&
+      (values.modoJuego === "Mixto/Hibrido" ||
+        values.modoJuego === "Defensa/Control") &&
+      values.tipoPaleta === "Lagrima (Hibrido)"
+    ) {
+      return [variantes[12], variantes[13]];
+    } else if (
+      values.tipoJugador === "Profesional" &&
+      (values.modoJuego === "Mixto/Hibrido" ||
+        values.modoJuego === "Ataque/Potencia") &&
+      values.tipoPaleta === "Redonda (Control)"
+    ) {
+      return [variantes[12], variantes[13], variantes[0]];
+    } else if (
+      values.tipoJugador === "Profesional" &&
+      (values.modoJuego === "Mixto/Hibrido" ||
+        values.modoJuego === "Ataque/Potencia") &&
+      values.tipoPaleta === "Diamante (Potencia)"
+    ) {
+      return [variantes[12], variantes[13], variantes[1]];
+    } else if (
+      values.tipoJugador === "Profesional" &&
+      (values.modoJuego === "Mixto/Hibrido" ||
+        values.modoJuego === "Defensa/Control") &&
+      values.tipoPaleta === "Redonda (Control)"
+    ) {
+      return [variantes[12], variantes[13], variantes[1]];
+    }
+
+    return [variantes[0], variantes[4], variantes[3], variantes[12]];
+  };
+
+  const form = {
+    tipoJugador: localStorage.getItem("tipoJugador"),
+    posicionJuego: localStorage.getItem("posicionJuego"),
+    modoJuego: localStorage.getItem("modoJuego"),
+    golpeFavorito: localStorage.getItem("golpeFavorito"),
+    fijasCompra: localStorage.getItem("fijasCompra"),
+    tipoPaleta: localStorage.getItem("tipoPaleta"),
+    balance: localStorage.getItem("balance"),
+    goma: localStorage.getItem("goma"),
+  };
+
+
+
+  const renderOptions = () => {
+    const options = questions;
+
+    return options.map((option, i) => {
+      return (
+        step === i && (
+          <div className="cont-question">
+            <h2>{option.title}</h2>
+            <div className="cont-options">
+              {option.options.map((option, index) => {
+                return (
+                  <div className="cont-option">
+                    <Radio
+                      label={option}
+                      checked={form[questions[step].key] === option}
+                      onChange={() => {
+                        localStorage.setItem(questions[step].key, option);
+                        setStep(step + 1);
+                      }}
+                    />
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        )
+      );
+    });
+  };
+
   return (
-    <>
-    <LoadBall status={state ? "flex" : "none"} />
-    <div className="container-que-pala-comprar">
-      <h1 className="title-container-quepalacomprar">
-        Que pala comprar segun el tipo de jugador que sos ?{" "}
-      </h1>
-      <div class="section-post1">
-        <div class="cont-info-quepalacomprar">
-          <h3 className="title-info">Jugador Principiante</h3>
-          <h5 className="necesita-quepalacomprar">Necesita...</h5>
-          <div class="cont-cualidades">
-            <div class="cont-cualidades-item">
-              <img className="img-cualidades" src={paleta} alt="" />
-              <span>Control</span>
-            </div>
-            <div class="cont-cualidades-item">
-              <img className="img-cualidades" src={paleta} alt="" />
-              <span>Maniobrabilidad</span>
-            </div>
-          </div>
-          <div class="descripcion-paletacomprar">
-            <p className="item-description-paletacomprar">
-              <span>Control: </span>
-              <br />
-              Estas paletas están diseñadas para proporcionar un equilibrio
-              óptimo entre potencia y precisión. Al ofrecer un punto dulce más
-              amplio y mayor estabilidad en los golpes, permiten a los
-              principiantes trabajar en su técnica con menos errores no
-              forzados. Esto fomenta un aprendizaje más efectivo de los
-              fundamentos del juego, ya que la paleta favorece un control más
-              preciso durante los golpes y facilita la adaptación al ritmo del
-              juego, Una paleta de control brinda confianza al jugador novato al
-              minimizar las frustraciones.
-            </p>
-            <p className="item-description-paletacomprar">
-              <span>Maniobrabilidad: </span>
-              <br />
-              maniobrabilidad en su paleta para mejorar su juego. Una paleta
-              maniobrable es más fácil de mover y controlar, lo que ayuda a los
-              principiantes a ajustar su posición y golpes con mayor rapidez
-            </p>
-          </div>
+    <div className="cont-test">
+      <div className="cont-questions">
+        <div class="cont-img">
+          <img src={logo} alt="" />
         </div>
-        <div class="cont-img-quepalacomprar">
-          <img
-            className="img-quepalacomprar"
-            src="https://www.vita10.es/wp-content/uploads/2022/05/padel_21.jpg"
-            alt=""
-          />
+        <div class="cont-titles">
+
+          <h1>¿Qué pala comprar?</h1>
+          <p>Encuentra tu pala ideal</p>
+
         </div>
+        <div className="cont-questions-options">{renderOptions()}</div>
       </div>
-      <div class="section2">
-        <div class="section-avanzados">
-        <h3 className="title-info">Jugador Avanzado</h3>
-          <h5 className="necesita-quepalacomprar">Necesita...</h5>
-          <div class="cont-cualidades">
-            <div class="cont-cualidades-item">
-              <img className="img-cualidades" src={paleta} alt="" />
-              <span>Control</span>
+      <div class="cont-nuttons">
+        {step === 0 ? null : (
+          <button class="button-s" onClick={() => setStep(step - 1)}>
+            <div class="button-box">
+              <span class="button-elem">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 46 40">
+                  <path d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"></path>
+                </svg>
+              </span>
+              <span class="button-elem">
+                <svg viewBox="0 0 46 40">
+                  <path d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"></path>
+                </svg>
+              </span>
             </div>
-            <div class="cont-cualidades-item">
-              <img className="img-cualidades" src={paleta} alt="" />
-              <span>Maniobrabilidad</span>
+          </button>
+        )}
+        {step === questions.length - 1 ? null : (
+          <button
+            class="button-s"
+            style={{
+              transform: "rotate(180deg)",
+            }}
+            onClick={() => setStep(step + 1)}
+          >
+            <div class="button-box">
+              <span class="button-elem">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 46 40">
+                  <path d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"></path>
+                </svg>
+              </span>
+              <span class="button-elem">
+                <svg viewBox="0 0 46 40">
+                  <path d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"></path>
+                </svg>
+              </span>
             </div>
-            <div class="cont-cualidades-item">
-              <img className="img-cualidades" src={paleta} alt="" />
-              <span>Potencia</span>
-            </div>
-          </div>
-          <div class="descripcion-paletacomprar">
-            <p className="item-description-paletacomprar">
-              <span>Control: </span>
-              <br />
-              Un jugador de pádel avanzado debe elegir una paleta de control
-              para perfeccionar su precisión y juego táctico. La paleta de
-              control permite ajustar los tiros con mayor precisión, dominar
-              efectos y ejecutar estrategias avanzadas, maximizando su
-              rendimiento en la pista y manteniendo el control en situaciones
-              desafiantes.
-            </p>
-            <p className="item-description-paletacomprar">
-              <span>Maniobrabilidad: </span>
-              <br />
-              Un jugador de pádel avanzado se beneficia al usar una paleta de
-              control con alta maniobrabilidad. Esto agrega precisión a los
-              movimientos, facilitando reacciones rápidas y cambios en la
-              posición de la paleta. La maniobrabilidad superior permite
-              ejecutar tácticas sofisticadas, adaptarse ágilmente y mantener un
-              juego versátil y eficaz en cualquier situación.
-            </p>
-            <p className="item-description-paletacomprar">
-              <span>Potencia: </span>
-              <br />
-              potenciar su juego con una paleta de control adecuada. Estas
-              paletas combinan precisión y potencia, permitiendo golpes técnicos
-              y fuertes. La capacidad de controlar la potencia en golpes
-              precisos brinda ventaja estratégica, ayudando al jugador a dictar
-              el ritmo del juego y mantener dominio en la pista contra oponentes
-              de alto nivel.
-            </p>
-          </div>
-        </div>
-        <div class="section-intermedios">
-        <h3 className="title-info">Jugadores Profesionales</h3>
-          <h5 className="necesita-quepalacomprar">Necesitan...</h5>
-          <div class="cont-cualidades">
-            <div class="cont-cualidades-item">
-              <img className="img-cualidades" src={paleta} alt="" />
-              <span>Maniobrabilidad</span>
-            </div>
-            <div class="cont-cualidades-item">
-              <img className="img-cualidades" src={paleta} alt="" />
-              <span>Potencia</span>
-            </div>
-            <div class="cont-cualidades-item">
-              <img className="img-cualidades" src={paleta} alt="" />
-              <span>Calidad</span>
-            </div>
-          </div>
-          <div class="descripcion-paletacomprar">
-            <p className="item-description-paletacomprar">
-              <span>Especificaciones: </span>
-              <br />
-              Para jugadores profesionales, la elección de una paleta de pádel con control, potencia y materiales de calidad es esencial. Estas paletas refinadas brindan precisión milimétrica en cada golpe, permitiendo estrategias intrincadas y cambios sutiles en la dirección de la pelota. La potencia controlada se combina con la técnica experta, generando tiros contundentes y certeros. Los materiales de alta calidad aseguran durabilidad y sensación uniforme en cada movimiento, elevando la confianza y el rendimiento en el nivel más alto del juego.
-              La selección minuciosa de una paleta de pádel para jugadores profesionales abarca la búsqueda de un equilibrio perfecto entre control y potencia. Esto permite una ejecución impecable de tácticas avanzadas mientras se mantiene la capacidad de generar fuerza cuando es necesario. Además, los materiales de primera calidad garantizan una paleta duradera y consistente, vital para mantener un nivel de juego excepcional y adaptarse a las demandas competitivas en el escenario profesional.
-            </p>
-          </div>
-        </div>
+          </button>
+        )}
+          {
+            step === questions.length - 1 && (
+                <div class="cont-button">
+                  <Button
+                  color="red"
+                  size="mini"
+                    onClick={() => {
+                      window.location.reload();
+                    }}
+                  >
+                    Reiniciar
+                  </Button>
+                  <Button
+                  color="green"
+                    onClick={() => {
+                      setPaletaElegida(chooseVariant(form));
+                      setOpen(true);
+                    }}
+                  >
+                    Ver paletas
+                  </Button>
+
+                </div>
+            )
+
+
+          }
+
       </div>
+      <ModalVer open={open} setOpen={setOpen} paletas={paletaElegida} />
     </div>
-    </>
   );
 }
+
+
+
