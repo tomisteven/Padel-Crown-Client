@@ -3,6 +3,7 @@
   width: 100%;
   display: flex;
   margin-bottom: 250px;
+  overflow-x: hidden;
 }
 .section-two::after {
   content: "";
