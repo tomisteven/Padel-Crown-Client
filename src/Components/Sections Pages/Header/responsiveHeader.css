@@ -34,9 +34,18 @@
     align-items: center;
     z-index: 100;
   }
+  .nav-item{
+    width: auto;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   .nav-link{
     font-size: 10px;
     color: #000000;
+    margin: 0 -2px;
+    width: auto;
   }
   .nav-link:hover{
     color: #000000;
