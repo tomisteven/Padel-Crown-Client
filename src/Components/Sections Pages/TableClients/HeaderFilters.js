@@ -7,14 +7,15 @@ export default function HeaderFilters({
     filterClients,
     setClientesState,
     setState,
-    state
+    state,
+    setOpenCreate,
 
 }) {
   return (
     <>
       <Button
         onClick={() => {
-          createClient();
+          setOpenCreate(true);
         }}
         content="Crear Cliente"
         color="green"
@@ -42,10 +43,10 @@ export default function HeaderFilters({
         </Button>
         <Button color="blue" size="small" onClick={
           () => {
-            setClientesState(clientesState.filter(cliente => cliente.estado === "Despachados"))
+            setClientesState(clientesState.filter(cliente => cliente.estado === "Enviado"))
           }
         } className="btn-editar">
-          Despachados
+          Enviados
         </Button>
 
         <Button onClick={

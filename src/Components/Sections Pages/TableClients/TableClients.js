@@ -13,6 +13,7 @@ import { Button } from "semantic-ui-react";
 const clientController = new Client();
 export default function TableClients() {
   const [state, setState] = useState(false);
+  const [openCreate, setOpenCreate] = useState(false);
 
   const [clientesState, setClientesState] = useState(
     useContext(GlobalContext)[1]
@@ -76,6 +77,8 @@ export default function TableClients() {
           createClient={createClient}
           filterClients={filterClients}
           setClientesState={setClientesState}
+          setOpenCreate={setOpenCreate}
+          openCreate={openCreate}
         />
       </section>
       <section class="table__body">
@@ -85,6 +88,8 @@ export default function TableClients() {
           loading={loading}
           changeState={changeState}
           state={state}
+          setOpenCreate={setOpenCreate}
+          openCreate={openCreate}
         />
       </section>
       <div class="cont-btn-go">

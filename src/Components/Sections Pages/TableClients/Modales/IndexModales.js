@@ -1,6 +1,6 @@
 import React from "react";
 import ModalVerCliente from "./VerCliente/ModalVerCliente";
-/* import ModalComentarios from "./Comentarios/ModalComentarios.js"; */
+import ModalCrearCliente from "./CrearCliente/ModalCrearCliente.js";
 import ModalSeguimiento from "./Seguimiento/ModalSeguimiento.js";
 
 export default function Modales({
@@ -12,6 +12,8 @@ export default function Modales({
   openComentarios,
   setOpenSeguimiento,
   openSeguimiento,
+  setOpenCreate,
+  openCreate,
 }) {
   return (
     <div>
@@ -35,6 +37,8 @@ export default function Modales({
         client={client}
         onChange={changeState}
       />
+
+      <ModalCrearCliente setOpenCreate={setOpenCreate} openCreate={openCreate}  changeState={changeState} />
     </div>
   );
 }

@@ -66,22 +66,13 @@ export class Client {
   async createClient(client) {
     await fetch(this.url + "/admin/clientes/create", {
       method: "POST",
-      body: JSON.stringify({
-        estado: "Pendiente",
-        nombre: "Prueba 1",
-        producto: "1 atos Eva + protector colocado  ",
-        fechaCompra: "27-Sep",
-        precio: 47501,
-        costo: 35550,
-        envio: 3500,
-        valorCarbono: 8451,
-        __v: 0,
-      }),
+      body: JSON.stringify(client),
       headers: {
         "Content-Type": "application/json",
         Authorization: "token_padelcrown",
       },
     });
+    return true;
   }
 
   async addComentario(id, comentario) {

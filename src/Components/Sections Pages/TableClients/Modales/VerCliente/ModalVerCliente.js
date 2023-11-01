@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Modal, Button } from "semantic-ui-react";
+import { Modal, Button, Input } from "semantic-ui-react";
 import "./ModalVerCliente.css";
 import { toast } from "react-toastify";
 import { Client } from "../../../../../api/clients";
@@ -12,20 +12,18 @@ export default function ModalVerCliente({
   setOpenVer,
   client,
   changeState,
-  setOpenComentarios,
-  openComentarios,
 }) {
   const [edit, setEdit] = useState(false);
   const [estadoPedido, setEstadoPedido] = useState("");
   const [clientState, setClientState] = useState({});
   const [loading, setLoading] = useState(false);
-  const [editForm, setEditForm] = useState({
-  });
+  const [editForm, setEditForm] = useState({});
+  const [comentario, setComentario] = useState("");
 
   const [state, setState] = useState(false);
 
   const updateClient = async (id) => {
-     const update = await clientController.updateClient(id, editForm);
+    const update = await clientController.updateClient(id, editForm);
     update && toast.success("Cliente editado con exito", { autoClose: 1000 });
     changeState();
     setState(!state);
@@ -39,16 +37,23 @@ export default function ModalVerCliente({
     changeState();
   };
 
-  useEffect(() => {
+  const createNewComentario = async (id, comentario) => {
+    setLoading(true);
+    await clientController.addComentario(id, comentario);
+    setComentario("");
+    setState(!state);
+    setLoading(false);
+    changeState();
+  };
 
-      setLoading(true);
+  useEffect(() => {
+    setLoading(true);
     const getClient = async () => {
       const data = await clientController.getClient(client._id);
       setClientState(data);
     };
     setLoading(false);
     getClient();
-
   }, [client, state]);
 
   if (typeof clientState.estadoPedido === "undefined") {
@@ -86,75 +91,81 @@ export default function ModalVerCliente({
   return (
     <div>
       <Modal
-        size="fullscreen"
+        size="large"
         onClose={() => setOpenVer(false)}
         onOpen={() => setOpenVer(true)}
         open={openVer}
       >
         <Modal.Header className="modal-header-form">
-          <h2 className="ver-producto-title">{client.nombre}</h2>
+          <h2>
+            {client.nombre} - Fecha de Compra: {client.fechaCompra}
+          </h2>
           {edit ? <span className="edit-true">MODO EDITAR</span> : null}
         </Modal.Header>
         <Modal.Content>
           <div className="cont-cliente-ver">
             <div class="cont3-cliente">
               <Modal.Description>
-                <div class="secion-input">
-                  <p>Cliente</p>
-                  <input
-                    type="text"
-                    className="ver-producto-title"
-                    onChange={(e) =>
-                      setEditForm({ ...editForm, nombre: e.target.value })
-                    }
-                    value={edit ? editForm.nombre : clientState.nombre}
-                  />
-                </div>
+                <Input
+                  label="Nombre"
+                  type="text"
+                  className="ver-producto-title-c1"
+                  onChange={(e) =>
+                    setEditForm({ ...editForm, nombre: e.target.value })
+                  }
+                  value={edit ? editForm.nombre : clientState.nombre}
+                />
 
-                <h2 className="ver-producto-title">
-                  Fecha de compra: {client.fechaCompra}
-                </h2>
-                <h2 className="ver-producto-title">
+                <Input
+                  label="Producto"
+                  type="text"
+                  className="ver-producto-title-c1"
+                  onChange={(e) =>
+                    setEditForm({ ...editForm, producto: e.target.value })
+                  }
+                  value={edit ? editForm.producto : clientState.producto}
+                />
+
+                <h2 className="ver-producto-title-c1">
                   Provincia: {client.provincia}
                 </h2>
-                <h2 className="ver-producto-title">
+                <h2 className="ver-producto-title-c1">
                   Localidad: {client.localidad}
                 </h2>
-                <h2 className="ver-producto-title">
+                <h2 className="ver-producto-title-c1">
                   Direccion: {client.direccion}
                 </h2>
-
+                <h4 className="comentarios-title">Comentarios:</h4>
                 <p className="ver-cliente-comentarios">
-                  Comentarios Extras:{" "}
                   {client.comentarios
-                    ? client.comentarios.map((comentario, i) => (
+                    ? clientState.comentarios.map((comentario, i) => (
                         <p key={i}>- {comentario.comentario}</p>
                       ))
                     : "No hay comentarios"}
                 </p>
-                <Button content="Agregar Comentario"
-                onClick={() => setOpenComentarios(true)}
-                color="teal" />
+                <Input
+                  className="ver-producto-title-c1"
+                  placeholder="Agregar Comentario"
+                  onChange={(e) => setComentario(e.target.value)}
+                  value={comentario}
+                />
+                <Button
+                  content="Agregar Comentario"
+                  color="green"
+                  loading={loading}
+                  onClick={() => {
+                    createNewComentario(client._id, comentario);
+                  }}
+                />
               </Modal.Description>
             </div>
             <div class="cont1-cliente">
               <Modal.Description>
                 <div class="secion-input">
-                  <p>Producto</p>
-                  <input
-                    type="text"
-                    className="ver-producto-title"
-                    onChange={(e) =>
-                      setEditForm({ ...editForm, producto: e.target.value })
-                    }
-                    value={edit ? editForm.producto : clientState.producto}
-                  />
-                </div>
-                <div class="secion-input">
                   <p>Precio</p>
                   <input
                     type="text"
-                    className="ver-producto-title"
+                    className="ver-producto-title-c2"
                     onChange={(e) =>
                       setEditForm({ ...editForm, precio: e.target.value })
                     }
@@ -165,7 +176,7 @@ export default function ModalVerCliente({
                   <p>Costo</p>
                   <input
                     type="text"
-                    className="ver-producto-title"
+                    className="ver-producto-title-c2"
                     onChange={(e) =>
                       setEditForm({ ...editForm, costo: e.target.value })
                     }
@@ -177,7 +188,7 @@ export default function ModalVerCliente({
                   <p>Envio</p>
                   <input
                     type="text"
-                    className="ver-producto-title"
+                    className="ver-producto-title-c2"
                     onChange={(e) =>
                       setEditForm({ ...editForm, envio: e.target.value })
                     }
@@ -188,7 +199,7 @@ export default function ModalVerCliente({
                   <p>GANANCIA</p>
                   <input
                     type="text"
-                    className="ver-producto-title"
+                    className="ver-producto-title-c2"
                     onChange={(e) =>
                       setEditForm({ ...editForm, ganancia: e.target.value })
                     }
@@ -199,13 +210,15 @@ export default function ModalVerCliente({
             </div>
             <div class="cont2-cliente">
               <Modal.Description>
-                <h5>
+                <h5 className="cont-2-title">
                   Ultimo estado de tu pedido{" "}
-                  <span>{
-                    clientState.estadoPedido[
-                      clientState.estadoPedido.length - 1
-                    ].estado
-                  }</span>
+                  <span>
+                    {
+                      clientState.estadoPedido[
+                        clientState.estadoPedido.length - 1
+                      ].estado
+                    }
+                  </span>
                 </h5>{" "}
                 <br />
                 <div className="items-de-estados">
@@ -225,7 +238,8 @@ export default function ModalVerCliente({
                       <div key={i} className="estado-pedido">
                         <h2 className="ver-producto-title">
                           <p className="estado-estado">
-                            {i + 1 } { " - " }Estado: {estado.estado || "No hay estado"}
+                            {i + 1} {" - "}Estado:{" "}
+                            {estado.estado || "No hay estado"}
                           </p>
                           <p>
                             Fecha: {parseFecha(estado.fecha) || "No hay fecha"}
@@ -235,10 +249,10 @@ export default function ModalVerCliente({
                     ))
                   )}
                 </div>
-                <div class="secion-input">
-                  <h4>Agregar Estado</h4>
+                <div class="secion-input-estado">
+                  <h4>Agregar Nuevo Estado</h4>
                   <select
-                    className="ver-producto-title"
+                    className="ver-producto-title-c1"
                     onChange={(e) => setEstadoPedido(e.target.value)}
                     value={estadoPedido}
                   >
