@@ -6,7 +6,7 @@ import SectionTwo from "./Components/Sections Pages/SectionProducts/SectionTwo";
 import SectionQuePalaComprar from "./Components/Sections Pages/QuePalaCompar/SectionQuePalaComprar";
 import Nosotros from "./Components/Sections Pages/Nosotros/Nosotros";
 import Revendedores from "./Components/Sections Pages/Revendedores/Revendedores";
-/* import TableClients from "./Components/Sections Pages/TableClients/TableClients.js"; */
+ import TableClients from "./Components/Sections Pages/TableClients/TableClients.js";
 /* import Figma from "./Components/Figma"; */
 
 import Footer from "./Components/Sections Pages/Footer/Footer";
@@ -28,7 +28,7 @@ function App() {
         <Route path="/nosotros" element={<Nosotros />} />
         <Route path="/revendedores" element={<Revendedores />} />
         <Route path="/personalizar/paleta" element={<PersonalizarMain />} />
-       {/*  <Route path="/admin/clientes" element={<TableClients />} /> */}
+         <Route path="/admin/clientes" element={<TableClients />} />
 
       </Routes>
 

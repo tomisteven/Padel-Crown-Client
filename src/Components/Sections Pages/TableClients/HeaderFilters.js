@@ -5,6 +5,9 @@ export default function HeaderFilters({
   clientesState,
     createClient,
     filterClients,
+    setClientesState,
+    setState,
+    state
 
 }) {
   return (
@@ -30,24 +33,37 @@ export default function HeaderFilters({
         />
       </div>
       <div class="header-filters">
-        <Button color="blue" size="small" className="btn-editar">
+      <Button color="black" size="small" onClick={
+          () => {
+            setState(!state)
+          }
+        } className="btn-editar">
+          Volver
+        </Button>
+        <Button color="blue" size="small" onClick={
+          () => {
+            setClientesState(clientesState.filter(cliente => cliente.estado === "Despachados"))
+          }
+        } className="btn-editar">
           Despachados
         </Button>
-        <Button color="red" size="small" className="btn-eliminar">
-          Antiguos
-        </Button>
-        <Button color="green" size="small" className="btn-editar">
-          Pendientes
-        </Button>
-        <Button color="teal" size="small" className="btn-eliminar">
+
+        <Button onClick={
+          () => {
+            setClientesState(clientesState.filter(cliente => cliente.estado === "En Fabricacion"))
+          }
+        }
+          color="teal" size="small" className="btn-eliminar">
           En Fabricacion
         </Button>
-        <Button color="orange" size="small" className="btn-eliminar">
-          Empaquetando
+        <Button onClick={
+          () => {
+            setClientesState(clientesState.filter(cliente => cliente.estado === "Entregado"))
+          }
+        } color="orange" size="small" className="btn-eliminar">
+          Entregado
         </Button>
-        <Button color="yellow" size="small" className="btn-eliminar">
-          En Camino
-        </Button>
+
       </div>
     </>
   );

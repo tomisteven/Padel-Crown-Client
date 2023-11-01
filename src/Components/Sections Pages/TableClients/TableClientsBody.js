@@ -15,8 +15,38 @@ export default function TableClientsBody({
 
   const [openVer, setOpenVer] = useState(false);
   const [openEditar, setOpenEditar] = useState(false);
-  const [openComentarios, setOpenComentarios] = useState(false);
+/*   const [openComentarios, setOpenComentarios] = useState(false); */
+  const [openSeguimiento, setOpenSeguimiento] = useState(false);
   const [client, setClient] = useState({});
+
+
+
+  const generateColorState = (estado) => {
+    switch (estado) {
+      case "Pendiente":
+        return { backgroundColor: "#d893a3" };
+      case "Confirmado":
+        return { backgroundColor: "#219653" };
+      case "En Fabricacion":
+        return { backgroundColor: "#EB5757" };
+      case "En Secado":
+        return { backgroundColor: "#2F80ED" };
+      case "Ultimando Detalles en Fabrica":
+        return { backgroundColor: "#2F80ED" };
+      case "Enviado a Local de Padel Crown":
+        return { backgroundColor: "#2F80ED" };
+      case "Empaquetando":
+        return { backgroundColor: "#2F80ED" };
+      case "Cancelado":
+        return { backgroundColor: "red" };
+      case "Enviado":
+        return { backgroundColor: "#2F80ED" };
+      case "Entregado":
+        return { backgroundColor: "#219653" };
+      default:
+        return { backgroundColor: "#ffaa00" };
+    }
+  };
 
   return (
     <>
@@ -49,13 +79,15 @@ export default function TableClientsBody({
               </div>
             ) : (
               clientesState.map((cliente, i) => (
-                <tr>
+                <tr key={i}>
                   <td>{i + 1}</td>
                   <td className="td-bold-c"><span>{cliente.nombre}</span></td>
                   <td className="td-bold">{cliente.producto}</td>
                   <td className="fecha-compra">{cliente.fechaCompra}</td>
                   <td className="estado-envio">
-                    <span className="span-estado-pendiente">
+                    <span style={
+                      generateColorState(cliente.estado)
+                    } className="span-estado-pendiente">
                       {cliente.estado}
                     </span>
                   </td>
@@ -89,29 +121,14 @@ export default function TableClientsBody({
                       </Button>
                     </td>
                     <td>
-                      <Button color="green" size="mini" className="btn-editar">
-                        <Icon size="mini" name="check" />
-                      </Button>
-                    </td>
-                    <td>
-                      <Button
-                        color="orange"
-                        size="mini"
-                        className="btn-eliminar"
-                      >
-                        <Icon size="mini" name="close" />
-                      </Button>
-                    </td>
-                    <td>
-                      <Button size="mini" color="teal" className="btn-editar">
-                        <Icon size="mini" name="comment" />
-                      </Button>
-                    </td>
-                    <td>
                       <Button
                         size="mini"
                         color="purple"
                         className="btn-eliminar"
+                         onClick={() => {
+                          setOpenSeguimiento(true);
+                          setClient(cliente);
+                        }}
                       >
                         <Icon size="mini" name="truck" />
                       </Button>
@@ -145,8 +162,9 @@ export default function TableClientsBody({
       openEditar={openEditar}
       setOpenEditar={setOpenEditar}
 
-      openComentarios={openComentarios}
-      setOpenComentarios={setOpenComentarios}
+
+      openSeguimiento={openSeguimiento}
+      setOpenSeguimiento={setOpenSeguimiento}
     />
 
     </>

@@ -13,9 +13,43 @@ export class Client {
     return data;
   }
 
-  async updateClient(id) {}
+  async updateClient(id, client) {
+    const res = await fetch(this.url + "/admin/clientes/update/" + id, {
+      method: "PATCH",
+      body: JSON.stringify(client),
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "token_padelcrown",
+      },
+    });
+    const data = await res.json();
+    return data;
+  }
 
-  async getClient(id) {}
+  async addEstado(id, estado) {
+    const res = await fetch(this.url + "/admin/clientes/estado/" + id, {
+      method: "POST",
+      body: JSON.stringify({ estado: estado }),
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "token_padelcrown",
+      },
+    });
+    const data = await res.json();
+    return data;
+  }
+
+  async getClient(id) {
+    const res = await fetch(this.url + "/admin/clientes/" + id, {
+      method: "GET",
+      headers: {
+        "Content-type": "application/json",
+        Authorization: "token_padelcrown",
+      },
+    });
+    const data = await res.json();
+    return data;
+  }
 
   async getClients() {
     const res = await fetch(this.url + "/admin/clientes", {
@@ -30,7 +64,7 @@ export class Client {
   }
 
   async createClient(client) {
-    const res = await fetch(this.url + "/admin/clientes/create", {
+    await fetch(this.url + "/admin/clientes/create", {
       method: "POST",
       body: JSON.stringify({
         estado: "Pendiente",
@@ -48,8 +82,20 @@ export class Client {
         Authorization: "token_padelcrown",
       },
     });
+  }
+
+  async addComentario(id, comentario) {
+    const res = await fetch(this.url + "/admin/clientes/comentario/" + id, {
+      method: "POST",
+      body: JSON.stringify({ comentario: comentario }),
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "token_padelcrown",
+      },
+    });
 
     const data = await res.json();
     return data;
   }
+
 }

@@ -8,6 +8,7 @@ import { Client } from "../../../api/clients";
 
 import HeaderFilters from "./HeaderFilters.js";
 import TableClientsBody from "./TableClientsBody.js";
+import { Button } from "semantic-ui-react";
 
 const clientController = new Client();
 export default function TableClients() {
@@ -69,9 +70,12 @@ export default function TableClients() {
     <div className="section-clientes">
       <section class="table__header">
         <HeaderFilters
+        setState={setState}
+        state={state}
           clientesState={clientesState}
           createClient={createClient}
           filterClients={filterClients}
+          setClientesState={setClientesState}
         />
       </section>
       <section class="table__body">
@@ -83,6 +87,25 @@ export default function TableClients() {
           state={state}
         />
       </section>
+      <div class="cont-btn-go">
+      <Button
+        className="btn__go-up"
+        onClick={
+          () => window.scrollTo({ top: 0, behavior: "smooth" })
+        }
+        color="yellow"
+        icon="arrow circle up"
+      />
+      <Button
+        className="btn__go-up"
+        onClick={
+          () => window.scrollTo({ top: 100000, behavior: "smooth" })
+        }
+        color="blue"
+
+        icon="arrow circle down"
+      />
+      </div>
       <ToastContainer />
     </div>
   );

@@ -103,21 +103,24 @@ main.table {
 }
 .td-bold {
     font-weight: bold;
-    font-size: 14px;
+    font-size: 12px;
     color: #ffffff;
+    text-align: start;
 }
 .td-bold-c {
     width: 240px;
+    text-align: start;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 12px;
     color: #ffffff;
 }
 .td-bold-c span{
-   background-color: #86e49d;
+   background-color: #86e49e5b;
+
     padding: 8px;
     border-radius: 10px;
     font-size: 14px;
-    color: #000000;
+    color: #ffffff;
 
 }
 .table__body::-webkit-scrollbar{
@@ -221,15 +224,23 @@ tbody tr.hide td img {
 }
 
 .status.pending {
-    background-color: #ebc474;
+    background-color: #ffaa00;
+}
+.estado-envio{
+    font-size: 12px;
+    color: #ffffff;
+text-align: start;
+    width: 200px;
+    font-weight: bold;
 }
 
 .span-estado-pendiente {
     height: 35px;
+    width: 150px;
     padding: 10px;
     border-radius: 0.5rem;
     text-align: center;
-    background-color: #ff2c2c;
+    background-color: #000000;
 }
 .span-estado-fabricacion {
     height: 35px;
@@ -358,4 +369,26 @@ thead th.active,tbody td.active {
 .export__file .export__file-options img{
     width: 2rem;
     height: auto;
+}
+.cont-btn-go{
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    transition: .2s ease-in-out;
+}
+.btn__go-up{
+
+    bottom: 3rem;
+    right: 1rem;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    box-shadow: 0 .2rem .5rem rgb(255, 255, 255);
+    transition: .2s ease-in-out;
+
 }
