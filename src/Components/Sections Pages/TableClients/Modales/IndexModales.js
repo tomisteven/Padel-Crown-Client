@@ -25,11 +25,6 @@ export default function Modales({
         setOpenComentarios={setOpenComentarios}
         openComentarios={openComentarios}
       />
-{/*       <ModalComentarios
-        setOpenComentarios={setOpenComentarios}
-        openComentarios={openComentarios}
-        client={client}
-      /> */}
 
       <ModalSeguimiento
         setOpenSeguimiento={setOpenSeguimiento}

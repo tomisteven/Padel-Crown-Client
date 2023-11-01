@@ -117,9 +117,10 @@ export default function TableClientsBody({
                       }}
                       color="yellow"
                       size="mini"
+
                       className="btn-editar"
                     >
-                      <Icon name="eye" size="mini" color="black" />
+                      <Icon name="eye" size="small" color="black" />
                     </Button>
                   </td>
                   <td>
@@ -131,7 +132,7 @@ export default function TableClientsBody({
                         deleteClient(cliente._id);
                       }}
                     >
-                      <Icon size="mini" name="trash" />
+                      <Icon size="small" name="trash" />
                     </Button>
                   </td>
                   <td>
@@ -144,7 +145,7 @@ export default function TableClientsBody({
                         setClient(cliente);
                       }}
                     >
-                      <Icon size="mini" name="truck" />
+                      <Icon size="small" name="truck" />
                     </Button>
                   </td>
                 </tr>
