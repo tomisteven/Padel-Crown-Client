@@ -73,7 +73,7 @@ export default function ModalVerCliente({
     { key: "Devolucion", text: "Devolucion", value: "Devolucion" },
     { key: "Pendiente", text: "Pendiente", value: "Pendiente" },
     { key: "Confirmado", text: "Confirmado", value: "Confirmado" },
-    { key: "En Fabricacion", text: "En Fablicacion", value: "En Fabricacion" },
+    { key: "En Fabricacion", text: "En Fabricacion", value: "En Fabricacion" },
     { key: "En Secado", text: "En Secado", value: "En Secado" },
     {
       key: "Ultimando Detalles en Fabrica",
