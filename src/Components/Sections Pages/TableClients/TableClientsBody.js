@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import { Button, Icon } from "semantic-ui-react";
 import { RotatingLines } from "react-loader-spinner";
-import { Functions } from "./functions";
 import Modales from "./Modales/IndexModales.js";
 
-const functions = new Functions();
 export default function TableClientsBody({
   clientesState,
   loading,
@@ -16,32 +14,33 @@ export default function TableClientsBody({
 }) {
   const [openVer, setOpenVer] = useState(false);
   const [openEditar, setOpenEditar] = useState(false);
-  /*   const [openComentarios, setOpenComentarios] = useState(false); */
   const [openSeguimiento, setOpenSeguimiento] = useState(false);
   const [client, setClient] = useState({});
 
   const generateColorState = (estado) => {
     switch (estado) {
       case "Pendiente":
-        return { backgroundColor: "#d893a3" };
+        return { backgroundColor: "#ff9800" };
       case "Confirmado":
-        return { backgroundColor: "#219653" };
+        return { backgroundColor: "#795548" };
       case "En Fabricacion":
-        return { backgroundColor: "#EB5757" };
+        return { backgroundColor: "#2196f3" };
       case "En Secado":
-        return { backgroundColor: "#2F80ED" };
+        return { backgroundColor: "#6ea5ff" };
       case "Ultimando Detalles en Fabrica":
-        return { backgroundColor: "#2F80ED" };
+        return { backgroundColor: "#9c27b0" };
       case "Enviado a Local de Padel Crown":
         return { backgroundColor: "#2F80ED" };
       case "Empaquetando":
-        return { backgroundColor: "#2F80ED" };
+        return { backgroundColor: "#616161" };
       case "Cancelado":
-        return { backgroundColor: "red" };
+        return { backgroundColor: "#f44336" };
       case "Enviado":
-        return { backgroundColor: "#2F80ED" };
+        return { backgroundColor: "#00bcd4" };
+      case "Devolucion":
+        return { backgroundColor: " #ff5722" };
       case "Entregado":
-        return { backgroundColor: "#219653" };
+        return { backgroundColor: "#219663" };
       default:
         return { backgroundColor: "#ffaa00" };
     }
@@ -54,14 +53,15 @@ export default function TableClientsBody({
           <tr>
             <th> Id</th>
             <th> Nombre</th>
-            <th> Producto</th>
+            <th className="td-bold-th"> Producto</th>
             <th> Fecha</th>
             <th> Estado</th>
-            <th> Precio</th>
-            <th> Costo</th>
-            <th> Envio</th>
+            <th className="valores-precios-th"> Precio</th>
+            <th className="valores-precios-th"> Costo</th>
+            <th className="valores-precios-th"> Envio</th>
+            <th className="valores-precios-th"> Carbono</th>
             <th> Acciones</th>
-            <th>GANANCIA</th>
+            <th className="th-ganancia">Ganancia</th>
           </tr>
         </thead>
         <tbody>
@@ -84,13 +84,25 @@ export default function TableClientsBody({
                   height: "500px",
                   fontSize: "20px",
                 }}
-              colSpan={10} >
+                colSpan={10}
+              >
                 No hay clientes
               </td>
             </tr>
           ) : (
             clientesState.map((cliente, i) => (
-              <tr key={i}>
+              <tr
+                key={i}
+                style={
+                  cliente.nombre === client.nombre &&
+                  cliente.producto === client.producto
+                    ? { backgroundColor: "#ffd694" }
+                    : cliente.estado === "Entregado"
+                    ? { backgroundColor: "#10c400" }
+                    : null
+
+                }
+              >
                 <td>{i + 1}</td>
                 <td className="td-bold-c">
                   <span>{cliente.nombre}</span>
@@ -105,9 +117,11 @@ export default function TableClientsBody({
                     {cliente.estado}
                   </span>
                 </td>
-                <td>${cliente.precio}</td>
-                <td>${cliente.costo}</td>
-                <td>${cliente.envio}</td>
+                <td className="valores-precios">${cliente.precio}</td>
+                <td className="valores-precios">${cliente.costo}</td>
+                <td className="valores-precios">${cliente.envio}</td>
+                <td className="valores-precios">${cliente.valorCarbono}</td>
+
                 <tr>
                   <td>
                     <Button
@@ -117,7 +131,6 @@ export default function TableClientsBody({
                       }}
                       color="yellow"
                       size="mini"
-
                       className="btn-editar"
                     >
                       <Icon name="eye" size="small" color="black" />
@@ -150,14 +163,7 @@ export default function TableClientsBody({
                   </td>
                 </tr>
                 <td className="ganancia">
-                  <span>
-                    $
-                    {functions.calcularGanancia(
-                      cliente.precio,
-                      cliente.costo,
-                      cliente.envio
-                    )}
-                  </span>
+                  <span>${cliente.ganancia}</span>
                 </td>
               </tr>
             ))

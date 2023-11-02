@@ -20,8 +20,6 @@ export default function ModalSeguimiento({
         onChange();
         toast.success("Link de Seguimiento actualizado con exito", { autoClose: 1000 });
     }
-
-    console.log(client);
   return (
     <Modal
       closeIcon

@@ -10,7 +10,8 @@ export default function ModalCrearCliente({ setOpenCreate, openCreate, changeSta
 
 
   const stateOptions = [
-    { key: "pendiente", text: "Pendiente", value: "pendiente" },
+    { key: "Devolucion", text: "Devolucion", value: "Devolucion" },
+    { key: "Pendiente", text: "Pendiente", value: "Pendiente" },
     { key: "Confirmado", text: "Confirmado", value: "Confirmado" },
     { key: "En Fabricacion", text: "En Fablicacion", value: "En Fabricacion" },
     { key: "En Secado", text: "En Secado", value: "En Secado" },
@@ -24,7 +25,7 @@ export default function ModalCrearCliente({ setOpenCreate, openCreate, changeSta
       text: "En Local de Padel Crown",
       value: "En Local de Padel Crown",
     },
-    { key: "Empaquetando", text: "Empaquetando", value: "Enpaquetando" },
+    { key: "Empaquetando", text: "Empaquetando", value: "Empaquetando" },
     { key: "Cancelado", text: "Cancelado", value: "Cancelado" },
     { key: "Enviado", text: "Enviado", value: "Enviado" },
     { key: "Entregado", text: "Entregado", value: "Entregado" },
@@ -33,7 +34,32 @@ export default function ModalCrearCliente({ setOpenCreate, openCreate, changeSta
     const createClient = async (form) => {
         const create = await clientController.createClient(form);
         create && toast.success("Cliente creado con exito", { autoClose: 1000, theme: "colored" });
+        !create && toast.error("Error al crear cliente", { autoClose: 1000, theme: "colored" });
         setOpenCreate(false);
+        setForm({
+            nombre: "",
+            producto: "",
+            fechaCompra: "",
+            precio: "",
+            costo: "",
+            valorCarbono: "",
+            envio: "",
+            provincia: "",
+            localidad: "",
+            direccion: "",
+            telefono: "",
+            email: "",
+            estadoPedido: [
+                {
+                    estado: ""
+                }
+            ],
+            comentarios: [
+                {
+                    comentario: ""
+                }
+            ]
+        });
         changeState();
     }
 
@@ -80,7 +106,7 @@ export default function ModalCrearCliente({ setOpenCreate, openCreate, changeSta
                 setForm({ ...form, precio: e.target.value });
               }}
               placeholder="Precio"
-              width={6}
+              width={4}
             />
             <Form.Input
               label={"Costo"}
@@ -88,7 +114,15 @@ export default function ModalCrearCliente({ setOpenCreate, openCreate, changeSta
               onChange={(e) => {
                 setForm({ ...form, costo: e.target.value });
               }}
-              width={6}
+              width={4}
+            />
+            <Form.Input
+              label={"Carbono"}
+              onChange={(e) => {
+                setForm({ ...form, valorCarbono: e.target.value });
+              }}
+              placeholder="Carbono"
+              width={4}
             />
             <Form.Input
               label={"Envio"}
@@ -96,7 +130,7 @@ export default function ModalCrearCliente({ setOpenCreate, openCreate, changeSta
               onChange={(e) => {
                 setForm({ ...form, envio: e.target.value });
               }}
-              width={6}
+              width={4}
             />
           </Form.Group>
           <Form.Group>

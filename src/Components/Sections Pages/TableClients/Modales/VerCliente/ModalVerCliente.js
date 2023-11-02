@@ -26,7 +26,9 @@ export default function ModalVerCliente({
     const update = await clientController.updateClient(id, editForm);
     update && toast.success("Cliente editado con exito", { autoClose: 1000 });
     changeState();
+    setEditForm({});
     setState(!state);
+    setOpenVer(false);
   };
 
   const updateClientEstado = async (id) => {
@@ -68,7 +70,8 @@ export default function ModalVerCliente({
   };
 
   const stateOptions = [
-    { key: "pendiente", text: "Pendiente", value: "pendiente" },
+    { key: "Devolucion", text: "Devolucion", value: "Devolucion" },
+    { key: "Pendiente", text: "Pendiente", value: "Pendiente" },
     { key: "Confirmado", text: "Confirmado", value: "Confirmado" },
     { key: "En Fabricacion", text: "En Fablicacion", value: "En Fabricacion" },
     { key: "En Secado", text: "En Secado", value: "En Secado" },
@@ -193,6 +196,19 @@ export default function ModalVerCliente({
                       setEditForm({ ...editForm, envio: e.target.value })
                     }
                     value={edit ? editForm.envio : clientState.envio}
+                  />
+                </div>
+                <div class="secion-input">
+                  <p>Carbono</p>
+                  <input
+                    type="text"
+                    className="ver-producto-title-c2"
+                    onChange={(e) =>
+                      setEditForm({ ...editForm, valorCarbono: e.target.value })
+                    }
+                    value={
+                      edit ? editForm.valorCarbono : clientState.valorCarbono
+                    }
                   />
                 </div>
                 <div class="secion-input">

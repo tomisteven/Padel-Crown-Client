@@ -41,27 +41,29 @@ export default function HeaderFilters({
         } className="btn-editar">
           Volver
         </Button>
-        <Button color="blue" size="small" onClick={
+        {/* <Button color="blue" size="small" onClick={
           () => {
             setClientesState(clientesState.filter(cliente => cliente.estado === "Enviado"))
           }
         } className="btn-editar">
           Enviados
-        </Button>
+        </Button> */}
 
-        <Button onClick={
+        {/* <Button onClick={
           () => {
+
             setClientesState(clientesState.filter(cliente => cliente.estado === "En Fabricacion"))
           }
         }
           color="teal" size="small" className="btn-eliminar">
           En Fabricacion
-        </Button>
+        </Button> */}
         <Button onClick={
           () => {
+
             setClientesState(clientesState.filter(cliente => cliente.estado === "Entregado"))
           }
-        } color="orange" size="small" className="btn-eliminar">
+        } color="green" size="small" className="btn-eliminar">
           Entregado
         </Button>
 

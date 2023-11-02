@@ -1,5 +1,5 @@
 export class Client {
-  url = "https://padelcrown-server-dev-rhda.1.us-1.fl0.io";
+  url = "https://padelcrown-server-dev-jepe.3.us-1.fl0.io";
 
   async deleteClient(id) {
     const res = await fetch(this.url + "/admin/clientes/delete/" + id, {
@@ -64,6 +64,18 @@ export class Client {
   }
 
   async createClient(client) {
+
+    client.estadoPedido ? client.estadoPedido = [
+      {
+        estado: client.estadoPedido[0].estado,
+      },
+    ]
+    : client.estadoPedido = [
+      {
+        estado: "Confirmado",
+      },
+    ]
+
     await fetch(this.url + "/admin/clientes/create", {
       method: "POST",
       body: JSON.stringify(client),
