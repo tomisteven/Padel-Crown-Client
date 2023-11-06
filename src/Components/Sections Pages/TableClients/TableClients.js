@@ -42,7 +42,7 @@ export default function TableClients() {
 
   const filterClients = (search) => {
     const filteredClients = clientesState.filter((cliente) => {
-      return cliente.nombre.toLowerCase().includes(search.toLowerCase());
+      return cliente.nombre.toLowerCase().includes(search.toLowerCase())
     });
 
     if (search === "") {

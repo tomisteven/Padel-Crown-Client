@@ -164,6 +164,17 @@ export default function ModalVerCliente({
             </div>
             <div class="cont1-cliente">
               <Modal.Description>
+              <div class="secion-input">
+                  <p>DNI</p>
+                  <input
+                    type="text"
+                    className="ver-producto-title-c2"
+                    onChange={(e) =>
+                      setEditForm({ ...editForm, dni: e.target.value })
+                    }
+                    value={edit ? editForm.dni : clientState.dni}
+                  />
+                </div>
                 <div class="secion-input">
                   <p>Precio</p>
                   <input
