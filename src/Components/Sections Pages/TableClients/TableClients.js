@@ -42,7 +42,11 @@ export default function TableClients() {
 
   const filterClients = (search) => {
     const filteredClients = clientesState.filter((cliente) => {
-      return cliente.nombre.toLowerCase().includes(search.toLowerCase())
+      const dniString = cliente.dni ? cliente.dni.toString() : ''; // Si cliente.dni es undefined, asigna una cadena vacía
+      return (
+        cliente.nombre.toLowerCase().includes(search.toLowerCase()) ||
+        dniString.includes(search.toLowerCase())
+      );
     });
 
     if (search === "") {
@@ -71,8 +75,8 @@ export default function TableClients() {
     <div className="section-clientes">
       <section class="table__header">
         <HeaderFilters
-        setState={setState}
-        state={state}
+          setState={setState}
+          state={state}
           clientesState={clientesState}
           createClient={createClient}
           filterClients={filterClients}
@@ -93,23 +97,18 @@ export default function TableClients() {
         />
       </section>
       <div class="cont-btn-go">
-      <Button
-        className="btn__go-up"
-        onClick={
-          () => window.scrollTo({ top: 0, behavior: "smooth" })
-        }
-        color="yellow"
-        icon="arrow circle up"
-      />
-      <Button
-        className="btn__go-up"
-        onClick={
-          () => window.scrollTo({ top: 100000, behavior: "smooth" })
-        }
-        color="blue"
-
-        icon="arrow circle down"
-      />
+        <Button
+          className="btn__go-up"
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          color="yellow"
+          icon="arrow circle up"
+        />
+        <Button
+          className="btn__go-up"
+          onClick={() => window.scrollTo({ top: 100000, behavior: "smooth" })}
+          color="blue"
+          icon="arrow circle down"
+        />
       </div>
       <ToastContainer />
     </div>

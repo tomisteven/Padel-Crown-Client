@@ -170,7 +170,7 @@ export default function ModalVerCliente({
                     type="text"
                     className="ver-producto-title-c2"
                     onChange={(e) =>
-                      setEditForm({ ...editForm, dni: e.target.value })
+                      setEditForm({ ...editForm, dni: parseInt(e.target.value) })
                     }
                     value={edit ? editForm.dni : clientState.dni}
                   />
