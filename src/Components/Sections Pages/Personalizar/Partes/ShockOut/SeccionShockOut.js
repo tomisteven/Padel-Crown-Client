@@ -2,7 +2,8 @@ import React from 'react'
 import "./SeccionShockOut.css";
 
 export default function SeccionShockOut({
-  setLoading, shockOuts
+  setLoading, shockOuts,
+  setPaso, paso
 }) {
 
 
@@ -11,6 +12,7 @@ export default function SeccionShockOut({
     localStorage.setItem(key, value);
     setTimeout(() => {
       setLoading(false);
+
     }, 200);
   }
 

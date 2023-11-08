@@ -54,7 +54,7 @@ export default function PersonalizarMain() {
   const sendMessageToWhatsapp = () => {
     const nºOrden = "PP" + Math.floor(Math.random() * 10000);
     const url =
-      `https://wa.me/+5491164764108?text=Hola%20mi%20nombre%20es%20*${formContact.nombre}*%0APersonalicé%20mi%20paleta%20en%20la%20web%20y%20quiero%20encargarla!%20Las%20características%20son:%0A%0A*Forma*:%20${form.forma},%20%0A*Materiales*:%20${form.material},%20%0A*Núcleo*:%20${form.nucleo},%20%0A*Peso*:%20${form.peso}%20gramos,%20%0A*Rugoso*:%20${form.rugoso},%20%0A*ShockOuts*:%20${form.shockOut},%20%0A*Total*:%20$${form.total}%0A%0AProvincia:%20${formContact.provincia}%0ALocalidad:%20${formContact.localidad}%0AEmail:%20${formContact.email}%0A*Número%20de%20Orden:%20${nºOrden}*%0A*Metodo%20de%20Pago:%20${formContact.mediopago}*
+      `https://wa.me/+5491164764108?text=Hola%20mi%20nombre%20es%20*${formContact.nombre}*%0APersonalicé%20mi%20paleta%20en%20la%20web%20y%20quiero%20encargarla!%20Las%20características%20son:%0A%0A*Forma*:%20${form.forma},%20%0A*Materiales*:%20${form.material},%20%0A*Núcleo*:%20${form.nucleo},%20%0A*Peso*:%20${form.peso || "Predeterminados 370"}%20gramos,%20%0A*Rugoso*:%20${form.rugoso},%20%0A*ShockOuts*:%20${form.shockOut},%20%0A*Total*:%20$${form.total}%0A%0AProvincia:%20${formContact.provincia || "No Completo"}%0ALocalidad:%20${formContact.localidad || "No Completo"}%0AEmail:%20${formContact.email || "No Completo"}%0A*Número%20de%20Orden:%20${nºOrden}*%0A*Metodo%20de%20Pago:%20${formContact.mediopago || "No Completo"}*
       `;
 
     window.open(url, "_blank");
@@ -70,6 +70,8 @@ export default function PersonalizarMain() {
             setLoading={setLoading}
             setItems={setItems}
             items={items}
+            setPaso={setPaso}
+            paso={paso}
           />
         );
       case 2:
@@ -79,23 +81,25 @@ export default function PersonalizarMain() {
             setLoading={setLoading}
             setItems={setItems}
             items={items}
+            setPaso={setPaso}
+            paso={paso}
           />
         );
       case 3:
-        return <SeccionNucleo setLoading={setLoading} nucleos={form.nucleo} />;
+        return <SeccionNucleo setLoading={setLoading} setPaso={setPaso} nucleos={form.nucleo} paso={paso} />;
       case 4:
-        return <SeccionRugoso setLoading={setLoading} rugosos={form.rugoso} />;
+        return <SeccionRugoso setLoading={setLoading} setPaso={setPaso} rugosos={form.rugoso} paso={paso} />;
       case 5:
         return <SeccionPeso />;
       case 6:
         return (
-          <SeccionShockOut setLoading={setLoading} shockOuts={form.shockOut} />
+          <SeccionShockOut setLoading={setLoading} setPaso={setPaso} shockOuts={form.shockOut} paso={paso} />
         );
         /* case 7:
           return <SectionAccesorios setLoading={setLoading} accesorios={form.accesorios} /> */
 
       default:
-        return <SeccionForma setLoading={setLoading} rugosos={form.rugoso} />;
+        return <SeccionForma setLoading={setLoading} setPaso={setPaso} rugosos={form.rugoso} paso={paso} />;
     }
   };
 

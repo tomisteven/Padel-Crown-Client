@@ -1,7 +1,7 @@
 import React from "react";
 import "./SeccionMaterial.css";
 
-export default function SeccionMaterial({ materiales, setLoading, setItems, items, setPasos }) {
+export default function SeccionMaterial({ materiales, setLoading, setItems, items, setPaso, paso }) {
 
   const changeForm = (key, value) => {
     setLoading(true);
@@ -10,6 +10,7 @@ export default function SeccionMaterial({ materiales, setLoading, setItems, item
     localStorage.setItem("precioMaterial", precio);
     setTimeout(() => {
       setLoading(false);
+      setPaso(paso + 1 );
     }, 200);
   }
 

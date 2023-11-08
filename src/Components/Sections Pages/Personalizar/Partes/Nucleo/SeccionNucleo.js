@@ -4,6 +4,7 @@ import "./SeccionNucleo.css";
 
 export default function SeccionNucleo({
   setLoading, nucleos
+  , setPaso, paso
 }) {
 
   const changeForm = (key, value) => {
@@ -11,6 +12,7 @@ export default function SeccionNucleo({
     localStorage.setItem(key, value);
     setTimeout(() => {
       setLoading(false);
+      setPaso(paso + 1 );
     }, 200);
   }
 

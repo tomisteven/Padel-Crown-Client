@@ -3,7 +3,8 @@ import "./SeccionRugoso.css";
 
 
 export default function SeccionRugoso({
-  setLoading, rugosos
+  setLoading, rugosos,
+  setPaso, paso
 }) {
 
   const changeForm = (key, value) => {
@@ -13,6 +14,7 @@ export default function SeccionRugoso({
     localStorage.setItem("precioRugoso", precio);
     setTimeout(() => {
       setLoading(false);
+      setPaso(paso + 1 );
     }, 200);
   }
 

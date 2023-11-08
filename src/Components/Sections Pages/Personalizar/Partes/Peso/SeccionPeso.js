@@ -1,7 +1,9 @@
 import React from 'react'
 import './SeccionPeso.css'
 
-export default function SeccionPeso() {
+export default function SeccionPeso({
+   setPaso, paso
+}) {
   const [range, setRange] = React.useState(340);
 
 
@@ -37,6 +39,7 @@ export default function SeccionPeso() {
           (e) => {
             setRange(e.target.value);
             localStorage.setItem("peso", e.target.value);
+
           }
         } />
         <div class="option-rugoso">

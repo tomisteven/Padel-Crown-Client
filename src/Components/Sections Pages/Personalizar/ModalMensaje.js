@@ -24,7 +24,7 @@ export default function ModalMensaje({ open, setOpen, formContact, setForm }) {
                   placeholder="Nombre Completo"
                   error
                   onChange={(e) => {
-                    setForm({ ...formContact, nombre: e.target.value });
+                    setForm({ ...formContact, nombre: e.target.value || "No completo" });
                   }}
                 />
                 <Form.Input
@@ -32,7 +32,7 @@ export default function ModalMensaje({ open, setOpen, formContact, setForm }) {
                   label="Provincia"
                   placeholder="Provincia"
                   onChange={(e) => {
-                    setForm({ ...formContact, provincia: e.target.value });
+                    setForm({ ...formContact, provincia: e.target.value || "No completo" });
                   }}
                 />
                 <Form.Input
@@ -40,7 +40,7 @@ export default function ModalMensaje({ open, setOpen, formContact, setForm }) {
                   label="Localidad"
                   placeholder="Localidad"
                   onChange={(e) => {
-                    setForm({ ...formContact, localidad: e.target.value });
+                    setForm({ ...formContact, localidad: e.target.value || "No completo" });
                   }}
                 />
               </Form.Group>
@@ -51,7 +51,7 @@ export default function ModalMensaje({ open, setOpen, formContact, setForm }) {
                   label="Email"
                   placeholder="Email"
                   onChange={(e) => {
-                    setForm({ ...formContact, email: e.target.value });
+                    setForm({ ...formContact, email: e.target.value || "No completo" });
                   }}
                 />
                 <Form.Dropdown
@@ -69,7 +69,7 @@ export default function ModalMensaje({ open, setOpen, formContact, setForm }) {
                     { key: "l", text: "Cuotas", value: "Cuotas" },
                   ]}
                   onChange={(e) => {
-                    setForm({ ...formContact, mediopago:e.target.outerText });
+                    setForm({ ...formContact, mediopago:e.target.outerText || "No completo" });
                   }}
                 />
               </Form.Group>

@@ -1,13 +1,14 @@
 import React from "react";
 import "./SeccionForma.css";
 
-export default function SeccionForma({ formas, setLoading, setItems, items  }) {
+export default function SeccionForma({ formas, setLoading, setItems, items, setPaso, paso  }) {
 
   const changeForm = (key, value) => {
     setLoading(true);
     localStorage.setItem(key, value);
     setTimeout(() => {
       setLoading(false);
+      setPaso(paso + 1 );
     }, 200);
   }
 
