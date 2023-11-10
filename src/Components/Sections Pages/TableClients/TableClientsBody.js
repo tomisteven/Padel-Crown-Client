@@ -69,10 +69,10 @@ export default function TableClientsBody({
             <div className="loader-cont">
               <RotatingLines
                 className="loader"
-                strokeColor="white"
+                strokeColor="black"
                 strokeWidth="5"
                 animationDuration="0.75"
-                width="80"
+                width="25"
                 visible={true}
               />
             </div>

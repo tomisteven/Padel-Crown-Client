@@ -24,7 +24,7 @@ export default function HeaderFilters({
       ></Button>
 
       <p>Cantidad Clientes {clientesState.length}</p>
-      <div class="input-group">
+      <div className="input-group">
         <input
           type="search"
           onChange={(e) => {
@@ -33,7 +33,7 @@ export default function HeaderFilters({
           placeholder="Buscar..."
         />
       </div>
-      <div class="header-filters">
+      <div className="header-filters">
       <Button color="black" size="small" onClick={
           () => {
             setState(!state)
@@ -41,23 +41,6 @@ export default function HeaderFilters({
         } className="btn-editar">
           Volver
         </Button>
-        {/* <Button color="blue" size="small" onClick={
-          () => {
-            setClientesState(clientesState.filter(cliente => cliente.estado === "Enviado"))
-          }
-        } className="btn-editar">
-          Enviados
-        </Button> */}
-
-        {/* <Button onClick={
-          () => {
-
-            setClientesState(clientesState.filter(cliente => cliente.estado === "En Fabricacion"))
-          }
-        }
-          color="teal" size="small" className="btn-eliminar">
-          En Fabricacion
-        </Button> */}
         <Button onClick={
           () => {
 
