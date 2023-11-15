@@ -3,7 +3,6 @@ import { Button } from "semantic-ui-react";
 
 export default function HeaderFilters({
   clientesState,
-    createClient,
     filterClients,
     setClientesState,
     setState,

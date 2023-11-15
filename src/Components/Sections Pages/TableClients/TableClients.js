@@ -3,7 +3,7 @@ import { useContext, useState, useEffect } from "react";
 import { GlobalContext } from "../../../context/GlobalState";
 import "./TableClients.css";
 import { ToastContainer, toast } from "react-toastify";
-import LoginPage from "../../LoginPage/LoginPage.js";
+import LoginPage from "./LoginPage/LoginPage.js";
 import { Client } from "../../../api/clients";
 
 import HeaderFilters from "./HeaderFilters.js";

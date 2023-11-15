@@ -1,7 +1,7 @@
 import React from "react";
 import "./LoginPage.css";
 import { Image, Input} from "semantic-ui-react";
-import logo from "../../assets/LOGO ACTUAL.webp";
+import logo from "../../../../assets/LOGO ACTUAL.webp";
 
 export default function LoginPage() {
 

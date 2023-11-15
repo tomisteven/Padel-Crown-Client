@@ -7,7 +7,7 @@ import SectionQuePalaComprar from "./Components/Sections Pages/QuePalaCompar/Sec
 import Nosotros from "./Components/Sections Pages/Nosotros/Nosotros";
 import Revendedores from "./Components/Sections Pages/Revendedores/Revendedores";
  import TableClients from "./Components/Sections Pages/TableClients/TableClients.js";
-/* import Figma from "./Components/Figma"; */
+import SeguimientoPedido from "./Components/Sections Pages/SeguimientoPedido/SeguimientoPedido";
 
 import Footer from "./Components/Sections Pages/Footer/Footer";
 
@@ -28,6 +28,7 @@ function App() {
         <Route path="/nosotros" element={<Nosotros />} />
         <Route path="/revendedores" element={<Revendedores />} />
         <Route path="/personalizar/paleta" element={<PersonalizarMain />} />
+        <Route path="/seguimiento" element={<SeguimientoPedido />} />
          <Route path="/admin/clientes" element={<TableClients />} />
 
       </Routes>
