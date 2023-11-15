@@ -35,10 +35,9 @@ export default function SeguimientoPedido() {
     const dia = date.getDate();
     const mes = date.getMonth() + 1;
     const anio = date.getFullYear();
-    const hora = date.getHours();
-    const minutos = date.getMinutes();
 
-    return dia + "/" + mes + "/" + anio + " " + hora + ":" + minutos;
+
+    return dia + "/" + mes + "/" + anio ;
   };
 
   return (

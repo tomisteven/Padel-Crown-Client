@@ -40,6 +40,7 @@
         height: 1400px;
         margin-bottom: 390px;
 
+
     }
     .container-products{
         width: 100%;
@@ -117,7 +118,7 @@
     .section-two{
         display: flex;
         flex-direction: column;
-        margin-top: -55px;
+        margin-top: -65px;
     }
 
     .cont-filters{
@@ -144,9 +145,9 @@
 
     .section-products{
         width: 100%;
-        margin-top: -350px;
+        margin-top: -200px;
         height: auto;
-        margin-bottom: -930px;
+
 
     }
     .container-products{
@@ -207,6 +208,7 @@
     .btn-cart{
         right: -5px;
     }
+
 
 
 

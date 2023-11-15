@@ -16,6 +16,7 @@ import SectionEnvios from "./SectionEnvios";
 import SectionImgs from "./SectionImgs.js";
 import BtnWhatssapp from "../../BtnWhatssapp.js";
 import BtnPaletaPersonalizada from "./BtnPaletaPersonalizada.js";
+import BtnSeguimiento from "./BtnSeguimiento.js";
 
 export default function SectionTwo() {
   const [loading, setLoading] = useState(true);
@@ -108,6 +109,7 @@ export default function SectionTwo() {
 
       <BtnPaletaPersonalizada /> {/* boton flotante paleta personalizada */}
 
+      <BtnSeguimiento /> {/* boton flotante seguimiento de pedido */}
 
       <BtnMenuExpandible
         productsSelected={productsSelected}
@@ -115,7 +117,7 @@ export default function SectionTwo() {
         setStateCart={setStateCart}
       />
 
-      {/* <ClockPromocion /> {/* reloj promocion */} */
+
 
       <ModalComponent
         open={open}
