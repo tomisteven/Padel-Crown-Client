@@ -12,7 +12,7 @@ export default function HeaderFilters({
 }) {
   return (
     <>
-    {/* <Button
+     <Button
         onClick={() => {
           window.location.href = "/admin/productos";
         }}
@@ -20,7 +20,7 @@ export default function HeaderFilters({
         color="purple"
         size="small"
         className="btn-editar"
-      ></Button> */}
+      ></Button>
       <Button
         onClick={() => {
           setOpenCreate(true);

@@ -28,3 +28,21 @@
 .input-producto{
    margin: 5px;
 }
+
+.cont-loader{
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+@media  screen and (max-width: 768px) {
+    .cont-productos-table{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+}

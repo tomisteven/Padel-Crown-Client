@@ -13,15 +13,15 @@ export class Product {
 
 
     async editProduct(product, id) {
-        console.log("Producto a editar:", product, id);
-        /* const res = await fetch(`${this.url}update/${id}`, {
-            method: "PUT",
+
+         const res = await fetch(`${this.url}update/${id}`, {
+            method: "PATCH",
             body: JSON.stringify(product),
             headers: {
                 "Content-Type": "application/json",
             },
         });
-        return res; */
+        return res;
     }
 
 }

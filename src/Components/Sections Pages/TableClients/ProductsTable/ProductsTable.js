@@ -1,14 +1,15 @@
 import React, { useState, useContext } from "react";
 import "./ProductsTable.css";
 import { GlobalContext } from "../../../../context/GlobalState";
-import { Button, Input, Image, Select } from "semantic-ui-react";
+import { Button, Input, Image, Select} from "semantic-ui-react";
 import { toast, ToastContainer } from "react-toastify";
+import { Dna } from "react-loader-spinner";
 
 import { Product } from "../../../../api/product";
 
 const productController = new Product();
 
-const Producto = ({ producto }) => {
+const Producto = ({ producto, changeState }) => {
   const [formValues, setFormValues] = useState({
     name: producto.name,
     category: producto.category,
@@ -31,29 +32,26 @@ const Producto = ({ producto }) => {
       ...prevValues,
       [name]: value,
     }));
-  }
-
+  };
 
   const handleEditClick = async () => {
     formValues.price = parseInt(formValues.price);
     formValues.cantidad = parseInt(formValues.cantidad);
 
-     const res = await productController.editProduct(formValues, producto._id);
+    const res = await productController.editProduct(formValues, producto._id);
     res
-      ? toast.success("Producto editado con exito", { autoClose: 1000 })
-      : toast.error("Error al editar producto", { autoClose: 1000 });
+    ? toast.success("Producto editado con exito", { autoClose: 1000 })
+    : toast.error("Error al editar producto", { autoClose: 1000 });
 
-    /* setTimeout(() => {
-      window.location.reload();
-    }, 1000); */
-
-    console.log("Editando:", formValues);
+    setTimeout(() => {
+      changeState();
+    }, 1000);
   };
 
-  const handleDeleteClick = () => {
+ /*  const handleDeleteClick = () => {
     // Lógica para manejar la eliminación del producto
     console.log("Eliminando:", producto._id);
-  };
+  }; */
 
   return (
     <div className="producto-table">
@@ -85,7 +83,9 @@ const Producto = ({ producto }) => {
           value={formValues.category}
           name="category"
         />
+        <h6>Stock</h6>
         <Select
+
           placeholder="Stock"
           options={[
             { key: "1", value: "true", text: "Hay Stock ? " },
@@ -95,7 +95,6 @@ const Producto = ({ producto }) => {
           name="stock"
           onChange={handleSelectChange}
           value={formValues.stock}
-
           fluid
         />
         <Input
@@ -119,6 +118,8 @@ const Producto = ({ producto }) => {
       </div>
       <div className="producto-table__actions">
         <Button
+        inverted
+        fluid
           color="green"
           size="small"
           className="btn-editar"
@@ -126,27 +127,56 @@ const Producto = ({ producto }) => {
         >
           Editar
         </Button>
-        <Button
+        {/* <Button
           color="red"
           size="small"
           className="btn-eliminar"
           onClick={handleDeleteClick}
         >
           Eliminar
-        </Button>
+        </Button> */}
       </div>
     </div>
   );
 };
 
+/* https://d3ugyf2ht6aenh.cloudfront.net/stores/003/411/660/products/atos-foam-amarilla1-6e5dde9fab774b889616938367519008-1024-1024.webp */
+
 const ListaProductos = () => {
-  const [productos, setProductos] = useContext(GlobalContext);
+  const [productos, setProductos] = useState(useContext(GlobalContext)[0]);
+  const [state, setState] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const changeState = () => {
+    setState(!state);
+  };
+
+  React.useEffect(() => {
+    setLoading(true);
+    const fetchProducts = async () => {
+      const res = await productController.getProducts();
+      console.log(res);
+      setProductos(res);
+    };
+    fetchProducts();
+    setLoading(false);
+  }, [state]);
 
   return (
     <div className="cont-productos-table">
-      {productos.map((producto) => (
-        <Producto key={producto._id} producto={producto} />
-      ))}
+      {loading ? (
+        <div className="cont-loader">
+          <Dna color="#6C63FF" height={100} width={100} />
+        </div>
+      ) : (
+        productos.map((producto) => (
+          <Producto
+            producto={producto}
+            key={producto._id}
+            changeState={changeState}
+          />
+        ))
+      )}
       <ToastContainer />
     </div>
   );
