@@ -41,6 +41,8 @@ export default function TableClientsBody({
         return { backgroundColor: " #ff5722" };
       case "Entregado":
         return { backgroundColor: "#219663" };
+        case "Separacion Ingresos":
+        return { backgroundColor: "#ff0000" };
       default:
         return { backgroundColor: "#ffaa00" };
     }

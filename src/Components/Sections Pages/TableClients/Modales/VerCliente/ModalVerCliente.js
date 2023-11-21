@@ -70,6 +70,8 @@ export default function ModalVerCliente({
   };
 
   const stateOptions = [
+    { key: "Agregar Estado Nuevo..", text: "Agregar Estado Nuevo..", value: "Agregar Estado Nuevo.." },
+    { key: "Separacion Ingresos", text: "Separacion Ingresos", value: "Separacion Ingresos" },
     { key: "Devolucion", text: "Devolucion", value: "Devolucion" },
     { key: "Pendiente", text: "Pendiente", value: "Pendiente" },
     { key: "Confirmado", text: "Confirmado", value: "Confirmado" },

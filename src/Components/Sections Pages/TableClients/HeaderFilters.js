@@ -12,6 +12,15 @@ export default function HeaderFilters({
 }) {
   return (
     <>
+    {/* <Button
+        onClick={() => {
+          window.location.href = "/admin/productos";
+        }}
+        content="Editar Productos"
+        color="purple"
+        size="small"
+        className="btn-editar"
+      ></Button> */}
       <Button
         onClick={() => {
           setOpenCreate(true);
