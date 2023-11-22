@@ -11,6 +11,9 @@
   justify-content: center;
   height: 100%;
 }
+.seguimiento-url{
+  cursor: pointer;
+}
 .cont-seguimiento h1 {
   color: rgb(0, 0, 0);
   font-size: 50px;

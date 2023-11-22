@@ -75,6 +75,9 @@ export default function SeguimientoPedido() {
           <>
             <div className="info-pedido">
               <div className="cliente">{pedido.cliente}</div>
+              <div className="seguimiento-url">Link Seguimiento Andreani: {pedido.link ?
+              <a href={pedido.linkSeguimiento} target="_blank" rel="noopener noreferrer">Link</a> : "No disponible"
+            }</div>
               <div className="fechaCompra">Fecha Compra: {pedido.fecha}</div>
               <div className="pedido">Pedido : {pedido.pedido}</div>
             </div>
