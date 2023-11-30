@@ -12,12 +12,11 @@ export default function ModalCrearCliente({
   openCreate,
   changeState,
 }) {
-
   const formik = useFormik({
     initialValues: initialValues(),
     validationSchema: validationSchema(),
     onSubmit: async (values) => {
-     const res = await clientController.createClient(values);
+      const res = await clientController.createClient(values);
       res
         ? toast.success("Cliente creado con exito", {
             autoClose: 1000,
@@ -35,12 +34,38 @@ export default function ModalCrearCliente({
   });
 
   const stateOptions = [
-    { key: "Agregar Estado Nuevo..", text: "Agregar Estado Nuevo..", value: "Agregar Estado Nuevo.." },
-    { key: "Separacionn Ingresos", text: "Separacion Ingresos", value: "Separacion Ingresos" },
+    {
+      key: "Agregar Estado Nuevo..",
+      text: "Agregar Estado Nuevo..",
+      value: "Agregar Estado Nuevo..",
+    },
+    {
+      key: "Separacionn Ingresos",
+      text: "Separacion Ingresos",
+      value: "Separacion Ingresos",
+    },
     { key: "Devolucion", text: "Devolucion", value: "Devolucion" },
     { key: "Pendiente", text: "Pendiente", value: "Pendiente" },
     { key: "Confirmado", text: "Confirmado", value: "Confirmado" },
-    { key: "En Fabricacion", text: "En Fabricacion", value: "En Fabricacion" },
+    {
+      key: "Pre Fabricacion",
+      text: "Pre Fabricacion",
+      value: "Pre Fabricacion",
+    },
+    { key: "Moldeando", text: "Moldeando", value: "Moldeando" },
+    { key: "En Masillado", text: "En Masillado", value: "En Masillado" },
+    {
+      key: "Colocacion de Refuezos",
+      text: "Colocacion de Refuezos",
+      value: "Colocacion de Refuezos",
+    },
+    {
+      key: "Proceso de Pintado",
+      text: "Proceso de Pintado",
+      value: "Proceso de Pintado",
+    },
+    { key: "Laqueado Final", text: "Laqueado Final", value: "Laqueado Final" },
+    { key: "Aujereado", text: "Aujereado", value: "Aujereado" },
     { key: "En Secado", text: "En Secado", value: "En Secado" },
     {
       key: "Ultimando Detalles en Fabrica",
@@ -57,7 +82,6 @@ export default function ModalCrearCliente({
     { key: "Enviado", text: "Enviado", value: "Enviado" },
     { key: "Entregado", text: "Entregado", value: "Entregado" },
   ];
-
 
   return (
     <Modal
