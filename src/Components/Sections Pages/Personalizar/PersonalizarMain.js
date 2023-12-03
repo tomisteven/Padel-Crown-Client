@@ -48,6 +48,7 @@ export default function PersonalizarMain() {
     precioMaterial: localStorage.getItem("precioMaterial"),
     precioRugoso: localStorage.getItem("precioRugoso"),
     precioShockOut: localStorage.getItem("precioShockOut"),
+    nombre: localStorage.getItem("nombre"),
     total:
       parseInt(localStorage.getItem("precioMaterial")) +
       (parseInt(localStorage.getItem("precioRugoso")) || 0) + (localStorage.getItem("nombre") ? 1500 : 0)
@@ -67,7 +68,9 @@ export default function PersonalizarMain() {
       form.rugoso || "No Selecciono Opcion"
     },%20%0A%20%0A*Total*:%20$${
       form.total
-    }%0A%0AProvincia:%20${
+    },%0A%0ANombre%20De%20La%20Paleta:%20${
+      formContact.nombre || "No Quiere"
+    },%0A%0AProvincia:%20${
       formContact.provincia || "No Completo"
     }%0ALocalidad:%20${formContact.localidad || "No Completo"}%0AEmail:%20${
       formContact.email || "No Completo"
