@@ -88,7 +88,9 @@ export default function SeguimientoPedido() {
             {pedido.estado.map((e) => {
               return (
                 <div className="cont-estado">
-                  <div className="estado">{e.estado}</div>
+                  <div className="estado">{
+                    e.estado === "Enpaquetando" ? "Empaquetando" : e.estado
+                  }</div>
                   <div className="fecha">
                     Ultima Actualizacion: {parseFecha(e.fecha)}
                   </div>

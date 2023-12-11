@@ -123,7 +123,7 @@ export default function ModalVerCliente({
       text: "En Local de Padel Crown",
       value: "En Local de Padel Crown",
     },
-    { key: "Empaquetando", text: "Empaquetando", value: "Enpaquetando" },
+    { key: "Empaquetando", text: "Empaquetando", value: "Empaquetando" },
     { key: "Cancelado", text: "Cancelado", value: "Cancelado" },
     { key: "Enviado", text: "Enviado", value: "Enviado" },
     { key: "Entregado", text: "Entregado", value: "Entregado" },

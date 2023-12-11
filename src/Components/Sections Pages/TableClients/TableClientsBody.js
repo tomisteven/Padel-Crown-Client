@@ -35,7 +35,9 @@ export default function TableClientsBody({
         return { backgroundColor: "#eeaeaa" };
       case "Enviado a Local de Padel Crown":
         return { backgroundColor: "#2F80ED" };
-      case "Enpaquetando":
+      case "Empaquetando" :
+        return { backgroundColor: "#0d1856" };
+        case "Enpaquetando" :
         return { backgroundColor: "#0d1856" };
         case "Accesorios" :
         return { backgroundColor: "blue" };
@@ -124,7 +126,9 @@ export default function TableClientsBody({
                     style={generateColorState(cliente.estado)}
                     className="span-estado-pendiente"
                   >
-                    {cliente.estado}
+                    {
+                      cliente.estado === "Enpaquetando" ? "Empaquetando" : cliente.estado
+                    }
                   </span>
                 </td>
                 <td className="valores-precios">${cliente.precio}</td>
