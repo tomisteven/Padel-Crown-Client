@@ -44,6 +44,16 @@ export default function ModalCrearCliente({
       text: "Separacion Ingresos",
       value: "Separacion Ingresos",
     },
+    {
+      key: "Mercado Libre",
+      text: "Mercado Libre",
+      value: "Mercado Libre",
+    },
+    {
+      key: "Accesorios",
+      text: "Accesorios",
+      value: "Accesorios",
+    },
     { key: "Devolucion", text: "Devolucion", value: "Devolucion" },
     { key: "Pendiente", text: "Pendiente", value: "Pendiente" },
     { key: "Confirmado", text: "Confirmado", value: "Confirmado" },

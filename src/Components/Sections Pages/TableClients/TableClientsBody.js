@@ -22,17 +22,25 @@ export default function TableClientsBody({
       case "Pendiente":
         return { backgroundColor: "#ff9800" };
       case "Confirmado":
-        return { backgroundColor: "#795548" };
+        return { backgroundColor: "#42d895" };
       case "En Fabricacion":
         return { backgroundColor: "#2196f3" };
       case "En Secado":
         return { backgroundColor: "#6ea5ff" };
       case "Ultimando Detalles en Fabrica":
         return { backgroundColor: "#9c27b0" };
+        case "En Masillado" :
+        return { backgroundColor: "#98d9b6" };
+        case "Moldeando" :
+        return { backgroundColor: "#eeaeaa" };
       case "Enviado a Local de Padel Crown":
         return { backgroundColor: "#2F80ED" };
-      case "Empaquetando":
-        return { backgroundColor: "#616161" };
+      case "Enpaquetando":
+        return { backgroundColor: "#0d1856" };
+        case "Accesorios" :
+        return { backgroundColor: "blue" };
+        case "Mercado Libre" :
+        return { backgroundColor: "purple" };
       case "Cancelado":
         return { backgroundColor: "#f44336" };
       case "Enviado":

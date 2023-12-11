@@ -70,16 +70,46 @@ export default function ModalVerCliente({
   };
 
   const stateOptions = [
-    { key: "Agregar Estado Nuevo..", text: "Agregar Estado Nuevo..", value: "Agregar Estado Nuevo.." },
-    { key: "Separacion Ingresos", text: "Separacion Ingresos", value: "Separacion Ingresos" },
+    {
+      key: "Agregar Estado Nuevo..",
+      text: "Agregar Estado Nuevo..",
+      value: "Agregar Estado Nuevo..",
+    },
+    {
+      key: "Separacion Ingresos",
+      text: "Separacion Ingresos",
+      value: "Separacion Ingresos",
+    },
+    {
+      key: "Mercado Libre",
+      text: "Mercado Libre",
+      value: "Mercado Libre",
+    },
+    {
+      key: "Accesorios",
+      text: "Accesorios",
+      value: "Accesorios",
+    },
     { key: "Devolucion", text: "Devolucion", value: "Devolucion" },
     { key: "Pendiente", text: "Pendiente", value: "Pendiente" },
     { key: "Confirmado", text: "Confirmado", value: "Confirmado" },
-    { key: "Pre Fabricacion", text: "Pre Fabricacion", value: "Pre Fabricacion" },
+    {
+      key: "Pre Fabricacion",
+      text: "Pre Fabricacion",
+      value: "Pre Fabricacion",
+    },
     { key: "Moldeando", text: "Moldeando", value: "Moldeando" },
     { key: "En Masillado", text: "En Masillado", value: "En Masillado" },
-    { key: "Colocacion de Refuezos", text: "Colocacion de Refuezos", value: "Colocacion de Refuezos" },
-    { key: "Proceso de Pintado", text: "Proceso de Pintado", value: "Proceso de Pintado" },
+    {
+      key: "Colocacion de Refuezos",
+      text: "Colocacion de Refuezos",
+      value: "Colocacion de Refuezos",
+    },
+    {
+      key: "Proceso de Pintado",
+      text: "Proceso de Pintado",
+      value: "Proceso de Pintado",
+    },
     { key: "Laqueado Final", text: "Laqueado Final", value: "Laqueado Final" },
     { key: "Aujereado", text: "Aujereado", value: "Aujereado" },
     { key: "En Secado", text: "En Secado", value: "En Secado" },
@@ -172,13 +202,16 @@ export default function ModalVerCliente({
             </div>
             <div class="cont1-cliente">
               <Modal.Description>
-              <div class="secion-input">
+                <div class="secion-input">
                   <p>DNI</p>
                   <input
                     type="text"
                     className="ver-producto-title-c2"
                     onChange={(e) =>
-                      setEditForm({ ...editForm, dni: parseInt(e.target.value) })
+                      setEditForm({
+                        ...editForm,
+                        dni: parseInt(e.target.value),
+                      })
                     }
                     value={edit ? editForm.dni : clientState.dni}
                   />
