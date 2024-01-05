@@ -46,7 +46,7 @@ export default function SectionOne() {
             </a>
           </button>
           <button className="start-button-m">
-            <a className="a-button-m" href="https://articulo.mercadolibre.com.ar/MLA-1387097011-paleta-de-padel-pro-fg-atos-full-carbono-estilo-nox-_JM#position=31&search_layout=stack&type=item&tracking_id=81fc1508-4981-4728-b0ab-dd2068e6e84f">
+            <a className="a-button-m" href="https://articulo.mercadolibre.com.ar/MLA-1491186324-paleta-de-padel-fg-atos-full-carbono-diamante-tipo-nox-_JM#position=28&search_layout=stack&type=item&tracking_id=e61072f9-3e06-4115-83c2-33099df4ea25">
               Ver en Mercado Libre
             </a>
           </button>
