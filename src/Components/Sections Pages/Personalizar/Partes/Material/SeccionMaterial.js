@@ -5,7 +5,7 @@ export default function SeccionMaterial({ materiales, setLoading, setItems, item
 
   const changeForm = (key, value) => {
     setLoading(true);
-    const precio = value === "Fibra de vidrio" ? 39999 : value === "Full Carbono" ? 66999 : 86999;
+    const precio = value === "Fibra de vidrio" ? 39999 : value === "Full Carbono" ? 74999 : 99999;
     localStorage.setItem(key, value);
     localStorage.setItem("precioMaterial", precio);
     setTimeout(() => {
