@@ -213,3 +213,25 @@
 
 
   }
+
+ /*  1280px */
+
+    @media screen and (max-width: 1280px){
+        .cont-btn-ml-tw{
+            display: flex;
+            flex-direction: column;
+        }
+
+        .add{
+            font-size: 10px;
+        }
+
+        .btn-new-add{
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .price1{
+            font-size: 15px;
+        }
+    }

@@ -51,7 +51,7 @@ export default function ModalComponent({ open, setOpen, productImage }) {
                   icon="question"
                   label={"Que pala me conviene?"}
                   onClick={() => {
-                    window.location.href = "/que-pala-comprar";
+                    window.location.href = "/test";
                   }}
                 ></Button>
                 <Button

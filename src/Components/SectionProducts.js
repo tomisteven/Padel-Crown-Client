@@ -1,5 +1,5 @@
 import React from "react";
-import {Label } from "semantic-ui-react";
+import { Label } from "semantic-ui-react";
 import icon_pelota from "../assets/tenis.webp";
 import { toast } from "react-toastify";
 import { Dna } from "react-loader-spinner";
@@ -51,16 +51,13 @@ export default function SectionProducts({
       setProducts(products.sort((a, b) => a.price - b.price));
       setOnChange(!onChange);
       setLoad(false);
-
-    }
-    else if (t === "Mercado") {
+    } else if (t === "Mercado") {
       setLoad(true);
       const productsMl = products.filter((p) => p.mercadoLibre === true);
       setProducts(productsMl);
       setOnChange(!onChange);
       setLoad(false);
-    }
-    else {
+    } else {
       setLoad(true);
       setProducts(products.sort((a, b) => b.price - a.price));
       setOnChange(!onChange);
@@ -97,6 +94,8 @@ export default function SectionProducts({
       >
         Link Mercado Libre
       </button>
+
+      
       <div className="container-products">
         {products.map((item, k) => (
           <div key={k} className="card-product">
@@ -122,37 +121,42 @@ export default function SectionProducts({
             />
             <div className="card-body">
               <div className="cont-name">
-                <h5 className="card-body-name" style={
-                  item.name.length > 30 ? {fontSize: "12px"} : {fontSize: "14px"}
-                }>{item.name}</h5>
+                <h5
+                  className="card-body-name"
+                  style={
+                    item.name.length > 30
+                      ? { fontSize: "12px" }
+                      : { fontSize: "14px" }
+                  }
+                >
+                  {item.name}
+                </h5>
 
                 <div className="cont-btn-ml-tw">
-                <Label
-                  className="btn-buy"
-                  as="a"
-                  content={"Ver en Tienda"}
-                  color={"violet"}
-                  icon="shopping cart"
-                  onClick={() => {
-                    window.open(item.url, "_blank");
-                  }}
-                />
-                {
-                  item.mercadoLibre ? (
+                  <Label
+                    className="btn-buy"
+                    as="a"
+                    content={"Ver en Tienda"}
+                    color={"violet"}
+                    icon="shopping cart"
+                    onClick={() => {
+                      window.open(item.url, "_blank");
+                    }}
+                  />
+                  {item.mercadoLibre ? (
                     <Label
-                  className="btn-buy"
-                  as="a"
-                  content={"Mercado Libre"}
-                  color={"yellow"}
-                  icon="shopping cart"
-                  onClick={() => {
-                    window.open(item.urlMl, "_blank");
-                  }}
-                />
+                      className="btn-buy"
+                      as="a"
+                      content={"Mercado Libre"}
+                      color={"yellow"}
+                      icon="shopping cart"
+                      onClick={() => {
+                        window.open(item.urlMl, "_blank");
+                      }}
+                    />
                   ) : (
                     <></>
-                  )
-                }
+                  )}
                 </div>
               </div>
               <p className="card-body-description">
