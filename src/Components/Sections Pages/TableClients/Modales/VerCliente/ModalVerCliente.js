@@ -126,6 +126,8 @@ export default function ModalVerCliente({
     { key: "Empaquetando", text: "Empaquetando", value: "Empaquetando" },
     { key: "Cancelado", text: "Cancelado", value: "Cancelado" },
     { key: "Enviado", text: "Enviado", value: "Enviado" },
+    { key: "Recibido por Andreani", text: "Recibido por Andreani", value: "Recibido por Andreani" },
+    { key: "En Distribucion", text: "En Distribucion", value: "En Distribucion" },
     { key: "Entregado", text: "Entregado", value: "Entregado" },
   ];
 

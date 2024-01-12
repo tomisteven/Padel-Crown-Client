@@ -88,6 +88,8 @@ export default function ModalCrearCliente({
       value: "En Local de Padel Crown",
     },
     { key: "Empaquetando", text: "Empaquetando", value: "Empaquetando" },
+    { key: "Recibido por Andreani", text: "Recibido por Andreani", value: "Recibido por Andreani" },
+    { key: "En Distribucion", text: "En Distribucion", value: "En Distribucion" },
     { key: "Cancelado", text: "Cancelado", value: "Cancelado" },
     { key: "Enviado", text: "Enviado", value: "Enviado" },
     { key: "Entregado", text: "Entregado", value: "Entregado" },
