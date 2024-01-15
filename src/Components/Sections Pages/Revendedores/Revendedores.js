@@ -2,6 +2,7 @@ import React from "react";
 import "./Revendedores.css";
 import { Card, Typography } from "@material-tailwind/react";
 import { Icon } from "semantic-ui-react";
+import CardResponsive from "./CardResponsive";
 
 const TABLE_HEAD = ["Name", "Contacto", "Email", "Direccion", "Localidad", "Redes Sociales", "Mapa"];
 
@@ -57,9 +58,15 @@ export default function Revendedores() {
   //const $revendedores = React.useContext(GlobalContext)[1]
 
   return (
-    <div class="cont-card-revendedores">
+    <div class={
+      window.innerWidth < 768 ? "cont-card-revendedores-r" : "cont-card-revendedores"
+    }>
       <h3>Revendedores Oficiales de Padel Crown</h3>
-      <Card className="card h-full w-full overflow-scroll">
+      {
+        window.innerWidth < 768 ? (
+          <CardResponsive datosH={TABLE_HEAD} datosV={TABLE_ROWS} />
+        ) : (
+          <Card className="card h-full w-full overflow-scroll">
         <table className="w-full min-w-max table-auto text-left">
           <thead>
             <tr>
@@ -162,6 +169,8 @@ export default function Revendedores() {
           </tbody>
         </table>
       </Card>
+        )
+      }
     </div>
   );
 }
