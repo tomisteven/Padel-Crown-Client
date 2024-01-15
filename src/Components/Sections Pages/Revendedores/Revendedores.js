@@ -1,7 +1,5 @@
 import React from "react";
 import "./Revendedores.css";
-import { GlobalContext } from "../../../context/GlobalState";
-/* import LoadBall from '../../LoadBall' */
 import { Card, Typography } from "@material-tailwind/react";
 import { Icon } from "semantic-ui-react";
 
