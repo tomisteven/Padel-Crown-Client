@@ -45,6 +45,11 @@ export default function SectionOne() {
               Ver Catalogo
             </a>
           </button>
+          <button className="start-button-r">
+            <a className="a-button-r" href="/revendedores">
+              Ver Revendedores
+            </a>
+          </button>
           <button className="start-button-m">
             <a className="a-button-m" href="https://articulo.mercadolibre.com.ar/MLA-1491186324-paleta-de-padel-fg-atos-full-carbono-diamante-tipo-nox-_JM#position=28&search_layout=stack&type=item&tracking_id=e61072f9-3e06-4115-83c2-33099df4ea25">
               Ver en Mercado Libre
