@@ -6,7 +6,6 @@ export default function DetallesSeleccionados({ form, clientInfo }) {
     let total =
       parseInt(localStorage.getItem("precioMaterial")) +
       parseInt(localStorage.getItem("precioRugoso")) + parseInt(localStorage.getItem("precioShockOut"));
-
     return total;
   };
 
@@ -53,7 +52,7 @@ export default function DetallesSeleccionados({ form, clientInfo }) {
           <p className="precio-precio">${form.precioRugoso || 0}</p>
         </div>
         <div class="cont-precio-info">
-          <p class="precio-title">· ShockOuts: {
+          <p class="precio-title">· OneShot: {
             form.shockOut !== "" ? <span>{form.shockOut}</span> : ""
 
           }</p>

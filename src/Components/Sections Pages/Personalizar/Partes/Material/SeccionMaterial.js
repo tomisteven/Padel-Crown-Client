@@ -5,7 +5,7 @@ export default function SeccionMaterial({ materiales, setLoading, setItems, item
 
   const changeForm = (key, value) => {
     setLoading(true);
-    const precio = value === "Fibra de vidrio" ? 39999 : value === "Full Carbono" ? 74999 : 99999;
+    const precio = value === "Fibra de vidrio" ? 55000 : value === "Full Carbono" ? 89999 : 149999;
     localStorage.setItem(key, value);
     localStorage.setItem("precioMaterial", precio);
     setTimeout(() => {
@@ -58,7 +58,7 @@ export default function SeccionMaterial({ materiales, setLoading, setItems, item
                 changeForm("material", e.target.value);
               }}
             />
-            Fibra de vidrio, $36.999
+            Fibra de vidrio, $55.000
           </label>
         </div>
         <div class="option-material">
@@ -77,7 +77,7 @@ export default function SeccionMaterial({ materiales, setLoading, setItems, item
               checked={materiales === "Full Carbono"}
               class="cyberpunk-checkbox"
             />
-            Full Carbono, $66.999
+            Full Carbono, $89.999
           </label>
         </div>
         <div class="option-material">
@@ -95,7 +95,7 @@ export default function SeccionMaterial({ materiales, setLoading, setItems, item
               type="checkbox"
               class="cyberpunk-checkbox"
             />
-            12k Importado, $86.999
+            12k Importado, $149.999
           </label>
         </div>
       </div>

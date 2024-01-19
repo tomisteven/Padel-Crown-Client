@@ -6,7 +6,7 @@ import SeccionNucleo from "./Partes/Nucleo/SeccionNucleo";
 import SeccionPeso from "./Partes/Peso/SeccionPeso";
 import SeccionRugoso from "./Partes/Rugoso/SeccionRugoso";
 import SeccionNombre from "./Partes/Nombre/SeccionNombre";
-//import SeccionShockOut from "./Partes/ShockOut/SeccionShockOut";
+import SeccionShockOut from "./Partes/ShockOut/SeccionShockOut";
 /* import SectionAccesorios from "./Partes/Accesorios/SectionAccesorios"; */
 import LoaderPersonalizada from "./LoaderPersonalizada";
 import DetallesSeleccionados from "./DetallesSeleccionados";
@@ -51,7 +51,9 @@ export default function PersonalizarMain() {
     nombre: localStorage.getItem("nombre"),
     total:
       parseInt(localStorage.getItem("precioMaterial")) +
-      (parseInt(localStorage.getItem("precioRugoso")) || 0) + (localStorage.getItem("nombre") ? 1500 : 0)
+      parseInt(localStorage.getItem("precioShockOut")) +
+      (parseInt(localStorage.getItem("precioRugoso")) || 0) +
+      (localStorage.getItem("nombre") ? 1500 : 0),
   };
 
   const sendMessageToWhatsapp = () => {
@@ -66,6 +68,8 @@ export default function PersonalizarMain() {
       form.peso || "Predeterminados 370"
     }%20gramos,%20%0A*Rugoso*:%20${
       form.rugoso || "No Selecciono Opcion"
+    }%20%0A%20%0A*OneShot*:%20$${
+      form.shockOut
     },%20%0A%20%0A*Total*:%20$${
       form.total
     },%0A%0ANombre%20De%20La%20Paleta:%20${
@@ -127,13 +131,11 @@ export default function PersonalizarMain() {
       case 5:
         return <SeccionPeso />;
       case 6:
-        return <SeccionNombre />;
-      /* case 6:
         return (
           <SeccionShockOut setLoading={setLoading} setPaso={setPaso} shockOuts={form.shockOut} paso={paso} />
-        ); */
-      /* case 7:
-          return <SectionAccesorios setLoading={setLoading} accesorios={form.accesorios} /> */
+        );
+        case 7:
+         return <SeccionNombre />;
 
       default:
         return (
@@ -171,7 +173,7 @@ export default function PersonalizarMain() {
                 <span></span>
               </button>
             ) : null}
-            {paso !== 6 ? (
+            {paso !== 7 ? (
               <button
                 onClick={() => setPaso(paso + 1)}
                 className="button-siguiente"
@@ -181,7 +183,7 @@ export default function PersonalizarMain() {
                 <span></span>
               </button>
             ) : null}
-            {paso === 6 ? (
+            {paso === 7 ? (
               <button
                 className="button-siguiente-e"
                 onClick={() => sendMessageToWhatsapp()}
