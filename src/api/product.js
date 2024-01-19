@@ -1,6 +1,6 @@
 export class Product {
 
-    url = "https://padelcrown-server-dev-jepe.3.us-1.fl0.io/"
+     url = "https://particular-bernita-digitalcode.koyeb.app/" 
 
     async getProducts() {
         const res = await fetch(`${this.url}`);

@@ -50,13 +50,6 @@ export default function SectionTwo() {
     //initPopPush();
   }, [products, onChange]);
 
-  /* const initPopPush = () => {
-    setTimeout(() => {
-      setOpenPopPush(true);
-    }
-    , 110000);
-  } */
-
   if (loading) {
     return (
       <Dna
