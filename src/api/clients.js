@@ -1,5 +1,6 @@
 export class Client {
   url = "https://particular-bernita-digitalcode.koyeb.app";
+
 /* "https://padelcrown-server-dev-jepe.3.us-1.fl0.io" */
   async deleteClient(id) {
     const res = await fetch(this.url + "/admin/clientes/delete/" + id, {

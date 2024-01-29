@@ -22,6 +22,8 @@ export default function ModalVerCliente({
 
   const [state, setState] = useState(false);
 
+
+
   const updateClient = async (id) => {
     const update = await clientController.updateClient(id, editForm);
     update && toast.success("Cliente editado con exito", { autoClose: 1000 });
@@ -33,6 +35,7 @@ export default function ModalVerCliente({
 
   const updateClientEstado = async (id) => {
     setLoading(true);
+    console.log(estadoPedido);
     await clientController.addEstado(client._id, estadoPedido);
     setState(!state);
     setLoading(false);
@@ -48,6 +51,26 @@ export default function ModalVerCliente({
     changeState();
   };
 
+  function convertirCadenaAFechaFormateada(cadenaFecha) {
+    console.log(cadenaFecha);
+    // Crear un objeto Date con la cadena de fecha
+    const fechaObjeto = new Date(cadenaFecha);
+
+    // Obtener los componentes de la fecha
+    const dia = fechaObjeto.getDate();
+    const mes = fechaObjeto.getMonth() + 1; // Los meses comienzan desde 0
+    const año = fechaObjeto.getFullYear();
+
+    // Formatear los componentes para que tengan dos dígitos
+    const diaFormateado = dia < 10 ? '0' + dia : dia;
+    const mesFormateado = mes < 10 ? '0' + mes : mes;
+
+    // Crear la cadena de fecha en formato dd/mm/aaaa
+    const cadenaFechaFormateada = `${diaFormateado}/${mesFormateado}/${año}`;
+
+    return cadenaFechaFormateada;
+  }
+
   useEffect(() => {
     setLoading(true);
     const getClient = async () => {
@@ -62,12 +85,7 @@ export default function ModalVerCliente({
     return <div></div>;
   }
 
-  const parseFecha = (fecha) => {
-    if (!fecha) return;
-    const fechaParseada = fecha.split("T")[0];
-    const fechaParseada2 = fechaParseada.split("-").reverse().join("-");
-    return fechaParseada2;
-  };
+
 
   const stateOptions = [
     {
@@ -312,7 +330,7 @@ export default function ModalVerCliente({
                             {estado.estado || "No hay estado"}
                           </p>
                           <p>
-                            Fecha: {parseFecha(estado.fecha) || "No hay fecha"}
+                            Fecha: {convertirCadenaAFechaFormateada(estado.fecha) || "No hay fecha"}
                           </p>
                         </h2>
                       </div>
