@@ -31,15 +31,7 @@ export default function SeguimientoPedido() {
     setDni("");
   };
 
-  const parseFecha = (fecha) => {
-    const date = new Date(fecha);
-    const dia = date.getDate();
-    const mes = date.getMonth() + 1;
-    const anio = date.getFullYear();
-
-
-    return dia + "/" + mes + "/" + anio ;
-  };
+  
 
 
 
@@ -91,9 +83,7 @@ export default function SeguimientoPedido() {
                   <div className="estado">{
                     e.estado === "Enpaquetando" ? "Empaquetando" : e.estado
                   }</div>
-                  <div className="fecha">
-                    Ultima Actualizacion: {parseFecha(e.fecha)}
-                  </div>
+                  
                 </div>
               );
             })}
