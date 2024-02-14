@@ -80,7 +80,7 @@ export default function SeguimientoPedido() {
             {pedido.estado.map((e, i) => {
               return (
                 <div className="cont-estado">
-                <p> {i +1} - </p>
+                <p> {i +1} </p>
                   <div className="estado">{
                     e.estado === "Enpaquetando" ? "Empaquetando" : e.estado
                   }</div>
