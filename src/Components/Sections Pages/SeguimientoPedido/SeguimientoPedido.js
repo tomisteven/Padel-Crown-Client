@@ -77,9 +77,10 @@ export default function SeguimientoPedido() {
               <div className="pedido">Pedido : {pedido.pedido}</div>
             </div>
             <h5>Estados de tu pedido</h5>
-            {pedido.estado.map((e) => {
+            {pedido.estado.map((e, i) => {
               return (
                 <div className="cont-estado">
+                <p> {i +1} - </p>
                   <div className="estado">{
                     e.estado === "Enpaquetando" ? "Empaquetando" : e.estado
                   }</div>
