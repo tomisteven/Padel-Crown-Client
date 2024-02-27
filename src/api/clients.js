@@ -1,5 +1,6 @@
 export class Client {
   url = "https://particular-bernita-digitalcode.koyeb.app";
+  local = "http://localhost:8080";
 
 /* "https://padelcrown-server-dev-jepe.3.us-1.fl0.io" */
   async deleteClient(id) {
@@ -27,10 +28,11 @@ export class Client {
     return data;
   }
 
-  async addEstado(id, estado) {
-    const res = await fetch(this.url + "/admin/clientes/estado/" + id, {
+  async addEstado(id, estado, fecha) {
+    //console.log(estado, fecha);
+    const res = await fetch(this.local + "/admin/clientes/estado/" + id, {
       method: "POST",
-      body: JSON.stringify({ estado: estado }),
+      body: JSON.stringify({ estado: estado, fecha: fecha}),
       headers: {
         "Content-Type": "application/json",
         Authorization: "token_padelcrown",

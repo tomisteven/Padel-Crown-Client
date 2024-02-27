@@ -22,8 +22,6 @@ export default function ModalVerCliente({
 
   const [state, setState] = useState(false);
 
-
-
   const updateClient = async (id) => {
     const update = await clientController.updateClient(id, editForm);
     update && toast.success("Cliente editado con exito", { autoClose: 1000 });
@@ -33,10 +31,16 @@ export default function ModalVerCliente({
     setOpenVer(false);
   };
 
-  const updateClientEstado = async (id) => {
+  const updateClientEstado = async (id, fechaActual) => {
+    var dia = fechaActual.getDate();
+    var mes = fechaActual.getMonth() + 1; // Se suma 1 porque los meses van de 0 a 11 en JavaScript
+    var anio = fechaActual.getFullYear();
+
+    // Formatea la fecha en el formato deseado (DD/MM/YYYY)
+    var fechaFormateada = dia + "/" + (mes < 10 ? "0" : "") + mes + "/" + anio;
+
     setLoading(true);
-    console.log(estadoPedido);
-    await clientController.addEstado(client._id, estadoPedido);
+    await clientController.addEstado(id, estadoPedido, fechaFormateada);
     setState(!state);
     setLoading(false);
     changeState();
@@ -51,24 +55,24 @@ export default function ModalVerCliente({
     changeState();
   };
 
-  function convertirCadenaAFechaFormateada(cadenaFecha) {
-    console.log(cadenaFecha);
-    // Crear un objeto Date con la cadena de fecha
-    const fechaObjeto = new Date(cadenaFecha);
+  function formatearFecha(fechaString) {
+    // Intenta parsear la fecha en formato "dd/mm/aaaa"
+    var formatoDDMMYYYY = /^\d{2}\/\d{2}\/\d{4}$/;
+    if (formatoDDMMYYYY.test(fechaString)) {
+      return fechaString;
+    }
+    // Intenta parsear la fecha en formato predeterminado
+    var fechaPredeterminada = new Date(fechaString);
+    if (!isNaN(fechaPredeterminada.getDate())) {
+      var diaPredeterminado = fechaPredeterminada.getDate();
+      var mesPredeterminado = fechaPredeterminada.getMonth() + 1; // Se suma 1 porque los meses van de 0 a 11 en JavaScript
+      var anioPredeterminado = fechaPredeterminada.getFullYear();
 
-    // Obtener los componentes de la fecha
-    const dia = fechaObjeto.getDate();
-    const mes = fechaObjeto.getMonth() + 1; // Los meses comienzan desde 0
-    const año = fechaObjeto.getFullYear();
+      return diaPredeterminado + '/' + (mesPredeterminado < 10 ? '0' : '') + mesPredeterminado + '/' + anioPredeterminado;
+    }
 
-    // Formatear los componentes para que tengan dos dígitos
-    const diaFormateado = dia < 10 ? '0' + dia : dia;
-    const mesFormateado = mes < 10 ? '0' + mes : mes;
-
-    // Crear la cadena de fecha en formato dd/mm/aaaa
-    const cadenaFechaFormateada = `${diaFormateado}/${mesFormateado}/${año}`;
-
-    return cadenaFechaFormateada;
+    // Si no se pudo parsear en ninguno de los formatos, devuelve null
+    return null;
   }
 
   useEffect(() => {
@@ -84,8 +88,6 @@ export default function ModalVerCliente({
   if (typeof clientState.estadoPedido === "undefined") {
     return <div></div>;
   }
-
-
 
   const stateOptions = [
     {
@@ -144,8 +146,16 @@ export default function ModalVerCliente({
     { key: "Empaquetando", text: "Empaquetando", value: "Empaquetando" },
     { key: "Cancelado", text: "Cancelado", value: "Cancelado" },
     { key: "Enviado", text: "Enviado", value: "Enviado" },
-    { key: "Recibido por Andreani", text: "Recibido por Andreani", value: "Recibido por Andreani" },
-    { key: "En Distribucion", text: "En Distribucion", value: "En Distribucion" },
+    {
+      key: "Recibido por Andreani",
+      text: "Recibido por Andreani",
+      value: "Recibido por Andreani",
+    },
+    {
+      key: "En Distribucion",
+      text: "En Distribucion",
+      value: "En Distribucion",
+    },
     { key: "Entregado", text: "Entregado", value: "Entregado" },
   ];
 
@@ -330,7 +340,9 @@ export default function ModalVerCliente({
                             {estado.estado || "No hay estado"}
                           </p>
                           <p>
-                            Fecha: {convertirCadenaAFechaFormateada(estado.fecha) || "No hay fecha"}
+                            {estado.fecha &&
+                              "Fecha: " + formatearFecha(estado.fecha)
+                            }
                           </p>
                         </h2>
                       </div>
@@ -352,7 +364,7 @@ export default function ModalVerCliente({
                     content="Agregar Estado"
                     color="green"
                     onClick={async () => {
-                      updateClientEstado(client._id);
+                      updateClientEstado(client._id, new Date());
                     }}
                   />
                 </div>
