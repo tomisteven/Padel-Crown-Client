@@ -68,16 +68,21 @@ export class Client {
 
   async createClient(client) {
 
-    client.estadoPedido ? client.estadoPedido = [
+     client.estadoPedido ? client.estadoPedido = [
       {
-        estado: client.estadoPedido[0].estado,
+        estado: client.estadoPedido[0].estado || "Confirmado",
+        fecha: new Date().toLocaleDateString(),
       },
     ]
     : client.estadoPedido = [
       {
         estado: "Confirmado",
+        fecha: new Date().toLocaleDateString(),
       },
     ]
+
+    client.estado = client.estadoPedido[0].estado;
+
 
     await fetch(this.url + "/admin/clientes/create", {
       method: "POST",

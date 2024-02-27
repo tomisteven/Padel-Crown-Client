@@ -58,7 +58,8 @@ export default function ModalVerCliente({
   function formatearFecha(fechaString) {
     // Intenta parsear la fecha en formato "dd/mm/aaaa"
     var formatoDDMMYYYY = /^\d{2}\/\d{2}\/\d{4}$/;
-    if (formatoDDMMYYYY.test(fechaString)) {
+    var formatoDDMMYYYY2 = /^\d{2}\/\d{1}\/\d{4}$/;
+    if (formatoDDMMYYYY.test(fechaString) || formatoDDMMYYYY2.test(fechaString)) {
       return fechaString;
     }
     // Intenta parsear la fecha en formato predeterminado
@@ -91,9 +92,9 @@ export default function ModalVerCliente({
 
   const stateOptions = [
     {
-      key: "Agregar Estado Nuevo..",
-      text: "Agregar Estado Nuevo..",
-      value: "Agregar Estado Nuevo..",
+      key: "Esparando Actualizacion..",
+      text: "Esperando Actualizacion..",
+      value: "Esperando Actualizacion..",
     },
     {
       key: "Separacion Ingresos",

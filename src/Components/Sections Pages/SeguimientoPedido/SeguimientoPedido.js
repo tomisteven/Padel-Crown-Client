@@ -35,7 +35,8 @@ export default function SeguimientoPedido() {
     if (!fechaString) return "No hay Fecha";
     // Intenta parsear la fecha en formato "dd/mm/aaaa"
     var formatoDDMMYYYY = /^\d{2}\/\d{2}\/\d{4}$/;
-    if (formatoDDMMYYYY.test(fechaString)) {
+    var formatoDDMMYYYY2 = /^\d{2}\/\d{1}\/\d{4}$/;
+    if (formatoDDMMYYYY.test(fechaString) || formatoDDMMYYYY2.test(fechaString)) {
       return fechaString;
     }
     // Intenta parsear la fecha en formato predeterminado
@@ -117,7 +118,7 @@ export default function SeguimientoPedido() {
                 <div className="cont-estado">
                   <p> {i + 1} </p>
                   <div className="estado">
-                    {e.estado === "Enpaquetando" ? "Empaquetando" : e.estado}
+                    {e.estado === "Enpaquetando" ? "Empaquetando" : e.estado === "" ? "Confirmado en Fabrica" : e.estado}
                   </div>
                   <p
                     style={{

@@ -16,7 +16,8 @@ export function initialValues(){
         email: "",
         estadoPedido: [
             {
-                estado: ""
+                estado: "",
+                fecha: ""
             }
         ],
         comentarios: [

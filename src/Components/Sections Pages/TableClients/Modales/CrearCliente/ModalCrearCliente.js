@@ -35,9 +35,9 @@ export default function ModalCrearCliente({
 
   const stateOptions = [
     {
-      key: "Agregar Estado Nuevo..",
-      text: "Agregar Estado Nuevo..",
-      value: "Agregar Estado Nuevo..",
+      key: "Esparando Actualizacion..",
+      text: "Esperando Actualizacion..",
+      value: "Esperando Actualizacion..",
     },
     {
       key: "Separacionn Ingresos",
@@ -241,6 +241,7 @@ export default function ModalCrearCliente({
                 formik.setFieldValue("estadoPedido", [
                   {
                     estado: data.value,
+                    fecha: new Date().toLocaleDateString(),
                   },
                 ]);
               }}
