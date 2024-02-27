@@ -30,7 +30,7 @@ export class Client {
 
   async addEstado(id, estado, fecha) {
     //console.log(estado, fecha);
-    const res = await fetch(this.local + "/admin/clientes/estado/" + id, {
+    const res = await fetch(this.url + "/admin/clientes/estado/" + id, {
       method: "POST",
       body: JSON.stringify({ estado: estado, fecha: fecha}),
       headers: {
