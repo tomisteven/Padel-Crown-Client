@@ -23,6 +23,15 @@ export default function HeaderFilters({
       ></Button>
       <Button
         onClick={() => {
+          window.location.href = "/admin/eliminados";
+        }}
+        content="VER CLIENTES ELIMINADOS"
+        color="red"
+        size="small"
+        className="btn-editar"
+      ></Button>
+      <Button
+        onClick={() => {
           setOpenCreate(true);
         }}
         content="Crear Cliente"

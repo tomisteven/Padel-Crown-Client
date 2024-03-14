@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import "./ProductsTable.css";
 import { GlobalContext } from "../../../../context/GlobalState";
-import { Button, Input, Image, Select} from "semantic-ui-react";
+import { Button, Input, Image, Select } from "semantic-ui-react";
 import { toast, ToastContainer } from "react-toastify";
 import { Dna } from "react-loader-spinner";
 
@@ -40,18 +40,13 @@ const Producto = ({ producto, changeState }) => {
 
     const res = await productController.editProduct(formValues, producto._id);
     res
-    ? toast.success("Producto editado con exito", { autoClose: 1000 })
-    : toast.error("Error al editar producto", { autoClose: 1000 });
+      ? toast.success("Producto editado con exito", { autoClose: 1000 })
+      : toast.error("Error al editar producto", { autoClose: 1000 });
 
     setTimeout(() => {
       changeState();
     }, 1000);
   };
-
- /*  const handleDeleteClick = () => {
-    // Lógica para manejar la eliminación del producto
-    console.log("Eliminando:", producto._id);
-  }; */
 
   return (
     <div className="producto-table">
@@ -85,7 +80,6 @@ const Producto = ({ producto, changeState }) => {
         />
         <h6>Stock</h6>
         <Select
-
           placeholder="Stock"
           options={[
             { key: "1", value: "true", text: "Hay Stock ? " },
@@ -118,8 +112,8 @@ const Producto = ({ producto, changeState }) => {
       </div>
       <div className="producto-table__actions">
         <Button
-        inverted
-        fluid
+          inverted
+          fluid
           color="green"
           size="small"
           className="btn-editar"
@@ -127,20 +121,10 @@ const Producto = ({ producto, changeState }) => {
         >
           Editar
         </Button>
-        {/* <Button
-          color="red"
-          size="small"
-          className="btn-eliminar"
-          onClick={handleDeleteClick}
-        >
-          Eliminar
-        </Button> */}
       </div>
     </div>
   );
 };
-
-/* https://d3ugyf2ht6aenh.cloudfront.net/stores/003/411/660/products/atos-foam-amarilla1-6e5dde9fab774b889616938367519008-1024-1024.webp */
 
 const ListaProductos = () => {
   const [productos, setProductos] = useState(useContext(GlobalContext)[0]);

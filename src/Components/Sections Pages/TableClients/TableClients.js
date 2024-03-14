@@ -34,7 +34,7 @@ export default function TableClients() {
 
     setTimeout(() => {
       setLoading(false);
-    }, 1000);
+    }, 1500);
   }, [state]);
 
   const admin = localStorage.getItem("admin"); //verifica si esta logueado como admin

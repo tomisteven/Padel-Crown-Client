@@ -1,12 +1,52 @@
 export class Client {
-  production = true
-  url = this.production ?  "https://particular-bernita-digitalcode.koyeb.app" : "http://localhost:8080"
+  production = false;
+  url = this.production
+    ? "https://particular-bernita-digitalcode.koyeb.app"
+    : "http://localhost:8080";
 
-
-/* "https://padelcrown-server-dev-jepe.3.us-1.fl0.io" */
+  /* "https://padelcrown-server-dev-jepe.3.us-1.fl0.io" */
   async deleteClient(id) {
     const res = await fetch(this.url + "/admin/clientes/delete/" + id, {
       method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "token_padelcrown",
+      },
+    });
+    const data = await res.json();
+    return data;
+  }
+
+  async eliminarPermanentemente(id) {
+    const res = await fetch(
+      this.url + "/admin/clientes/delete/" + id + "/permanently",
+      {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "token_padelcrown",
+        },
+      }
+    );
+    const data = await res.json();
+    return data;
+  }
+
+  async getClientsEliminados() {
+    const res = await fetch(this.url + "/admin/clientes/eliminados", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "token_padelcrown",
+      },
+    });
+    const data = await res.json();
+    return data;
+  }
+
+  async restoreClient(id) {
+    const res = await fetch(this.url + "/admin/clientes/restore/" + id, {
+      method: "PATCH",
       headers: {
         "Content-Type": "application/json",
         Authorization: "token_padelcrown",
@@ -33,7 +73,7 @@ export class Client {
     //console.log(estado, fecha);
     const res = await fetch(this.url + "/admin/clientes/estado/" + id, {
       method: "POST",
-      body: JSON.stringify({ estado: estado, fecha: fecha}),
+      body: JSON.stringify({ estado: estado, fecha: fecha }),
       headers: {
         "Content-Type": "application/json",
         Authorization: "token_padelcrown",
@@ -68,22 +108,21 @@ export class Client {
   }
 
   async createClient(client) {
-
-     client.estadoPedido ? client.estadoPedido = [
-      {
-        estado: client.estadoPedido[0].estado || "Confirmado",
-        fecha: new Date().toLocaleDateString(),
-      },
-    ]
-    : client.estadoPedido = [
-      {
-        estado: "Confirmado",
-        fecha: new Date().toLocaleDateString(),
-      },
-    ]
+    client.estadoPedido
+      ? (client.estadoPedido = [
+          {
+            estado: client.estadoPedido[0].estado || "Confirmado",
+            fecha: new Date().toLocaleDateString(),
+          },
+        ])
+      : (client.estadoPedido = [
+          {
+            estado: "Confirmado",
+            fecha: new Date().toLocaleDateString(),
+          },
+        ]);
 
     client.estado = client.estadoPedido[0].estado;
-
 
     await fetch(this.url + "/admin/clientes/create", {
       method: "POST",
@@ -109,5 +148,4 @@ export class Client {
     const data = await res.json();
     return data;
   }
-
 }

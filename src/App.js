@@ -7,6 +7,7 @@ import SectionQuePalaComprar from "./Components/Sections Pages/QuePalaCompar/Sec
 import Nosotros from "./Components/Sections Pages/Nosotros/Nosotros";
 import Revendedores from "./Components/Sections Pages/Revendedores/Revendedores";
  import TableClients from "./Components/Sections Pages/TableClients/TableClients.js";
+import ClientsELiminados from "./Components/Sections Pages/TableClients/ClientsEliminados/ClientsEliminados";
 import SeguimientoPedido from "./Components/Sections Pages/SeguimientoPedido/SeguimientoPedido";
 
 import Footer from "./Components/Sections Pages/Footer/Footer";
@@ -33,6 +34,7 @@ function App() {
          <Route path="/admin/clientes" element={<TableClients />} />
         <Route path="*" element={<h1>404</h1>} />
         <Route path="/admin/productos" element={<ProductsTable />} />
+        <Route path="/admin/eliminados" element={<ClientsELiminados />} />
       </Routes>
 
       <Footer />
