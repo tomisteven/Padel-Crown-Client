@@ -150,18 +150,7 @@ export default function TableClientsBody({
                       <Icon name="eye" size="small" color="black" />
                     </Button>
                   </td>
-                  <td>
-                    <Button
-                      color="red"
-                      size="mini"
-                      className="btn-eliminar"
-                      onClick={() => {
-                        deleteClient(cliente._id);
-                      }}
-                    >
-                      <Icon size="small" name="trash" />
-                    </Button>
-                  </td>
+
                   <td>
                     <Button
                       size="mini"
@@ -173,6 +162,18 @@ export default function TableClientsBody({
                       }}
                     >
                       <Icon size="small" name="truck" />
+                    </Button>
+                  </td>
+                  <td>
+                    <Button
+                      color="red"
+                      size="mini"
+                      className="btn-eliminar"
+                      onClick={() => {
+                        deleteClient(cliente._id);
+                      }}
+                    >
+                      <Icon size="small" name="trash" />
                     </Button>
                   </td>
                 </tr>

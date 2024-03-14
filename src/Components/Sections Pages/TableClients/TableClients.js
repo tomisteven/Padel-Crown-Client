@@ -5,7 +5,7 @@ import "./TableClients.css";
 import { ToastContainer, toast } from "react-toastify";
 import LoginPage from "./LoginPage/LoginPage.js";
 import { Client } from "../../../api/clients";
-
+import Swal from "sweetalert2";
 import HeaderFilters from "./HeaderFilters.js";
 import TableClientsBody from "./TableClientsBody.js";
 import { Button } from "semantic-ui-react";
@@ -42,7 +42,7 @@ export default function TableClients() {
 
   const filterClients = (search) => {
     const filteredClients = clientesState.filter((cliente) => {
-      const dniString = cliente.dni ? cliente.dni.toString() : ''; // Si cliente.dni es undefined, asigna una cadena vacía
+      const dniString = cliente.dni ? cliente.dni.toString() : ""; // Si cliente.dni es undefined, asigna una cadena vacía
       return (
         cliente.nombre.toLowerCase().includes(search.toLowerCase()) ||
         dniString.includes(search.toLowerCase())
@@ -61,14 +61,38 @@ export default function TableClients() {
     create && toast.success("Cliente creado con exito", { autoClose: 1000 });
     changeState();
   };
+
   const deleteClient = async (id) => {
-    const del = await clientController.deleteClient(id);
-    del &&
-      toast.error("Cliente eliminado con exito", {
-        theme: "colored",
-        autoClose: 1000,
+    try {
+      setLoading(true);
+      const client = await clientController.getClient(id);
+      setLoading(false);
+      const result = await Swal.fire({
+        icon: "warning",
+        title: `¿Estás seguro de eliminar a: ${client.nombre}?`,
+        showDenyButton: true,
+        showCancelButton: true,
+        confirmButtonText: "ELIMINAR",
+        denyButtonText: `Cancelar`,
       });
-    changeState();
+
+      if (result.isConfirmed) {
+        setLoading(true);
+        await clientController.deleteClient(id);
+        changeState();
+        Swal.fire("Cliente eliminado con éxito", "", "success");
+        setLoading(false);
+      } else if (result.isDenied) {
+        Swal.fire("Genial. Conservamos el Cliente", "", "info");
+      }
+    } catch (error) {
+      console.error("Error al eliminar el cliente:", error);
+      Swal.fire(
+        "Error al eliminar el cliente",
+        "Por favor, intenta de nuevo",
+        "error"
+      );
+    }
   };
 
   return (
