@@ -1,5 +1,5 @@
 export class Client {
-  production = false;
+  production = true;
   url = this.production
     ? "https://particular-bernita-digitalcode.koyeb.app"
     : "http://localhost:8080";
