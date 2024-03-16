@@ -33,6 +33,25 @@ export default function ClientsEliminados() {
     }
   };
 
+  const eliminarTodo = async () => {
+    const res = await sweetAlert.fire({
+      title: "Estas seguro?",
+      text: "No podras revertir esto!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Si, eliminar todo!",
+    });
+    if (res.isConfirmed) {
+      const res = await clientController.eliminarTodo();
+      if (res) {
+        sweetAlert.fire("Eliminado!", "Todos los clientes eliminados.", "success");
+        changeState();
+      }
+    }
+  }
+
   useEffect(() => {
     setLoading(true);
     const getClientsElminados = async () => {
@@ -68,6 +87,13 @@ export default function ClientsEliminados() {
               onClick={() => (window.location.href = "/admin/clientes")}
             >
               Volver a clientes
+            </Button>
+            <Button
+              className="btn-volver-clientes"
+              color="red"
+              onClick={() => eliminarTodo()}
+            >
+              ELIMINAR TODOS
             </Button>
           </h1>
 

@@ -1,5 +1,5 @@
 export class Client {
-  production = true;
+  production = false;
   url = this.production
     ? "https://particular-bernita-digitalcode.koyeb.app"
     : "http://localhost:8080";
@@ -28,6 +28,18 @@ export class Client {
         },
       }
     );
+    const data = await res.json();
+    return data;
+  }
+
+  async eliminarTodo() {
+    const res = await fetch(this.url + "/admin/clientes/delete/all/permanently", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "token_padelcrown",
+      },
+    });
     const data = await res.json();
     return data;
   }
