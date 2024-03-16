@@ -33,9 +33,11 @@ export default function ClientsEliminados() {
     }
   };
 
+
+
   const eliminarTodo = async () => {
     const res = await sweetAlert.fire({
-      title: "Estas seguro?",
+      title: "Estas seguro? de elminar todos los clientes?",
       text: "No podras revertir esto!",
       icon: "warning",
       showCancelButton: true,
@@ -46,11 +48,15 @@ export default function ClientsEliminados() {
     if (res.isConfirmed) {
       const res = await clientController.eliminarTodo();
       if (res) {
-        sweetAlert.fire("Eliminado!", "Todos los clientes eliminados.", "success");
+        sweetAlert.fire(
+          "Eliminado!",
+          "Todos los clientes eliminados.",
+          "success"
+        );
         changeState();
       }
     }
-  }
+  };
 
   useEffect(() => {
     setLoading(true);
@@ -89,6 +95,7 @@ export default function ClientsEliminados() {
               Volver a clientes
             </Button>
             <Button
+            disabled={clientesState.length === 0}
               className="btn-volver-clientes"
               color="red"
               onClick={() => eliminarTodo()}
