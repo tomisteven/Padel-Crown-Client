@@ -6,7 +6,7 @@ import logo from "../../../../assets/LOGO ACTUAL.webp";
 export default function LoginPage() {
 
     const validateAdmin = (password ) => {
-        if(password === "oscar1997") {
+        if(password === "sara2139") {
             localStorage.setItem("admin", true);
             window.location.reload();
         }
