@@ -53,6 +53,21 @@
 
 }
 
+@media only screen and (max-width: 480px){
+
+  .nav-menu{
+    top: 50px;
+
+  }
+
+  .nav-link span{
+    display: none;
+
+  }
+
+
+}
+
 @media screen and (min-width: 768px) and (max-width: 1023px) {
   /* Agrega aquí los estilos específicos para computadoras portátiles */
 }

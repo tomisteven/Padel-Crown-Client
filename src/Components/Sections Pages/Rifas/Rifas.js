@@ -207,7 +207,14 @@ export default function Rifas() {
                 </div>
                 <span>Comprar</span>
               </button>
-              <button className="btn-limpiar-rifas">Limpiar</button>
+              <button
+                className="btn-limpiar-rifas"
+                onClick={() =>
+                  setSeleccionadas([]) & setPrecioTotal(0) & setChange(!change)
+                }
+              >
+                Limpiar
+              </button>
             </div>
           </div>
 
@@ -228,7 +235,6 @@ export default function Rifas() {
                           opacity: 0.4,
                           pointerEvents: "none",
                           backgroundColor: "#eb7d00",
-
                         }
                       : {}
                   }
@@ -236,23 +242,24 @@ export default function Rifas() {
                   <div className="card-border-top">
                     <img src={pelotita} alt="" />
                   </div>
-                  <div className="img" style={
-                    rifa.estado
-                      ? { color: "#000000" }
-                      : {}
-                  }>
+                  <div
+                    className="img"
+                    style={rifa.estado ? { color: "#000000" } : {}}
+                  >
                     {rifa.numero}
                   </div>
                   <button
                     className="btn-agregar-rifa"
                     style={
                       rifa.estado
-                        ? { backgroundColor: "#ff0000"}
+                        ? { backgroundColor: "#ff0000" }
                         : { backgroundColor: "#00b212" }
                     }
                     onClick={() => addRifa(rifa)}
                   >
-                    {rifa.estado ? `${rifa.codigoIdentificacionRifa}` : "Agregar"}
+                    {rifa.estado
+                      ? `${rifa.codigoIdentificacionRifa}`
+                      : "Agregar"}
                   </button>
                 </div>
               ))
