@@ -15,6 +15,7 @@ import Footer from "./Components/Sections Pages/Footer/Footer";
 import { Routes, Route } from "react-router-dom";
 import PersonalizarMain from "./Components/Sections Pages/Personalizar/PersonalizarMain";
 import ProductsTable from "./Components/Sections Pages/TableClients/ProductsTable/ProductsTable.js";
+import Rifas from "./Components/Sections Pages/Rifas/Rifas.js";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           exact
         />
         <Route path="/nosotros" element={<Nosotros />} />
+        <Route path="/rifas" element={<Rifas />} />
         <Route path="/revendedores" element={<Revendedores />} />
         <Route path="/personalizar/paleta" element={<PersonalizarMain />} />
         <Route path="/seguimiento" element={<SeguimientoPedido />} />
@@ -35,6 +37,7 @@ function App() {
         <Route path="*" element={<h1>404</h1>} />
         <Route path="/admin/productos" element={<ProductsTable />} />
         <Route path="/admin/eliminados" element={<ClientsELiminados />} />
+
       </Routes>
 
       <Footer />
