@@ -37,11 +37,7 @@ export default function Rifas() {
           $codigoRifa +
           " Guardalo por las dudas!",
         confirmButtonText: "Aceptar",
-      }).then((result) => {
-        if (result.isConfirmed) {
-          window.location.href = "/rifas";
-        }
-      });
+      })
     }
     setLoading(true);
     rifaAPI
@@ -95,7 +91,7 @@ export default function Rifas() {
     }
   };
 
-  
+
 
   //Funcion para quitar una rifa de la lista de rifas seleccionadas
   const quitRifa = (rifa) => {
