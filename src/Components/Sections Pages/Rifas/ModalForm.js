@@ -28,11 +28,11 @@ export default function ModalForm({ open, setOpen, rifas, precioTotal }) {
     const res = await rifaAPI.createPayment(body);
     setLoading(false);
     res.ok
-      ?  window.location.href = res.pay
+      ?  window.open(res.pay)
       : alert("Error al procesar el pago, tus rifa/s no fueron asignadas ya que las adquirio otra persona!  Recomendamos actualizar la pagina para cargar las nuevas rifas disponibles");
 
     setOpen(false);
-/* window.open(res.pay) */
+/*  */
   };
 
   const formik = useFormik({
