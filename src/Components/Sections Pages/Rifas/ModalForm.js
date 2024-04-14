@@ -10,7 +10,6 @@ import { RifaAPI } from "../../../api/rifa";
 const rifaAPI = new RifaAPI();
 
 export default function ModalForm({ open, setOpen, rifas, precioTotal }) {
-
   const [loading, setLoading] = React.useState(false);
   const numeros = rifas.map((rifa) => rifa.numero);
 
@@ -28,11 +27,13 @@ export default function ModalForm({ open, setOpen, rifas, precioTotal }) {
     const res = await rifaAPI.createPayment(body);
     setLoading(false);
     res.ok
-      ?  window.open(res.pay)
-      : alert("Error al procesar el pago, tus rifa/s no fueron asignadas ya que las adquirio otra persona!  Recomendamos actualizar la pagina para cargar las nuevas rifas disponibles");
+      ? window.open(res.pay) && window.open("https://www.padelcrown.store/rifas")
+      : alert(
+          "Error al procesar el pago, tus rifa/s no fueron asignadas ya que las adquirio otra persona!  Recomendamos actualizar la pagina para cargar las nuevas rifas disponibles"
+        );
 
     setOpen(false);
-/*  */
+    /*  */
   };
 
   const formik = useFormik({
@@ -120,9 +121,7 @@ export default function ModalForm({ open, setOpen, rifas, precioTotal }) {
               content="PROCEDER A PAGAR"
               labelPosition="right"
               loading={loading}
-              icon={
-                loading ? "spinner" : "credit card outline"
-              }
+              icon={loading ? "spinner" : "credit card outline"}
               //onClick={() => setOpen(false)}
               positive
             />

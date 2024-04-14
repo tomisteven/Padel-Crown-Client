@@ -95,6 +95,8 @@ export default function Rifas() {
     }
   };
 
+  
+
   //Funcion para quitar una rifa de la lista de rifas seleccionadas
   const quitRifa = (rifa) => {
     const updatedRifas = rifas.map((r) =>
