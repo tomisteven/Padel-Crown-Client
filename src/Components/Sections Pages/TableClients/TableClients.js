@@ -12,7 +12,7 @@ import { Button } from "semantic-ui-react";
 
 const clientController = new Client();
 export default function TableClients() {
-  const [state, setState] = useState(false);
+  const [state, setState] = useState(0);
   const [openCreate, setOpenCreate] = useState(false);
 
   const [clientesState, setClientesState] = useState(
@@ -21,21 +21,24 @@ export default function TableClients() {
   const [loading, setLoading] = useState(true);
 
   const changeState = () => {
-    setState(!state);
+    setState((state) => state + 1);
   };
 
   useEffect(() => {
     setLoading(true);
-    const getClients = async () => {
-      const data = await clientController.getClients();
-      setClientesState(data.reverse());
-    };
-    getClients();
+    state === 0 && setClientesState(clientesState.reverse());
+
+    state !== 0 &&
+      clientController.getClients().then((data) => {
+        console.log("actualizamos clientes con el state", state);
+        setClientesState(data.reverse());
+        setLoading(false);
+      });
 
     setTimeout(() => {
       setLoading(false);
-    }, 1500);
-  }, [state]);
+    }, 800);
+  }, [state, clientesState]);
 
   const admin = localStorage.getItem("admin"); //verifica si esta logueado como admin
   if (!admin) return <LoginPage />; //si no esta logueado como admin, no puede ver la pagina
@@ -120,7 +123,7 @@ export default function TableClients() {
           openCreate={openCreate}
         />
       </section>
-      <div class="cont-btn-go">
+      <div className="cont-btn-go">
         <Button
           className="btn__go-up"
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}

@@ -1,6 +1,6 @@
 export class Product {
 
-     url = "https://particular-bernita-digitalcode.koyeb.app/" 
+     url = "https://particular-bernita-digitalcode.koyeb.app/"
 
     async getProducts() {
         const res = await fetch(`${this.url}`);
@@ -14,11 +14,12 @@ export class Product {
 
     async editProduct(product, id) {
 
-         const res = await fetch(`${this.url}update/${id}`, {
+         const res = await fetch(`http://locahost:8080/update/${id}`, {
             method: "PATCH",
             body: JSON.stringify(product),
             headers: {
                 "Content-Type": "application/json",
+                "Access-Control-Allow-Origin": "*",
             },
         });
         return res;
