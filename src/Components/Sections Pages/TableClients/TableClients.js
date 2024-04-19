@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-/* import { GlobalContext } from "../../../context/GlobalState"; */
+import { GlobalContext } from "../../../context/GlobalState";
 import "./TableClients.css";
 import { ToastContainer, toast } from "react-toastify";
 import LoginPage from "./LoginPage/LoginPage.js";
@@ -15,7 +15,9 @@ export default function TableClients() {
   const [state, setState] = useState(false);
   const [openCreate, setOpenCreate] = useState(false);
 
-  const [clientesState, setClientesState] = useState([]);
+  const [clientesState, setClientesState] = useState(
+    GlobalContext[1] ? GlobalContext[1] : []
+  );
   const [loading, setLoading] = useState(true);
 
   const changeState = () => {
@@ -28,7 +30,7 @@ export default function TableClients() {
       .getClients()
       .then((data) => {
         console.log("actualizamos clientes con el state", state);
-        setClientesState(data.reverse());
+        setClientesState(data.reverse())
       })
       .then(() => setLoading(false));
   }, [state]);

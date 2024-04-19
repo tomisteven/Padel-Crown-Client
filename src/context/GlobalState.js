@@ -2,7 +2,7 @@ import { createContext } from "react";
 
 const production = true;
 
-/* if (window.location.href.includes("/admin/clientes")) {
+if (window.location.href.includes("/admin/clientes")) {
   console.log("entro en admin clientes, globalState");
   try {
     const clientes = await fetch(
@@ -22,7 +22,7 @@ const production = true;
     console.log(error);
     clientesData = [];
   }
-} */
+}
 
 if (window.location.href.includes("/admin/productos") || window.location.href === "https://padelcrown.store/" || window.location.href === "http://localhost:3000/") {
   console.log("entro en admin productos, globalState");
@@ -48,4 +48,4 @@ if (window.location.href.includes("/admin/productos") || window.location.href ==
 
 /* console.log(clientesData); */
 
-export const GlobalContext = createContext([data]);
+export const GlobalContext = createContext([data, clientesData]);
