@@ -24,7 +24,7 @@ if (window.location.href.includes("/admin/clientes")) {
   }
 }
 
-if (window.location.href.includes("/admin/productos") || window.location.href === "http://localhost:3000/") {
+if (window.location.href.includes("/admin/productos") || window.location.href === "https://padelcrown.store/" || window.location.href === "http://localhost:3000/") {
   console.log("entro en admin productos, globalState");
   try {
     const productos = await fetch(
