@@ -3,8 +3,8 @@ import "./AdminRifas.css";
 import { RifaAPI } from "../../../../api/rifa";
 import swal from "sweetalert2";
 import { Dna } from "react-loader-spinner";
-import ModalEditar from "./ModalEditar";
-import { Route } from "react-router-dom";
+/* import ModalEditar from "./ModalEditar";
+import { Route } from "react-router-dom"; */
 
 const rifaController = new RifaAPI();
 export default function AdminRifas() {
@@ -12,15 +12,15 @@ export default function AdminRifas() {
   const [state, setState] = React.useState(false);
   const [value, setValue] = React.useState(0);
   const [loading, setLoading] = React.useState(true);
-  const [rifaEditar, setRifaEditar] = React.useState({});
-  const [open, setOpen] = React.useState(false);
+ /*  const [rifaEditar, setRifaEditar] = React.useState({});
+  const [open, setOpen] = React.useState(false); */
 
   const onchange = () => {
     setState(!state);
   };
 
   const openModalEditar = (rifa) => {
-    setRifaEditar(rifa._id);
+    /* setRifaEditar(rifa._id); */
     window.location.href = "/admin/rifas/edit/" + rifa._id;
 
   };
@@ -30,7 +30,7 @@ export default function AdminRifas() {
     const getRifas = async () => {
       const data = await rifaController.getRifas();
       setRifas(data);
-      setRifaEditar({});
+      /* setRifaEditar({}); */
     };
     getRifas();
     setLoading(false);
