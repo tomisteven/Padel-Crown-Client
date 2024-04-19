@@ -1,6 +1,6 @@
 import React from "react";
-import { useContext, useState, useEffect } from "react";
-import { GlobalContext } from "../../../context/GlobalState";
+import { useState, useEffect } from "react";
+/* import { GlobalContext } from "../../../context/GlobalState"; */
 import "./TableClients.css";
 import { ToastContainer, toast } from "react-toastify";
 import LoginPage from "./LoginPage/LoginPage.js";
@@ -12,33 +12,26 @@ import { Button } from "semantic-ui-react";
 
 const clientController = new Client();
 export default function TableClients() {
-  const [state, setState] = useState(0);
+  const [state, setState] = useState(false);
   const [openCreate, setOpenCreate] = useState(false);
 
-  const [clientesState, setClientesState] = useState(
-    useContext(GlobalContext)[1]
-  );
+  const [clientesState, setClientesState] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const changeState = () => {
-    setState((state) => state + 1);
+    setState(!state);
   };
 
   useEffect(() => {
     setLoading(true);
-    state === 0 && setClientesState(clientesState.reverse());
-
-    state !== 0 &&
-      clientController.getClients().then((data) => {
+    clientController
+      .getClients()
+      .then((data) => {
         console.log("actualizamos clientes con el state", state);
         setClientesState(data.reverse());
-        setLoading(false);
-      });
-
-    setTimeout(() => {
-      setLoading(false);
-    }, 800);
-  }, [state, clientesState]);
+      })
+      .then(() => setLoading(false));
+  }, [state]);
 
   const admin = localStorage.getItem("admin"); //verifica si esta logueado como admin
   if (!admin) return <LoginPage />; //si no esta logueado como admin, no puede ver la pagina
