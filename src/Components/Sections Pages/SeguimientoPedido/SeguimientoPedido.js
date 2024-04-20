@@ -19,9 +19,7 @@ export default function SeguimientoPedido() {
     } else {
       setError(null);
       const data = await seguimiento.findClients(dni);
-      console.log(data);
       data.message ? setError(data.message) : setPedido(data);
-      console.log(data);
       setLoading(false);
     }
   };
@@ -92,54 +90,58 @@ export default function SeguimientoPedido() {
       </button>
 
       <div class="rows-pedidos">
-        {pedido && pedido.map((p, i) => (
-          <div
-            className="cont-info-pedido"
-            style={pedido || error ? { display: "flex" } : { display: "none" }}
-          >
-            <div className="info-pedido">
-              <h4>Pedido N° {i + 1}</h4>
-              <div className="cliente">{p.nombre}</div>
-              <div className="seguimiento-url">
-                Link Seguimiento Andreani:{" "}
-                {p.link ? (
-                  <a href={p.link} target="_blank" rel="noopener noreferrer">
-                    Ver Seguimiento
-                  </a>
-                ) : (
-                  "No disponible"
-                )}
-              </div>
-              <div className="fechaCompra">Fecha Compra: {p.fecha}</div>
-              <div className="pedido">Pedido : {p.producto}</div>
-            </div>
-            <h5>Estados de tu pedido</h5>
-            {p.estadoPedido.map((e, i) => {
-              return (
-                <div className="cont-estado">
-                  <p> {i + 1} </p>
-                  <div className="estado">
-                    {e.estado === "Enpaquetando"
-                      ? "Empaquetando"
-                      : e.estado === ""
-                      ? "Confirmado en Fabrica"
-                      : e.estado}
-                  </div>
-                  <p
-                    style={{
-                      fontSize: "12px",
-                      color: "gray",
-                      textAlign: "right",
-                      marginRight: "10px",
-                    }}
-                  >
-                    {"Ultima Actualizacion: " + formatearFecha(e.fecha)}
-                  </p>
+        {pedido &&
+          pedido.map((p, i) => (
+            <div
+              className="cont-info-pedido"
+              style={
+                pedido || error ? { display: "flex" } : { display: "none" }
+              }
+            >
+              <div className="info-pedido">
+                <h4>Pedido N° {i + 1}</h4>
+                <div className="cliente">{p.nombre}</div>
+                <div className="seguimiento-url">
+                  Link Seguimiento Andreani:{" "}
+                  {p.link ? (
+                    <a href={p.link} target="_blank" rel="noopener noreferrer">
+                      Ver Seguimiento
+                    </a>
+                  ) : (
+                    "No disponible"
+                  )}
                 </div>
-              );
-            })}
-          </div>
-        ))}
+                <div className="fechaCompra">Fecha Compra: {p.fecha}</div>
+                <div className="pedido">Pedido : {p.producto}</div>
+              </div>
+              <h5>Estados de tu pedido</h5>
+              {p.estadoPedido.map((e, i) => {
+                return (
+                  <div className="cont-estado">
+                    <p> {i + 1} </p>
+                    <div className="estado">
+                      {e.estado === "Enpaquetando"
+                        ? "Empaquetando"
+                        : e.estado === ""
+                        ? "Confirmado en Fabrica"
+                        : e.estado}
+                    </div>
+                    <p
+                      style={{
+                        fontSize: "12px",
+                        color: "gray",
+                        textAlign: "right",
+                        marginRight: "10px",
+                      }}
+                    >
+                      {"Ultima Actualizacion: " + formatearFecha(e.fecha)}
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
+          ))}
+        {error && <div className="error">{error}</div>}
       </div>
     </div>
   );
