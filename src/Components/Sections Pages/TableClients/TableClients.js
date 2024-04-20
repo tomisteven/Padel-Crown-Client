@@ -1,5 +1,5 @@
 import React from "react";
-import { useContext, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { GlobalContext } from "../../../context/GlobalState";
 import "./TableClients.css";
 import { ToastContainer, toast } from "react-toastify";
@@ -16,7 +16,7 @@ export default function TableClients() {
   const [openCreate, setOpenCreate] = useState(false);
 
   const [clientesState, setClientesState] = useState(
-    useContext(GlobalContext)[1]
+    GlobalContext[1] ? GlobalContext[1] : []
   );
   const [loading, setLoading] = useState(true);
 
@@ -26,15 +26,13 @@ export default function TableClients() {
 
   useEffect(() => {
     setLoading(true);
-    const getClients = async () => {
-      const data = await clientController.getClients();
-      setClientesState(data.reverse());
-    };
-    getClients();
-
-    setTimeout(() => {
-      setLoading(false);
-    }, 1500);
+    clientController
+      .getClients()
+      .then((data) => {
+        console.log("actualizamos clientes con el state", state);
+        setClientesState(data.reverse())
+      })
+      .then(() => setLoading(false));
   }, [state]);
 
   const admin = localStorage.getItem("admin"); //verifica si esta logueado como admin
@@ -120,7 +118,7 @@ export default function TableClients() {
           openCreate={openCreate}
         />
       </section>
-      <div class="cont-btn-go">
+      <div className="cont-btn-go">
         <Button
           className="btn__go-up"
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}

@@ -20,7 +20,6 @@ export default function SeguimientoPedido() {
       setError(null);
       const data = await seguimiento.findClients(dni);
       data.message ? setError(data.message) : setPedido(data);
-      console.log(data);
       setLoading(false);
     }
   };
@@ -36,7 +35,10 @@ export default function SeguimientoPedido() {
     // Intenta parsear la fecha en formato "dd/mm/aaaa"
     var formatoDDMMYYYY = /^\d{2}\/\d{2}\/\d{4}$/;
     var formatoDDMMYYYY2 = /^\d{2}\/\d{1}\/\d{4}$/;
-    if (formatoDDMMYYYY.test(fechaString) || formatoDDMMYYYY2.test(fechaString)) {
+    if (
+      formatoDDMMYYYY.test(fechaString) ||
+      formatoDDMMYYYY2.test(fechaString)
+    ) {
       return fechaString;
     }
     // Intenta parsear la fecha en formato predeterminado
@@ -87,54 +89,58 @@ export default function SeguimientoPedido() {
         Limpiar Campos
       </button>
 
-      <div
-        className="cont-info-pedido"
-        style={pedido || error ? { display: "flex" } : { display: "none" }}
-      >
-        {pedido && (
-          <>
-            <div className="info-pedido">
-              <div className="cliente">{pedido.cliente}</div>
-              <div className="seguimiento-url">
-                Link Seguimiento Andreani:{" "}
-                {pedido.link ? (
-                  <a
-                    href={pedido.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Ver Seguimiento
-                  </a>
-                ) : (
-                  "No disponible"
-                )}
-              </div>
-              <div className="fechaCompra">Fecha Compra: {pedido.fecha}</div>
-              <div className="pedido">Pedido : {pedido.pedido}</div>
-            </div>
-            <h5>Estados de tu pedido</h5>
-            {pedido.estado.map((e, i) => {
-              return (
-                <div className="cont-estado">
-                  <p> {i + 1} </p>
-                  <div className="estado">
-                    {e.estado === "Enpaquetando" ? "Empaquetando" : e.estado === "" ? "Confirmado en Fabrica" : e.estado}
-                  </div>
-                  <p
-                    style={{
-                      fontSize: "12px",
-                      color: "gray",
-                      textAlign: "right",
-                      marginRight: "10px",
-                    }}
-                  >
-                    {"Ultima Actualizacion: " + formatearFecha(e.fecha)}
-                  </p>
+      <div class="rows-pedidos">
+        {pedido &&
+          pedido.map((p, i) => (
+            <div
+              className="cont-info-pedido"
+              style={
+                pedido || error ? { display: "flex" } : { display: "none" }
+              }
+            >
+              <div className="info-pedido">
+                <h4>Pedido N° {i + 1}</h4>
+                <div className="cliente">{p.nombre}</div>
+                <div className="seguimiento-url">
+                  Link Seguimiento Andreani:{" "}
+                  {p.link ? (
+                    <a href={p.link} target="_blank" rel="noopener noreferrer">
+                      Ver Seguimiento
+                    </a>
+                  ) : (
+                    "No disponible"
+                  )}
                 </div>
-              );
-            })}
-          </>
-        )}
+                <div className="fechaCompra">Fecha Compra: {p.fecha}</div>
+                <div className="pedido">Pedido : {p.producto}</div>
+              </div>
+              <h5>Estados de tu pedido</h5>
+              {p.estadoPedido.map((e, i) => {
+                return (
+                  <div className="cont-estado">
+                    <p> {i + 1} </p>
+                    <div className="estado">
+                      {e.estado === "Enpaquetando"
+                        ? "Empaquetando"
+                        : e.estado === ""
+                        ? "Confirmado en Fabrica"
+                        : e.estado}
+                    </div>
+                    <p
+                      style={{
+                        fontSize: "12px",
+                        color: "gray",
+                        textAlign: "right",
+                        marginRight: "10px",
+                      }}
+                    >
+                      {"Ultima Actualizacion: " + formatearFecha(e.fecha)}
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
+          ))}
         {error && <div className="error">{error}</div>}
       </div>
     </div>

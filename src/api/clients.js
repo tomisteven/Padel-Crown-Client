@@ -111,7 +111,7 @@ export class Client {
   }
 
   async getClients() {
-    const res = await fetch(this.url + "/admin/clientes", {
+    const res = await fetch(this.url + "/api/admin/clientes", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

@@ -1,9 +1,10 @@
 export class RifaAPI {
+
+
   production = true;
   url = this.production
     ? "https://particular-bernita-digitalcode.koyeb.app"
     : "http://localhost:8080";
-
 
   async createPayment(body) {
     console.log(body);
@@ -17,18 +18,15 @@ export class RifaAPI {
     return response.json();
   }
 
-  async getRifasDisponibles(state) {
-    const response = await fetch(
-      this.url + "/rifa/get?estado" + state
-    );
-    return response.json();
-  }
-
   async getRifa(id) {
     const response = await fetch(this.url + "/rifa/get/" + id);
     return response.json();
   }
 
+  async getRifasDisponibles(state) {
+    const response = await fetch(this.url + "/rifa/get?estado" + state);
+    return response.json();
+  }
 
   async getRifas() {
     const response = await fetch(this.url + "/rifa/get");
@@ -66,4 +64,6 @@ export class RifaAPI {
     });
     return response.json();
   }
+
+
 }

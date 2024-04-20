@@ -139,7 +139,6 @@ const ListaProductos = () => {
     setLoading(true);
     const fetchProducts = async () => {
       const res = await productController.getProducts();
-      console.log(res);
       setProductos(res);
     };
     fetchProducts();

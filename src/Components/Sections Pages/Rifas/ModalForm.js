@@ -33,7 +33,6 @@ export default function ModalForm({ open, setOpen, rifas, precioTotal }) {
         );
 
     setOpen(false);
-    /*  */
   };
 
   const formik = useFormik({

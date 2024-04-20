@@ -4,7 +4,10 @@ import "./ModalVerCliente.css";
 import { toast } from "react-toastify";
 import { Client } from "../../../../../api/clients";
 import { RotatingLines } from "react-loader-spinner";
+import { Functions } from "../../functions";
 
+
+const functionsController = new Functions();
 const clientController = new Client();
 
 export default function ModalVerCliente({
@@ -55,36 +58,19 @@ export default function ModalVerCliente({
     changeState();
   };
 
-  function formatearFecha(fechaString) {
-    // Intenta parsear la fecha en formato "dd/mm/aaaa"
-    var formatoDDMMYYYY = /^\d{2}\/\d{2}\/\d{4}$/;
-    var formatoDDMMYYYY2 = /^\d{2}\/\d{1}\/\d{4}$/;
-    if (formatoDDMMYYYY.test(fechaString) || formatoDDMMYYYY2.test(fechaString)) {
-      return fechaString;
-    }
-    // Intenta parsear la fecha en formato predeterminado
-    var fechaPredeterminada = new Date(fechaString);
-    if (!isNaN(fechaPredeterminada.getDate())) {
-      var diaPredeterminado = fechaPredeterminada.getDate();
-      var mesPredeterminado = fechaPredeterminada.getMonth() + 1; // Se suma 1 porque los meses van de 0 a 11 en JavaScript
-      var anioPredeterminado = fechaPredeterminada.getFullYear();
-
-      return diaPredeterminado + '/' + (mesPredeterminado < 10 ? '0' : '') + mesPredeterminado + '/' + anioPredeterminado;
-    }
-
-    // Si no se pudo parsear en ninguno de los formatos, devuelve null
-    return null;
-  }
-
-  useEffect(() => {
+   useEffect(() => {
     setLoading(true);
     const getClient = async () => {
-      const data = await clientController.getClient(client._id);
-      setClientState(data);
+      if (openVer) {
+        const data = await clientController.getClient(client._id);
+        setClientState(data);
+        setEditForm(data);
+      }
+      return
     };
     setLoading(false);
     getClient();
-  }, [client, state]);
+  }, [client, state, openVer]);
 
   if (typeof clientState.estadoPedido === "undefined") {
     return <div></div>;
@@ -342,7 +328,7 @@ export default function ModalVerCliente({
                           </p>
                           <p>
                             {estado.fecha &&
-                              "Fecha: " + formatearFecha(estado.fecha)
+                              "Fecha: " + functionsController.formatFecha(estado.fecha)
                             }
                           </p>
                         </h2>
