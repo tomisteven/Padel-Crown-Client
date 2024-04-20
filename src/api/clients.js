@@ -33,13 +33,16 @@ export class Client {
   }
 
   async eliminarTodo() {
-    const res = await fetch(this.url + "/admin/clientes/delete/all/permanently", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: "token_padelcrown",
-      },
-    });
+    const res = await fetch(
+      this.url + "/admin/clientes/delete/all/permanently",
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "token_padelcrown",
+        },
+      }
+    );
     const data = await res.json();
     return data;
   }

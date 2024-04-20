@@ -16,6 +16,8 @@ import { Routes, Route } from "react-router-dom";
 import PersonalizarMain from "./Components/Sections Pages/Personalizar/PersonalizarMain";
 import ProductsTable from "./Components/Sections Pages/TableClients/ProductsTable/ProductsTable.js";
 import Rifas from "./Components/Sections Pages/Rifas/Rifas.js";
+import AdminRifas from "./Components/Sections Pages/TableClients/AdminRifas/AdminRifas.js";
+import EditRifa from "./Components/Sections Pages/TableClients/AdminRifas/ModalEditar.js";
 
 function App() {
   return (
@@ -30,6 +32,8 @@ function App() {
         />
         <Route path="/nosotros" element={<Nosotros />} />
         <Route path="/rifas" element={<Rifas />} />
+        <Route path="/admin/rifas" element={<AdminRifas />} />
+        <Route path="/admin/rifas/edit/:id" element={<EditRifa />} />
         <Route path="/revendedores" element={<Revendedores />} />
         <Route path="/personalizar/paleta" element={<PersonalizarMain />} />
         <Route path="/seguimiento" element={<SeguimientoPedido />} />

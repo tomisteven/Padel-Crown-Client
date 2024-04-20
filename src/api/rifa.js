@@ -23,4 +23,47 @@ export class RifaAPI {
     );
     return response.json();
   }
+
+  async getRifa(id) {
+    const response = await fetch(this.url + "/rifa/get/" + id);
+    return response.json();
+  }
+
+
+  async getRifas() {
+    const response = await fetch(this.url + "/rifa/get");
+    return response.json();
+  }
+
+  async deleteAllRifas() {
+    const response = await fetch(this.url + "/rifa/delete", {
+      method: "DELETE",
+    });
+    return response.json();
+  }
+
+  async createRifa(value) {
+    const response = await fetch(this.url + "/rifa/create", {
+      method: "POST",
+      body: JSON.stringify({
+        cantidad: value,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    return response.json();
+  }
+
+
+  async editRifa(rifa) {
+    const response = await fetch(this.url + "/rifa/edit/" + rifa._id, {
+      method: "PATCH",
+      body: JSON.stringify(rifa),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    return response.json();
+  }
 }
