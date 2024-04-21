@@ -139,7 +139,7 @@ export class Client {
 
     client.estado = client.estadoPedido[0].estado;
 
-    await fetch(this.url + "/admin/clientes/create", {
+    const res = await fetch(this.url + "/admin/clientes/create", {
       method: "POST",
       body: JSON.stringify(client),
       headers: {
@@ -147,7 +147,8 @@ export class Client {
         Authorization: "token_padelcrown",
       },
     });
-    return true;
+    const data = await res.json();
+    return { data: data, status: res.status};
   }
 
   async addComentario(id, comentario) {

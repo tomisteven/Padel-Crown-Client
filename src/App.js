@@ -24,6 +24,7 @@ function App() {
     <div className="App">
       <Header />
       <Routes>
+        <Route path="/*" element={<h1>404</h1>} />
         <Route path="/" element={<SectionTwo />} exact />
         <Route path="/test" element={<SectionQuePalaComprar />} exact />
         <Route path="/nosotros" element={<Nosotros />} />
@@ -36,7 +37,6 @@ function App() {
         <Route path="/admin/clientes" element={<TableClients />} />
         <Route path="/admin/rifas" element={<AdminRifas />} />
         <Route path="/admin/rifas/edit/:id" element={<EditRifa />} />
-        <Route path="/*" element={<h1>404</h1>} />
         <Route path="/admin/productos" element={<ProductsTable />} />
         <Route path="/admin/eliminados" element={<ClientsELiminados />} />
       </Routes>

@@ -11,6 +11,7 @@ export default function TableClientsBody({
   state,
   setOpenCreate,
   openCreate,
+  setClientesState
 }) {
   const [openVer, setOpenVer] = useState(false);
   const [openEditar, setOpenEditar] = useState(false);
@@ -188,6 +189,8 @@ export default function TableClientsBody({
 
       {/* MODALES */}
       <Modales
+      setClientesState={setClientesState}
+        clientes = {clientesState}
         changeState={changeState}
         state={state}
         client={client}

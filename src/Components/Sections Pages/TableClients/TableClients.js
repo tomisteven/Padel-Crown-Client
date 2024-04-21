@@ -1,8 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { GlobalContext } from "../../../context/GlobalState";
+/* import { GlobalContext } from "../../../context/GlobalState"; */
 import "./TableClients.css";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import LoginPage from "./LoginPage/LoginPage.js";
 import { Client } from "../../../api/clients";
 import Swal from "sweetalert2";
@@ -15,9 +15,7 @@ export default function TableClients() {
   const [state, setState] = useState(false);
   const [openCreate, setOpenCreate] = useState(false);
 
-  const [clientesState, setClientesState] = useState(
-    GlobalContext[1] ? GlobalContext[1] : []
-  );
+  const [clientesState, setClientesState] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const changeState = () => {
@@ -29,8 +27,7 @@ export default function TableClients() {
     clientController
       .getClients()
       .then((data) => {
-        console.log("actualizamos clientes con el state", state);
-        setClientesState(data.reverse())
+        setClientesState(data.reverse());
       })
       .then(() => setLoading(false));
   }, [state]);
@@ -54,17 +51,11 @@ export default function TableClients() {
     setClientesState(filteredClients);
   };
 
-  const createClient = async () => {
-    const create = await clientController.createClient();
-    create && toast.success("Cliente creado con exito", { autoClose: 1000 });
-    changeState();
-  };
-
   const deleteClient = async (id) => {
     try {
       setLoading(true);
       const client = await clientController.getClient(id);
-      setLoading(false);
+      /* setLoading(false); */
       const result = await Swal.fire({
         icon: "warning",
         title: `¿Estás seguro de eliminar a: ${client.nombre}?`,
@@ -75,13 +66,15 @@ export default function TableClients() {
       });
 
       if (result.isConfirmed) {
-        setLoading(true);
+        /* setLoading(true); */
         await clientController.deleteClient(id);
-        changeState();
+        setClientesState(clientesState.filter((cliente) => cliente._id !== id));
+        //changeState();
         Swal.fire("Cliente eliminado con éxito", "", "success");
         setLoading(false);
       } else if (result.isDenied) {
         Swal.fire("Genial. Conservamos el Cliente", "", "info");
+        setLoading(false);
       }
     } catch (error) {
       console.error("Error al eliminar el cliente:", error);
@@ -100,15 +93,14 @@ export default function TableClients() {
           setState={setState}
           state={state}
           clientesState={clientesState}
-          createClient={createClient}
           filterClients={filterClients}
           setClientesState={setClientesState}
           setOpenCreate={setOpenCreate}
-          openCreate={openCreate}
         />
       </section>
       <section class="table__body">
         <TableClientsBody
+          setClientesState={setClientesState}
           clientesState={clientesState}
           deleteClient={deleteClient}
           loading={loading}

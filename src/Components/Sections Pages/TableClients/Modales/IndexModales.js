@@ -14,6 +14,8 @@ export default function Modales({
   openSeguimiento,
   setOpenCreate,
   openCreate,
+  clientes,
+  setClientesState
 }) {
   return (
     <div>
@@ -33,7 +35,7 @@ export default function Modales({
         onChange={changeState}
       />
 
-      <ModalCrearCliente setOpenCreate={setOpenCreate} openCreate={openCreate}  changeState={changeState} />
+      <ModalCrearCliente setClientesState={setClientesState} clientes={clientes} setOpenCreate={setOpenCreate} openCreate={openCreate}  changeState={changeState} />
     </div>
   );
 }

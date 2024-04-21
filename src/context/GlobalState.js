@@ -1,11 +1,11 @@
 import { createContext } from "react";
 
-const production = true;
+/* const production = true; */
 
 const productos = await fetch(
   "https://particular-bernita-digitalcode.koyeb.app/"
 );
-const clientes = await fetch(
+ /* const clientes = await fetch(
   production
     ? "https://particular-bernita-digitalcode.koyeb.app/admin/clientes"
     : "http://localhost:8080/admin/clientes",
@@ -15,8 +15,8 @@ const clientes = await fetch(
       "Content-Type": "application/json",
     },
   }
-);
+); */
 const data = await productos.json();
-const clientesData = await clientes.json();
+/* const clientesData = await clientes.json(); */
 
-export const GlobalContext = createContext([data, clientesData]);
+export const GlobalContext = createContext([data ]);

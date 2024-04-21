@@ -11,13 +11,19 @@ export default function ModalCrearCliente({
   setOpenCreate,
   openCreate,
   changeState,
+  clientes,
+  setClientesState
 }) {
+
+  //console.log("clientes", clientes);
+
   const formik = useFormik({
     initialValues: initialValues(),
     validationSchema: validationSchema(),
     onSubmit: async (values) => {
       const res = await clientController.createClient(values);
-      res
+      //console.log("res", res);
+      res.status === 201
         ? toast.success("Cliente creado con exito", {
             autoClose: 1000,
             theme: "colored",
@@ -26,7 +32,9 @@ export default function ModalCrearCliente({
             autoClose: 1000,
             theme: "colored",
           });
-      changeState();
+          clientes.unshift(res.data);
+
+      /* changeState(); */
 
       setOpenCreate(false);
       formik.resetForm();
@@ -88,8 +96,16 @@ export default function ModalCrearCliente({
       value: "En Local de Padel Crown",
     },
     { key: "Empaquetando", text: "Empaquetando", value: "Empaquetando" },
-    { key: "Recibido por Andreani", text: "Recibido por Andreani", value: "Recibido por Andreani" },
-    { key: "En Distribucion", text: "En Distribucion", value: "En Distribucion" },
+    {
+      key: "Recibido por Andreani",
+      text: "Recibido por Andreani",
+      value: "Recibido por Andreani",
+    },
+    {
+      key: "En Distribucion",
+      text: "En Distribucion",
+      value: "En Distribucion",
+    },
     { key: "Cancelado", text: "Cancelado", value: "Cancelado" },
     { key: "Enviado", text: "Enviado", value: "Enviado" },
     { key: "Entregado", text: "Entregado", value: "Entregado" },

@@ -20,7 +20,7 @@ import BtnSeguimiento from "./BtnSeguimiento.js";
 
 export default function SectionTwo() {
   const [loading, setLoading] = useState(true);
-  const [onChange, setOnChange] = useState(false)
+  const [onChange, setOnChange] = useState(false);
   const [value, setValue] = useState("");
   const [productsSelected, setProductsSelected] = useState([]);
   const [stateCart, setStateCart] = useState(false);
@@ -88,37 +88,27 @@ export default function SectionTwo() {
         />
 
         <ExpandMenu
-        setStateCart={setStateCart}
+          setStateCart={setStateCart}
           setProductsSelected={setProductsSelected}
           productsSelected={productsSelected}
         />
       </section>
-
       <SectionImgs />
-
       <SectionEnvios />
-
       <BtnWhatssapp /> {/* boton flotante w app */}
-
       <BtnPaletaPersonalizada /> {/* boton flotante paleta personalizada */}
-
       <BtnSeguimiento /> {/* boton flotante seguimiento de pedido */}
-
       <BtnMenuExpandible
         productsSelected={productsSelected}
         stateCart={stateCart}
         setStateCart={setStateCart}
       />
-
-
-
       <ModalComponent
         open={open}
         setOpen={setOpen}
         productImage={productImage}
       />
-
-      <PopPush setOpenPopPush={setOpenPopPush} openPopPush={openPopPush}/>
+      <PopPush setOpenPopPush={setOpenPopPush} openPopPush={openPopPush} />
       <ToastContainer />
     </>
   );
