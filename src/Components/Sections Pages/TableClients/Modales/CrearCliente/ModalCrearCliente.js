@@ -290,6 +290,7 @@ export default function ModalCrearCliente({
           labelPosition="left"
           icon="checkmark"
           type="submit"
+          loading={formik.isSubmitting}
           onClick={formik.handleSubmit}
           positive
         />
