@@ -27,7 +27,7 @@ export default function TableClients() {
     clientController
       .getClients()
       .then((data) => {
-        setClientesState(data.reverse());
+        setClientesState(data);
       })
       .then(() => setLoading(false));
   }, [state]);

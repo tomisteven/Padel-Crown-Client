@@ -111,7 +111,8 @@ export class Client {
   }
 
   async getClients() {
-    const res = await fetch(this.url + "/api/admin/clientes", {
+    //cambiamos la url por incompletos
+    const res = await fetch(this.url + "/api/admin/clientes/incompletos", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
