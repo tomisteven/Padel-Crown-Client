@@ -23,6 +23,15 @@ export default function HeaderFilters({
       ></Button>
       <Button
         onClick={() => {
+          window.location.href = "/admin/rifas";
+        }}
+        content="Admin Rifas"
+        color="orange"
+        size="small"
+        className="btn-editar"
+      ></Button>
+      <Button
+        onClick={() => {
           window.location.href = "/admin/eliminados";
         }}
         content="VER CLIENTES ELIMINADOS"
