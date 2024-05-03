@@ -46,8 +46,8 @@ export default function SectionOne() {
             </a>
           </button>
           <button className="start-button-r">
-            <a className="a-button-r" href="/revendedores">
-              Ver Revendedores
+            <a className="a-button-r" href="/rifas">
+              Ver RIFAS
             </a>
           </button>
           <button className="start-button-m">

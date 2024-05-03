@@ -97,7 +97,8 @@ export default function SectionTwo() {
       <SectionEnvios />
       <BtnWhatssapp /> {/* boton flotante w app */}
       <BtnPaletaPersonalizada /> {/* boton flotante paleta personalizada */}
-      <BtnSeguimiento /> {/* boton flotante seguimiento de pedido */}
+      <BtnSeguimiento titulo={"Seguimiento Pedido"} icono={"truck"} link={"/seguimiento"}/> {/* boton flotante seguimiento de pedido */}
+
       <BtnMenuExpandible
         productsSelected={productsSelected}
         stateCart={stateCart}

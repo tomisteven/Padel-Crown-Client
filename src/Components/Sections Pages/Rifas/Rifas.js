@@ -28,6 +28,8 @@ export default function Rifas() {
   };
 
   useEffect(() => {
+    setPrecioTotal(0);
+    setSeleccionadas([]);
     if ($rifa_asignada === "true") {
       Swal.fire({
         icon: "success",
@@ -54,45 +56,36 @@ export default function Rifas() {
 
   //Funcion para agregar una rifa a la lista de rifas seleccionadas
   const addRifa = (rifa) => {
+    //Validacion para que no se pueda seleccionar una rifa ya seleccionada
     if (
       rifas.filter((r) => r.numero === rifa.numero && r.estado).length === 0 &&
-      seleccionadas.length < 5
+      seleccionadas.length < 1
     ) {
       const updatedRifas = rifas.map((r) =>
         r.numero === rifa.numero ? { ...r, estado: true } : r
       );
       setRifas(updatedRifas);
+      //fijamos el precio total de la rifa
+      setPrecioTotal(200);
       setSeleccionadas([...seleccionadas, rifa]);
     }
 
-    if (seleccionadas.length === 5) {
+    if (seleccionadas.length === 1) {
       Swal.fire({
         icon: "error",
         title: "Oops...",
-        text: "Solo puedes seleccionar 5 rifas",
+        text: "Solo puedes seleccionar 1 rifa! Para comprar mas, debes finalizar la compra! y volver a seleccionar!",
       });
     }
     //Switch para calcular el precio total de las rifas seleccionadas
-    switch (seleccionadas.length + 1) {
+    /* switch (seleccionadas.length + 1) {
       case 1:
-        setPrecioTotal(1);
-        break;
-      case 2:
-        setPrecioTotal(2);
-        break;
-      case 3:
-        setPrecioTotal(3);
-        break;
-      case 4:
-        setPrecioTotal(4);
-        break;
-      case 5:
-        setPrecioTotal(5);
+        setPrecioTotal(2000);
         break;
       default:
         setPrecioTotal(0);
         break;
-    }
+    } */
   };
 
   //Funcion para quitar una rifa de la lista de rifas seleccionadas
@@ -278,12 +271,16 @@ export default function Rifas() {
                 <h3>3. Solo puedes seleccionar una vez cada rifa</h3>
               </li>
               <li>
-                <h3>4. Solo puedes comprar las rifas seleccionadas</h3>
+                <h3>4. Solo puedes comprar la rifas seleccionada</h3>
               </li>
               <li>
-                <h2>5. 2 x $3600</h2>
+                <h2>1 x $2000</h2>
               </li>
+
               <li>
+                <h2>Solo se puede comprar de a 1 rifa</h2>
+              </li>
+              {/* <li>
                 <h2>6. 3 x $3600</h2>
               </li>
               <li>
@@ -294,7 +291,7 @@ export default function Rifas() {
               </li>
               <li>
                 <h2>9. 5 x $6000</h2>
-              </li>
+              </li> */}
             </ul>
           </div>
           <ModalForm
