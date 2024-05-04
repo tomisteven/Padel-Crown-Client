@@ -50,6 +50,7 @@ export default function Rifas() {
       .getRifasDisponibles(true)
       .then((res) => {
         setRifas(res);
+        console.log(res);
       })
       .finally(() => setLoading(false));
   }, [$rifa_asignada, $codigoRifa, change]);
@@ -66,7 +67,7 @@ export default function Rifas() {
       );
       setRifas(updatedRifas);
       //fijamos el precio total de la rifa
-      setPrecioTotal(200);
+      setPrecioTotal(2000);
       setSeleccionadas([...seleccionadas, rifa]);
     }
 
@@ -263,9 +264,6 @@ export default function Rifas() {
             <ul>
               <li>
                 <h3>1. El precio de la rifa es de $2000</h3>
-              </li>
-              <li>
-                <h3>2. Solo puedes seleccionar 5 rifas</h3>
               </li>
               <li>
                 <h3>3. Solo puedes seleccionar una vez cada rifa</h3>
