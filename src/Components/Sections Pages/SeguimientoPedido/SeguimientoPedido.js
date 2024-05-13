@@ -19,6 +19,7 @@ export default function SeguimientoPedido() {
     } else {
       setError(null);
       const data = await seguimiento.findClients(dni);
+
       data.message ? setError(data.message) : setPedido(data);
       setLoading(false);
     }
@@ -103,8 +104,8 @@ export default function SeguimientoPedido() {
                 <div className="cliente">{p.nombre}</div>
                 <div className="seguimiento-url">
                   Link Seguimiento Andreani:{" "}
-                  {p.link ? (
-                    <a href={p.link} target="_blank" rel="noopener noreferrer">
+                  {p.linkSeguimiento ? (
+                    <a href={p.linkSeguimiento} target="_blank" rel="noopener noreferrer">
                       Ver Seguimiento
                     </a>
                   ) : (
