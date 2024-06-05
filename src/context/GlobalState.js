@@ -3,7 +3,7 @@ import { createContext } from "react";
 /* const production = true; */
 /* https://particular-bernita-digitalcode.koyeb.app/ */
 const productos = await fetch(
-  "http://localhost:8080/",
+  "https://particular-bernita-digitalcode.koyeb.app/",
 );
  /* const clientes = await fetch(
   production
