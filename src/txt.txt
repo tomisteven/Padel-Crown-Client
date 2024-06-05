@@ -1,4 +1,18 @@
-.section-two {
+{/* <h5
+              className="ultimo-stock"
+              style={
+                item.cantidad === 0 ? { color: "red" } : { color: "white" }
+              }
+            >
+              {" "}
+              {item.cantidad === 0
+                ? "Sin stock"
+                : "Ultimo/s " + item.cantidad + " en Stock!"}
+            </h5> */}
+
+
+
+            .section-two {
   height: 100%;
   width: 100%;
   display: flex;
@@ -18,7 +32,7 @@
   z-index: -1;
 }
 
-.btn-buy {
+.btn-buy{
   box-shadow: 2px 4px 12px 5px rgba(0, 0, 0, 0.149);
 }
 
@@ -108,7 +122,8 @@
 .card-product {
   width: 98%;
   max-height: 650px;
-  border-radius: 10px;
+  border-top-right-radius: 25px;
+  border-top-left-radius: 25px;
   margin-top: 45px;
   margin-bottom: 15px;
   -webkit-box-shadow: 1px 19px 27px 0px rgba(102, 102, 102, 0.43);
@@ -123,7 +138,7 @@
   box-shadow: 1px 19px 27px 0px rgba(236, 176, 23, 0.73);
   transition: 0.5s;
 }
-.card-body-name {
+.card-body-name{
   width: auto;
   height: auto;
   text-align: center;
@@ -132,7 +147,7 @@
   width: 100%;
   margin: auto;
   height: 200px;
-  object-fit: contain;
+  object-fit:contain;
   min-height: 200px;
   padding: 10px;
 }
@@ -167,6 +182,7 @@
   width: 100%;
   height: auto;
   margin: auto;
+
 }
 .img-description-span {
   width: 15px;
@@ -204,15 +220,14 @@
   width: 90%;
   margin: auto;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
   flex-wrap: wrap;
   grid-gap: 5px;
   margin-top: 5px;
 }
 
-.colors-product {
+.colors-product{
   text-align: center;
-  background-color: #000000;
 }
 
 /* filters */
@@ -273,35 +288,17 @@
   font-weight: 400;
 }
 
-.price1,
-.add {
+.price1, .add {
   width: 100%;
   text-align: center;
-}
 
-.price1 {
-  color: #000000;
-  font-size: 19px;
-  font-weight: 600;
-  margin-top: 5px;
-}
 
-.add {
-  position: relative;
-  font-size: 15px;
-  font-weight: 600;
-  left: 25%;
-  color: red;
-  text-decoration: line-through;
 }
 .btn-new-add {
   width: 100%;
   height: 30px;
   background-color: #009dff;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
   border: none;
-
   color: white;
   font-weight: 800;
   font-size: 15px;

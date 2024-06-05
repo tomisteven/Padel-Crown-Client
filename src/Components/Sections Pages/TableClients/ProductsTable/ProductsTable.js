@@ -17,6 +17,8 @@ const Producto = ({ producto, changeState }) => {
     stock: producto.stock,
     image: producto.image,
     cantidad: producto.cantidad,
+    orden: producto.orden,
+    url: producto.url,
   });
 
   const handleInputChange = (e) => {
@@ -78,6 +80,14 @@ const Producto = ({ producto, changeState }) => {
           value={formValues.category}
           name="category"
         />
+        <Input
+          className="input-producto"
+          size="small"
+          label="URL"
+          onChange={handleInputChange}
+          value={formValues.url}
+          name="url"
+        />
         <h6>Stock</h6>
         <Select
           placeholder="Stock"
@@ -109,6 +119,15 @@ const Producto = ({ producto, changeState }) => {
           name="cantidad"
           value={formValues.cantidad}
         />
+        <Input
+          className="input-producto"
+          size="small"
+          label="ORDEN"
+          fluid
+          onChange={handleInputChange}
+          name="orden"
+          value={formValues.orden}
+        />
       </div>
       <div className="producto-table__actions">
         <Button
@@ -139,6 +158,7 @@ const ListaProductos = () => {
     setLoading(true);
     const fetchProducts = async () => {
       const res = await productController.getProducts();
+      res.sort((a, b) => a.orden - b.orden);
       setProductos(res);
     };
     fetchProducts();

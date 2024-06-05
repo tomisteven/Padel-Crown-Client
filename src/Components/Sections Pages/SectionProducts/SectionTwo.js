@@ -27,22 +27,24 @@ export default function SectionTwo() {
   const [open, setOpen] = React.useState(false);
   const [openPopPush, setOpenPopPush] = React.useState(false);
   const [productImage, setProductImage] = useState({});
+const categorias = [
+  "Black EVA",
+	"Linea Black 12K",
+	"Linea Black Fibra",
+	"Linea Fg Fibra",
+	"Atos 3k Linea 2024",
+  "Atos 12k Linea 2024",
+	"Full Carbono 3k",
+	"Combos",
+	"Bolsos",
+	"Indumentaria",
+	"Accesorios"
+]
 
-  const categorias = [
-    "Fibra de Carbono",
-    "Fibra de Vidrio",
-    "Foam",
-    "Eva",
-    "Evasoft",
-    "Sin Ploteo",
-    "Control",
-    "Potencia",
-    "Accesorios",
-  ];
 
   const $productos = useContext(GlobalContext)[0];
 
-  const [products, setProducts] = useState(useContext(GlobalContext)[0]);
+  const [products, setProducts] = useState(useContext(GlobalContext)[0].sort((a, b) => a.orden - b.orden));
   const productsCategory = useContext(GlobalContext)[0];
   useEffect(() => {
     setLoading(true);

@@ -1,34 +1,50 @@
 import React from "react";
 import "./SeccionForma.css";
 
-export default function SeccionForma({ formas, setLoading, setItems, items, setPaso, paso  }) {
-
+export default function SeccionForma({
+  formas,
+  setLoading,
+  setItems,
+  items,
+  setPaso,
+  paso,
+}) {
   const changeForm = (key, value) => {
     setLoading(true);
     localStorage.setItem(key, value);
     setTimeout(() => {
       setLoading(false);
-      setPaso(paso + 1 );
+      setPaso(paso + 1);
     }, 200);
-  }
+  };
 
   return (
     <div className="cont-seccion-forma">
       <h5 className="title-sections">Elige la forma de tu paleta</h5>
       <ul className="ul-materiales">
-        <li  className="li-materiales">
+        <li className="li-materiales">
           <p>
-            <span className="span-title">Redonda</span>, <span className="span-sub"> Ventajas </span>: Genera mas control y menos potencia, ideal para jugadores de nivel principiante e intermedio.{" "}
+            <span className="span-title">Redonda (Control)</span>,{" "}
+            <span className="span-sub"> Ventajas </span>: Punto dulce amplio en
+            el centro. Balance medio. Precision en los golpes. Paleta de 90/100
+            en Control.{" "}
+          </p>
+        </li>
+
+        <li className="li-materiales">
+          <p>
+            <span className="span-title">Diamante (Potencia)</span>,{" "}
+            <span className="span-sub"> Ventajas </span>: Genera mas potencia y
+            control, ideal para jugadores que buscan un punto dulce bien aplio y
+            que no quieran perder potencia, es un balance entre las 3 formas{" "}
           </p>
         </li>
         <li className="li-materiales">
           <p>
-            <span className="span-title">Diamante </span> , <span className="span-sub"> Ventajas </span>: Genera mas potencia y menos control, ideal para jugadores de nivel intermedio y avanzado que no quieren perder precision en el golpe y potencia{" "}
-          </p>
-        </li>
-        <li className="li-materiales">
-          <p>
-          <span className="span-title">Lagrima</span>, <span className="span-sub"> Ventajas </span>: Genera mas potencia y control, ideal para jugadores de nivel intermedio y avanzado que no quieren perder la potencia sobre el control, es un balance entre las 3 formas{" "}
+            <span className="span-title">Gota (Potencia) </span> ,{" "}
+            <span className="span-sub"> Ventajas </span>: Formato de potencia.
+            Balance medio-Alto. Paleta con relacion 90/100 de Potencia.
+            Presicion y control.{" "}
           </p>
         </li>
       </ul>
@@ -49,7 +65,26 @@ export default function SeccionForma({ formas, setLoading, setItems, items, setP
                 changeForm("forma", e.target.value);
               }}
             />
-            Redonda
+            Redonda (Control)
+          </label>
+        </div>
+
+        <div className="option-forma">
+          <img
+            src="https://res.cloudinary.com/didw6uakh/image/upload/v1697044429/FULL_CARBONO_DIAMANTE_v7ojrw.png"
+            alt=""
+          />
+          <label className="cyberpunk-checkbox-label">
+            <input
+              value={"Diamante"}
+              checked={formas === "Diamante"}
+              onChange={(e) => {
+                changeForm("forma", e.target.value);
+              }}
+              type="checkbox"
+              className="cyberpunk-checkbox"
+            />
+            Diamante (Potencia)
           </label>
         </div>
         <div className="option-forma">
@@ -60,37 +95,19 @@ export default function SeccionForma({ formas, setLoading, setItems, items, setP
 
           <label className="cyberpunk-checkbox-label">
             <input
-              value={"Diamante"}
+              value={"Gota"}
               onChange={(e) => {
                 changeForm("forma", e.target.value);
               }}
               type="checkbox"
-              checked={formas === "Diamante"}
+              checked={formas === "Gota"}
               className="cyberpunk-checkbox"
             />
-            Diamante
+            Gota (Potencia)
           </label>
         </div>
-        <div className="option-forma">
-          <img
-            src="https://res.cloudinary.com/didw6uakh/image/upload/v1697044429/FULL_CARBONO_DIAMANTE_v7ojrw.png"
-            alt=""
-          />
-          <label className="cyberpunk-checkbox-label">
-            <input
-              value={"Lagrima"}
-              checked={formas === "Lagrima"}
-              onChange={(e) => {
-                changeForm("forma", e.target.value);
-              }}
-              type="checkbox"
-              className="cyberpunk-checkbox"
-            />
-            Lagrima
-          </label>
-        </div>
-      </div>
 
+      </div>
     </div>
   );
 }

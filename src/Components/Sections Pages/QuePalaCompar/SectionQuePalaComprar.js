@@ -13,53 +13,54 @@ export default function SectionQuePalaComprar() {
   const questions = [
     {
       key: "tipoJugador",
-      title: "¿Qué tipo de jugador sos?",
-      options: ["Profesional", "Amateur", "Principiante"],
+      title: "HACE CUANTO JUGAS AL PADEL?",
+      options: ["PROFESIONAL (4-6 AÑOS)", "AVANZADO (2-3 AÑOS)", " INICIANTE (0-1 AÑO)"],
     },
     {
       key: "posicionJuego",
-      title: "¿Posicion donde juegas?",
-      options: ["Revez", "Drive", "Ambas"],
+      title: "POSICION DONDE JUGAS MAS?",
+      options: ["IZQUIERDA", "DERECHA", "AMBAS"],
     },
     {
       key: "modoJuego",
-      title: "¿Modo de juego?",
+      title: "QUE TIPO DE PALA USAS ? ",
       options: ["Ataque/Potencia", "Mixto/Hibrido", "Defensa/Control"],
     },
     {
       key: "golpeFavorito",
-      title: "¿Golpe Favorito?",
-      options: ["Voleas", "Bandeja/Vibora", "Smash", "Todas las anteriores"],
+      title: "CUAL ES TU GOLPE FAVORITO?",
+      options: ["Voleas", "Bandeja/Vibora", "Smash", "X3", "Todas las anteriores"],
     },
     {
       key: "fijasCompra",
-      title: "¿Que es lo primero que te fijas cuando vas a comprar una paleta?",
-      options: ["Peso", "Calidad Materiales", "Balance", "Precio"],
+      title: "QUE ES LO QUE MAS TE IMPORTA AL COMPRAR UNA PALA?",
+      options: ["Peso", "Calidad Materiales", "Balance", "Precio", "Todas las anteriores"],
     },
     {
       key: "tipoPaleta",
       title: "¿Que tipo de Forma te gusta?",
       options: [
         "Redonda (Control)",
-        "Lagrima (Hibrido)",
+      "Gota (Control / Potencia)",
         "Diamante (Potencia)",
       ],
     },
     {
       key: "balance",
-      title: "¿Que balance te parece mas comodo?",
+      title: "QUE TIPO DE BALANCE TE GUSTA?",
       options: ["Bajo", "Medio", "Alto"],
     },
     {
       key: "goma",
-      title: "¿Que tipo de goma te gusta?",
+      title: "QUE TIPO DE GOMA TE GUSTA?",
       options: ["Blanda", "Dura", "Media"],
     },
     {
-      title: "Listo! Ya tenemos tu paleta ideal, ahora solo elige una! al finalizar te mostraremos las paletas que mas se adaptan a tu juego! podras comprarlas directamente desde nuestra pagina web!",
+      title:
+        "Listo! Ya tenemos tu paleta ideal, ahora solo elige una! al finalizar te mostraremos las paletas que mas se adaptan a tu juego!",
       options: [],
     },
-  ]
+  ];
 
   useEffect(() => {
     localStorage.setItem("tipoJugador", "");
@@ -225,8 +226,6 @@ export default function SectionQuePalaComprar() {
     goma: localStorage.getItem("goma"),
   };
 
-
-
   const renderOptions = () => {
     const options = questions;
 
@@ -264,10 +263,8 @@ export default function SectionQuePalaComprar() {
           <img src={logo} alt="" />
         </div>
         <div class="cont-titles">
-
           <h1>¿Qué pala comprar?</h1>
           <p>Encuentra tu pala ideal</p>
-
         </div>
         <div className="cont-questions-options">{renderOptions()}</div>
       </div>
@@ -310,39 +307,30 @@ export default function SectionQuePalaComprar() {
             </div>
           </button>
         )}
-          {
-            step === questions.length - 1 && (
-                <div class="cont-button">
-                  <Button
-                  color="red"
-                  size="mini"
-                    onClick={() => {
-                      window.location.reload();
-                    }}
-                  >
-                    Reiniciar
-                  </Button>
-                  <Button
-                  color="green"
-                    onClick={() => {
-                      setPaletaElegida(chooseVariant(form));
-                      setOpen(true);
-                    }}
-                  >
-                    Ver paletas
-                  </Button>
-
-                </div>
-            )
-
-
-          }
-
+        {step === questions.length - 1 && (
+          <div class="cont-button">
+            <Button
+              color="red"
+              size="mini"
+              onClick={() => {
+                window.location.reload();
+              }}
+            >
+              Reiniciar
+            </Button>
+            <Button
+              color="green"
+              onClick={() => {
+                setPaletaElegida(chooseVariant(form));
+                setOpen(true);
+              }}
+            >
+              Ver paletas
+            </Button>
+          </div>
+        )}
       </div>
       <ModalVer open={open} setOpen={setOpen} paletas={paletaElegida} />
     </div>
   );
 }
-
-
-

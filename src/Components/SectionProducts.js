@@ -45,16 +45,33 @@ export default function SectionProducts({
     );
   }
 
+  const getColorsOfProducts = (products) => {
+    switch (products) {
+      case "Verde":
+        return "green";
+      case "Naranja" || "naranja":
+        return "orange";
+      case "Rojo":
+        return "red";
+      case "Azul":
+        return "blue";
+      case "Amarillo":
+        return "yellow";
+      case "Celeste":
+        return "teal";
+      case "Rosa":
+        return "pink";
+      case "Negro":
+        return "black"
+      default:
+        return "brown";
+    }
+  };
+
   const ordernarPrecios = (t) => {
     if (t) {
       setLoad(true);
       setProducts(products.sort((a, b) => a.price - b.price));
-      setOnChange(!onChange);
-      setLoad(false);
-    } else if (t === "Mercado") {
-      setLoad(true);
-      const productsMl = products.filter((p) => p.mercadoLibre === true);
-      setProducts(productsMl);
       setOnChange(!onChange);
       setLoad(false);
     } else {
@@ -86,30 +103,9 @@ export default function SectionProducts({
       >
         Mayor Precio
       </button>
-      <button
-        className="btn-ordenar"
-        onClick={() => {
-          ordernarPrecios("Mercado");
-        }}
-      >
-        Link Mercado Libre
-      </button>
-
-      
       <div className="container-products">
         {products.map((item, k) => (
-          <div key={k} className="card-product">
-            <h5
-              className="ultimo-stock"
-              style={
-                item.cantidad === 0 ? { color: "red" } : { color: "white" }
-              }
-            >
-              {" "}
-              {item.cantidad === 0
-                ? "Sin stock"
-                : "Ultimo/s " + item.cantidad + " en Stock!"}
-            </h5>
+          <div className="card-product">
             <img
               onClick={() => {
                 setProductImage(item);
@@ -131,13 +127,12 @@ export default function SectionProducts({
                 >
                   {item.name}
                 </h5>
-
                 <div className="cont-btn-ml-tw">
                   <Label
                     className="btn-buy"
                     as="a"
                     content={"Ver en Tienda"}
-                    color={"violet"}
+                    color={"green"}
                     icon="shopping cart"
                     onClick={() => {
                       window.open(item.url, "_blank");
@@ -183,10 +178,10 @@ export default function SectionProducts({
                     <Label
                       size="tiny"
                       className="colors-product"
-                      color={"blue"}
+                      color={getColorsOfProducts(f)}
                       key={i}
                     >
-                      {f}
+                      {f.toUpperCase()}
                     </Label>
                   ))
                 ) : (
@@ -196,17 +191,17 @@ export default function SectionProducts({
                 )}
               </div>
               <div className="cont-price">
-                <div class="price1">
+                <div className="add">${item.price + 5000}</div>
+                <div className="price1">
                   $
                   {new Intl.NumberFormat("de-DE", {
                     style: "currency",
                     currency: "ARS",
                   }).format(item.price)}
                 </div>
-                <div class="add">${item.price + 5000}</div>
+
                 <button onClick={() => addItems(item)} className="btn-new-add">
-                  {" "}
-                  Añadir al Carrito{" "}
+                  Añadir al Carrito
                 </button>
               </div>
             </div>

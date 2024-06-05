@@ -3,7 +3,7 @@
     display: inline-flex;
     align-items: center;
     justify-content: space-between;
-    background: #8848ff;
+    background: #00c27e;
     min-width: 200px;
     border: 0;
     border-radius: 4px;
@@ -21,11 +21,11 @@
     padding: 10px;
     border-radius: 5px;
     position: fixed;
-    bottom: 20px;
-    left: 0px;
+    top: 60px;
+    right: 0px;
     margin: 20px;
     width: auto;
-    height: 30px;
+    height: 40px;
   }
 
   .btn:hover {
@@ -37,7 +37,7 @@
     animation: ripple 2s linear infinite;
   }
 
-  @keyframes ripple {
+  /* @keyframes ripple {
     0% {
       box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.267), 0 0 0 20px rgba(255, 255, 255, 0.1), 0 0 0 40px rgba(255, 255, 255, 0.1), 0 0 0 60px rgba(255, 255, 255, 0.287);
     }
@@ -46,7 +46,7 @@
     100% {
       box-shadow: 0 0 0 20px rgba(255, 255, 255, 0.445), 0 0 0 40px rgba(255, 255, 255, 0.351), 0 0 0 60px rgba(255, 255, 255, 0.497), 0 0 0 80px rgba(255, 255, 255, 0.314);
     }
-  }
+  } */
 
   /* responsivo */
 

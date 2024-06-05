@@ -28,12 +28,12 @@ export default function SeccionRugoso({
       <ul className="ul-rugosos">
         <li  className="li-rugoso">
           <p>
-            <span className="span-title">Rugoso</span>, <span className="span-sub"> ventajas </span>: Genera mejor agarre de la pelota dandole mejor efecto en el golpe, añade 5 Gramos extra al peso de la paleta{" "}
+            <span className="span-title">Con Rugosidad</span>, <span className="span-sub"> ventajas </span>: Genera mejor agarre de la pelota dandole mejor efecto en el golpe, añade 5 Gramos extra al peso de la paleta{" "}
           </p>
         </li>
         <li className="li-rugoso">
           <p>
-            <span className="span-title">Sin Rugoso </span> , <span className="span-sub"> ventajas </span>: Caras de la paleta lisa.{" "}
+            <span className="span-title">Sin Rugosidad </span> , <span className="span-sub"> ventajas </span>: Caras de la paleta lisa.{" "}
           </p>
         </li>
       </ul>
@@ -54,7 +54,7 @@ export default function SeccionRugoso({
               checked={rugosos === "Sin Rugoso"}
               class="cyberpunk-checkbox"
             />
-            Sin Rugoso, $0
+            Sin Rugosidad, $0
           </label>
         </div>
         <div class="option-rugoso">
@@ -72,7 +72,7 @@ export default function SeccionRugoso({
               type="checkbox"
               class="cyberpunk-checkbox"
             />
-            Rugoso, $5.000
+            Con Rugosidad, $5.000
           </label>
         </div>
       </div>

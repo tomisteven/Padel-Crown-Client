@@ -5,8 +5,8 @@ import SeccionMaterial from "./Partes/Material/SeccionMaterial";
 import SeccionNucleo from "./Partes/Nucleo/SeccionNucleo";
 import SeccionPeso from "./Partes/Peso/SeccionPeso";
 import SeccionRugoso from "./Partes/Rugoso/SeccionRugoso";
-import SeccionNombre from "./Partes/Nombre/SeccionNombre";
-import SeccionShockOut from "./Partes/ShockOut/SeccionShockOut";
+/* import SeccionNombre from "./Partes/Nombre/SeccionNombre";
+import SeccionShockOut from "./Partes/ShockOut/SeccionShockOut"; */
 /* import SectionAccesorios from "./Partes/Accesorios/SectionAccesorios"; */
 import LoaderPersonalizada from "./LoaderPersonalizada";
 import DetallesSeleccionados from "./DetallesSeleccionados";
@@ -44,16 +44,12 @@ export default function PersonalizarMain() {
     nucleo: localStorage.getItem("nucleo"),
     peso: localStorage.getItem("peso"),
     rugoso: localStorage.getItem("rugoso"),
-    shockOut: localStorage.getItem("shockOut"),
     precioMaterial: localStorage.getItem("precioMaterial"),
     precioRugoso: localStorage.getItem("precioRugoso"),
-    precioShockOut: localStorage.getItem("precioShockOut"),
     nombre: localStorage.getItem("nombre"),
     total:
       parseInt(localStorage.getItem("precioMaterial")) +
-      parseInt(localStorage.getItem("precioShockOut")) +
-      (parseInt(localStorage.getItem("precioRugoso")) || 0) +
-      (localStorage.getItem("nombre") ? 1500 : 0),
+      (parseInt(localStorage.getItem("precioRugoso")) || 0),
   };
 
   const sendMessageToWhatsapp = () => {
@@ -68,8 +64,6 @@ export default function PersonalizarMain() {
       form.peso || "Predeterminados 370"
     }%20gramos,%20%0A*Rugoso*:%20${
       form.rugoso || "No Selecciono Opcion"
-    }%20%0A%20%0A*OneShot*:%20$${
-      form.shockOut
     },%20%0A%20%0A*Total*:%20$${
       form.total
     },%0A%0ANombre%20De%20La%20Paleta:%20${
@@ -78,9 +72,7 @@ export default function PersonalizarMain() {
       formContact.provincia || "No Completo"
     }%0ALocalidad:%20${formContact.localidad || "No Completo"}%0AEmail:%20${
       formContact.email || "No Completo"
-    }%0A*Número%20de%20Orden:%20${nºOrden}*%0A*Metodo%20de%20Pago:%20${
-      formContact.mediopago || "No Completo"
-    }*
+    }%0A*Número%20de%20Orden:%20${nºOrden}
       `;
 
     window.open(url, "_blank");
@@ -130,13 +122,13 @@ export default function PersonalizarMain() {
         );
       case 5:
         return <SeccionPeso />;
-      case 6:
+      /* case 6:
         return (
           <SeccionShockOut setLoading={setLoading} setPaso={setPaso} shockOuts={form.shockOut} paso={paso} />
-        );
-        case 7:
+        ); */
+        /* case 7:
          return <SeccionNombre />;
-
+ */
       default:
         return (
           <SeccionForma
@@ -173,7 +165,7 @@ export default function PersonalizarMain() {
                 <span></span>
               </button>
             ) : null}
-            {paso !== 7 ? (
+            {paso !== 5 ? (
               <button
                 onClick={() => setPaso(paso + 1)}
                 className="button-siguiente"
@@ -183,7 +175,7 @@ export default function PersonalizarMain() {
                 <span></span>
               </button>
             ) : null}
-            {paso === 7 ? (
+            {paso === 5 ? (
               <button
                 className="button-siguiente-e"
                 onClick={() => sendMessageToWhatsapp()}

@@ -30,7 +30,12 @@ export default function SeccionNucleo({
         </li>
         <li className="li-rugoso">
           <p>
-            <span className="span-title">Foam </span> , <span className="span-sub"> Ligereza </span>:  La goma Foam es un material ligero, lo que facilita el movimiento rápido y la maniobrabilidad en la pista.{" "}  <span className="span-sub"> Buen rebote </span> Este material tiene un buen retorno de la pelota, lo que puede proporcionar un extra de potencia en los golpes
+            <span className="span-title">Foam </span> , <span className="span-sub"> Ligereza </span>:  La goma Foam es un material ligero, lo que facilita el movimiento rápido y la maniobrabilidad en la pista.{" "}
+          </p>
+        </li>
+        <li  className="li-rugoso">
+          <p>
+            <span className="span-title">Black Eva</span>, tiene mucha salida de bola, pero menos potencia en golpeos fuertes como el remate o la volea. En general, y a diferencia de la FOAM, presenta un tacto algo más duro.
           </p>
         </li>
       </ul>
@@ -70,6 +75,24 @@ export default function SeccionNucleo({
               class="cyberpunk-checkbox"
             />
             Foam, $0
+          </label>
+        </div>
+        <div class="option-rugoso">
+          <img
+            src={"https://res.cloudinary.com/didw6uakh/image/upload/v1717370462/M63810_m63810-jajtlam_e6eqih.webp"}
+            alt=""
+          />
+          <label class="cyberpunk-checkbox-label">
+            <input
+              value={"Foam"}
+              checked={nucleos === "Foam"}
+              onChange={(e) => {
+                changeForm("nucleo", e.target.value);
+              }}
+              type="checkbox"
+              class="cyberpunk-checkbox"
+            />
+            Black EVA, $0
           </label>
         </div>
       </div>

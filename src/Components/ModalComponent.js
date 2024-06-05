@@ -23,6 +23,7 @@ export default function ModalComponent({ open, setOpen, productImage }) {
                 src={productImage.image}
                 className="img-paleta-modal"
               />
+
               <Modal.Description>
                 <h2 className="product-modal-title">{productImage.name}</h2>
                 <p className="contenedor-description-modal">
@@ -43,6 +44,7 @@ export default function ModalComponent({ open, setOpen, productImage }) {
                     <span>Sin descripcion</span>
                   )}
                 </p>
+
                 <Button
                   className="btn-add-cart-modal"
                   disabled={!productImage.stock}
@@ -90,11 +92,14 @@ export default function ModalComponent({ open, setOpen, productImage }) {
         </Modal.Content>
 
         <Modal.Actions>
+          <Button color="violet" onClick={
+            () => {
+              window.location.href = productImage.url;
+            }
+
+          }>VER MAS FOTOS</Button>
           <Button color="red" onClick={() => setOpen(false)}>
             Cancel
-          </Button>
-          <Button color="blue" onClick={() => setOpen(false)}>
-            Ok
           </Button>
           <Button
             as="a"

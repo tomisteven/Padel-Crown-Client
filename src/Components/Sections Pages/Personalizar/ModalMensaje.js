@@ -54,24 +54,7 @@ export default function ModalMensaje({ open, setOpen, formContact, setForm }) {
                     setForm({ ...formContact, email: e.target.value || "No completo" });
                   }}
                 />
-                <Form.Dropdown
-                inline
-                  fluid
-                  label="Medio de pago deseado"
-                  placeholder="Medio de pago"
-                  options={[
-                    {
-                      key: "1",
-                      text: "Debito/Credito",
-                      value: "Debito/Credito",
-                    },
-                    { key: "m", text: "Transferencia", value: "Transferencia" },
-                    { key: "l", text: "Cuotas", value: "Cuotas" },
-                  ]}
-                  onChange={(e) => {
-                    setForm({ ...formContact, mediopago:e.target.outerText || "No completo" });
-                  }}
-                />
+
               </Form.Group>
             </Form>
           </Modal.Description>

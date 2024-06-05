@@ -51,13 +51,7 @@ export default function DetallesSeleccionados({ form, clientInfo }) {
           <p class="precio-title">· Rugoso: {form.rugoso !== "" ? <span>{form.rugoso}</span> : ""}</p>
           <p className="precio-precio">${form.precioRugoso || 0}</p>
         </div>
-        <div class="cont-precio-info">
-          <p class="precio-title">· OneShot: {
-            form.shockOut !== "" ? <span>{form.shockOut}</span> : ""
 
-          }</p>
-          <p className="precio-precio">${form.precioShockOut || 0}</p>
-        </div>
         <div class="cont-precio-info">
           <p class="precio-title">· Peso: {
             form.peso !== "" ? <span>{form.peso}</span> : " "
