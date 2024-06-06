@@ -87,6 +87,7 @@ export default function SectionProducts({
       <h5 className="title-section-two">
         {products.length} Productos disponibles para la venta online
       </h5>
+      <div className="cont-button-order">
       <button
         className="btn-ordenar"
         onClick={() => {
@@ -103,6 +104,9 @@ export default function SectionProducts({
       >
         Mayor Precio
       </button>
+
+      </div>
+
       <div className="container-products">
         {products.map((item, k) => (
           <div className="card-product">

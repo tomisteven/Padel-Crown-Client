@@ -52,10 +52,11 @@
 
   @media screen and (max-width: 767px){
     .btn{
-        width: 100%;
-        height: auto;
-        margin: 0px;
-        bottom: 0px;
-        border-radius: 0px;
+      z-index: 1000;
+      top: 91%;
+      height: 30px;
+      right: 0;
+
+      left: 0px;
     }
   }

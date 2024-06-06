@@ -118,9 +118,9 @@
   flex-direction: column;
 }
 .card-product:hover {
-  -webkit-box-shadow: 1px 19px 27px 0px rgba(233, 168, 29, 0.73);
-  -moz-box-shadow: 1px 19px 27px 0px rgba(227, 176, 47, 0.73);
-  box-shadow: 1px 19px 27px 0px rgba(236, 176, 23, 0.73);
+  -webkit-box-shadow: 1px 19px 27px 0px rgba(29, 233, 117, 0.73);
+  -moz-box-shadow: 1px 19px 27px 0px rgba(47, 227, 158, 0.73);
+  box-shadow: 1px 9px 17px 0px rgba(17, 199, 120, 0.73);
   transition: 0.5s;
 }
 .card-body-name {
