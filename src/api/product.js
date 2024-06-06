@@ -12,7 +12,6 @@ export class Product {
 
     async createProduct(product) {}
 
-
     async editProduct(product, id) {
 
          const res = await fetch(this.url + `update/${id}`, {

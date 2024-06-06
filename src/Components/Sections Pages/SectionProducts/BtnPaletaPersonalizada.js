@@ -7,7 +7,7 @@ export default function BtnPaletaPersonalizada() {
       () => {
         window.location.href = "/personalizar/paleta";
       }
-    } class="btn"><i class="animation"></i>Perzonaliza tu Paleta!<i class="animation"></i>
+    } class="btn"><i class="animation"></i>Personaliza tu Paleta!<i class="animation"></i>
     </button>
 
   )
