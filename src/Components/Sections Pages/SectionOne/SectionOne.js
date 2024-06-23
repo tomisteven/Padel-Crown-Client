@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import "./SectionOne.css";
 import down from "../../../assets/down.webp";
 import LoadBall from "../../LoadBall";
-import fondo_g from "../../../assets/fondox.webp"
+import fondo_g from "../../../assets/banerpc.webp"
 import fondo_m from "../../../assets/fondo_m.webp"
 
 export default function SectionOne() {
@@ -47,11 +47,11 @@ export default function SectionOne() {
           </button>
           <button className="start-button-r">
             <a className="a-button-r" href="/rifas">
-              Ver RIFAS
+              Ver Rifas
             </a>
           </button>
           <button className="start-button-m">
-            <a className="a-button-m" href="https://articulo.mercadolibre.com.ar/MLA-1491186324-paleta-de-padel-fg-atos-full-carbono-diamante-tipo-nox-_JM#position=28&search_layout=stack&type=item&tracking_id=e61072f9-3e06-4115-83c2-33099df4ea25">
+            <a className="a-button-m" href="https://articulo.mercadolibre.com.ar/MLA-1727629620-fg-full-carbono-12k-gota-_JM#position=37&search_layout=stack&type=item&tracking_id=ed068b22-3b1b-4b9e-8746-9186ca459488">
               Ver en Mercado Libre
             </a>
           </button>
