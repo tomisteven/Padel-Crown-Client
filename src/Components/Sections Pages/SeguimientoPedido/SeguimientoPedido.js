@@ -31,11 +31,12 @@ export default function SeguimientoPedido() {
     setDni("");
   };
 
-  function formatearFecha(fechaString) {
+  /* function formatearFecha(fechaString) {
+    console.log(fechaString);
     if (!fechaString) return "No hay Fecha";
     // Intenta parsear la fecha en formato "dd/mm/aaaa"
     var formatoDDMMYYYY = /^\d{2}\/\d{2}\/\d{4}$/;
-    var formatoDDMMYYYY2 = /^\d{2}\/\d{1}\/\d{4}$/;
+    var formatoDDMMYYYY2 = /^\d{2}\/\d{2}\/\d{4}$/;
     if (
       formatoDDMMYYYY.test(fechaString) ||
       formatoDDMMYYYY2.test(fechaString)
@@ -48,7 +49,7 @@ export default function SeguimientoPedido() {
       var diaPredeterminado = fechaPredeterminada.getDate();
       var mesPredeterminado = fechaPredeterminada.getMonth() + 1; // Se suma 1 porque los meses van de 0 a 11 en JavaScript
       var anioPredeterminado = fechaPredeterminada.getFullYear();
-
+      console.log(diaPredeterminado, mesPredeterminado, anioPredeterminado);
       return (
         diaPredeterminado +
         "/" +
@@ -61,7 +62,7 @@ export default function SeguimientoPedido() {
 
     // Si no se pudo parsear en ninguno de los formatos, devuelve null
     return null;
-  }
+  } */
 
   return (
     <div className="cont-seguimiento">
@@ -135,7 +136,7 @@ export default function SeguimientoPedido() {
                         marginRight: "10px",
                       }}
                     >
-                      {"Ultima Actualizacion: " + formatearFecha(e.fecha)}
+                      {"Ultima Actualizacion: " + e.fecha}
                     </p>
                   </div>
                 );
