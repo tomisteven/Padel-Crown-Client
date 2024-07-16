@@ -67,7 +67,7 @@ export default function Rifas() {
       );
       setRifas(updatedRifas);
       //fijamos el precio total de la rifa
-      setPrecioTotal(2000);
+      setPrecioTotal(3000);
       setSeleccionadas([...seleccionadas, rifa]);
     }
 
@@ -263,7 +263,7 @@ export default function Rifas() {
             <h2>Informacion de la rifa</h2>
             <ul>
               <li>
-                <h3>1. El precio de la rifa es de $2000</h3>
+                <h3>1. El precio de la rifa es de $3000</h3>
               </li>
               <li>
                 <h3>3. Solo puedes seleccionar una vez cada rifa</h3>
@@ -272,24 +272,12 @@ export default function Rifas() {
                 <h3>4. Solo puedes comprar la rifas seleccionada</h3>
               </li>
               <li>
-                <h2>1 x $2000</h2>
+                <h2>1 x $3000</h2>
               </li>
 
               <li>
                 <h2>Solo se puede comprar de a 1 rifa</h2>
               </li>
-              {/* <li>
-                <h2>6. 3 x $3600</h2>
-              </li>
-              <li>
-                <h2>7. 4 x $4500</h2>
-              </li>
-              <li>
-                <h2>8. 4 x $4500</h2>
-              </li>
-              <li>
-                <h2>9. 5 x $6000</h2>
-              </li> */}
             </ul>
           </div>
           <ModalForm
