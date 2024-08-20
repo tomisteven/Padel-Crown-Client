@@ -20,4 +20,4 @@ const data1 = await productos.json();
 const dataFIn = data1.filter((item) => item.stock === true);
 /* const clientesData = await clientes.json(); */
 
-export const GlobalContext = createContext([dataFIn ]);
+export const GlobalContext = createContext([dataFIn]);

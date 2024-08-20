@@ -18,6 +18,7 @@ import ProductsTable from "./Components/Sections Pages/TableClients/ProductsTabl
 import Rifas from "./Components/Sections Pages/Rifas/Rifas.js";
 import AdminRifas from "./Components/Sections Pages/TableClients/AdminRifas/AdminRifas.js";
 import EditRifa from "./Components/Sections Pages/TableClients/AdminRifas/ModalEditar.js";
+import Finanzas from "./Components/Sections Pages/finanzasCLIENTE/Finanzas.js";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
         <Route path="/admin/rifas" element={<AdminRifas />} />
         <Route path="/admin/rifas/edit/:id" element={<EditRifa />} />
         <Route path="/revendedores" element={<Revendedores />} />
+        <Route path="/cobros-online/*" element={<Finanzas />} />
         <Route path="/personalizar/paleta" element={<PersonalizarMain />} />
         <Route path="/seguimiento" element={<SeguimientoPedido />} />
         <Route path="/admin/clientes" element={<TableClients />} />
