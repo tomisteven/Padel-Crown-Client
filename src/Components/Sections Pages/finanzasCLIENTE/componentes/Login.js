@@ -26,7 +26,7 @@ export default function Login({ state, valor }) {
   const verificarUsernameRepetido = async (e) => {
     e.preventDefault();
     const users = await fetch(
-      "https://particular-bernita-digitalcode.koyeb.app/admin/cobros"
+      "https://paderlcrown-server.onrender.com/admin/cobros"
     );
     const usersData = await users.json();
     const user = usersData.find((item) => item.username === e.target.value);

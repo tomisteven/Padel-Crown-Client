@@ -2,10 +2,7 @@ import React from "react";
 import { Icon, Label, LabelDetail } from "semantic-ui-react";
 import { useNavigate } from "react-router-dom";
 
-export default function PanelLeft({
-  setStateLocalStorage,
-  stateLocalStorage,
-}) {
+export default function PanelLeft() {
   const user = JSON.parse(localStorage.getItem("usuarioFinanciero"));
   const navigate = useNavigate();
   const useNavigated = window.location.pathname.split("/")[3];
@@ -19,7 +16,6 @@ export default function PanelLeft({
         </LabelDetail>
       </Label>
       <div className="info-padel-left">
-
         <button
           disabled={!user.confirmadoPorAdministracion}
           onClick={() => {
@@ -33,7 +29,6 @@ export default function PanelLeft({
             border: "1.5px solid white",
           }}
         >
-
           {user.estadoActual
             ? "Ya tienes una financiación activa"
             : "Generar Nueva Financiación"}

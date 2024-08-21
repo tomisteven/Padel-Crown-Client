@@ -11,7 +11,7 @@ export default function HistorialFinalizadas() {
     const user = JSON.parse(localStorage.getItem("usuarioFinanciero"));
     const fetchData = async () => {
       const data = await fetch(
-        "https://particular-bernita-digitalcode.koyeb.app/cobros/" + user._id
+        "https://paderlcrown-server.onrender.com/cobros/" + user._id
       );
       const dataJson = await data.json();
       setClient(dataJson);

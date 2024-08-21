@@ -1,7 +1,11 @@
 export class CobrosAPI {
+
+  url = "https://paderlcrown-server.onrender.com/cobros/";
+
+
   async registrarCliente({ username, nombre, dni, email, password }) {
     const response = await fetch(
-      "https://particular-bernita-digitalcode.koyeb.app/cobros/nuevo-cliente",
+       this.url+"nuevo-cliente",
       {
         method: "POST",
         headers: {
@@ -16,7 +20,7 @@ export class CobrosAPI {
 
   async loginClient({ username, password }) {
     const response = await fetch(
-      "https://particular-bernita-digitalcode.koyeb.app/cobros/cliente/login",
+      this.url +"cliente/login",
       {
         method: "POST",
         headers: {
@@ -31,7 +35,7 @@ export class CobrosAPI {
 
   async getClientById(id) {
     const response = await fetch(
-      `https://particular-bernita-digitalcode.koyeb.app/cobros/${id}`
+      this.url + `${id}`
     );
     const data = await response.json();
     return data;
@@ -39,7 +43,7 @@ export class CobrosAPI {
 
   async editClientById(id, client) {
     const response = await fetch(
-      `https://particular-bernita-digitalcode.koyeb.app/cobros/editar/${id}`,
+      this.url + `editar/${id}`,
       {
         method: "PATCH",
         headers: {
@@ -54,7 +58,7 @@ export class CobrosAPI {
 
   async crearNuevoPago(idCliente, idCuota, producto) {
     const res = await fetch(
-      `https://particular-bernita-digitalcode.koyeb.app/cobros/pago/${idCliente}/cuota/${idCuota}`,
+      this.url + `pago/${idCliente}/cuota/${idCuota}`,
       {
         method: "POST",
         headers: {
@@ -69,7 +73,7 @@ export class CobrosAPI {
 
   async simularFinanciacion({ userId, producto, precio, confirmacion, tipo }) {
     const res = await fetch(
-      `https://particular-bernita-digitalcode.koyeb.app/cobros/nueva-financiacion/` +
+      this.url + `nueva-financiacion/` +
         userId,
       {
         method: "POST",

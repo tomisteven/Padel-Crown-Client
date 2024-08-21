@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import LoadingCobros from "./LoadingCobros";
 import { CobrosAPI } from "../../../../api/Cobros";
 import "./EditarDatosPersonales.css";
-import { Label, LabelDetail } from "semantic-ui-react";
 
 const cobrosController = new CobrosAPI();
 export default function EditarDatosPersonales({
@@ -18,7 +17,7 @@ export default function EditarDatosPersonales({
     const user = JSON.parse(localStorage.getItem("usuarioFinanciero"));
     const fetchData = async () => {
       const data = await fetch(
-        "https://particular-bernita-digitalcode.koyeb.app/cobros/" + user._id
+        "https://paderlcrown-server.onrender.com/cobros/" + user._id
       );
       const dataJson = await data.json();
       setClient(dataJson);
@@ -95,7 +94,6 @@ export default function EditarDatosPersonales({
           type="text"
           placeholder="Username"
           value={client.username}
-
         />
         <input
           onChange={handleChange}

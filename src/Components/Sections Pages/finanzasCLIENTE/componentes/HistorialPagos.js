@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Tab, Table } from "semantic-ui-react";
+import { Table } from "semantic-ui-react";
 import "./HistorialPagos.css";
 import LoadingCobros from "./LoadingCobros";
 
@@ -11,7 +11,7 @@ export default function HistorialPagos() {
     const user = JSON.parse(localStorage.getItem("usuarioFinanciero"));
     const fetchData = async () => {
       const data = await fetch(
-        "https://particular-bernita-digitalcode.koyeb.app/cobros/" + user._id
+        "https://paderlcrown-server.onrender.com/cobros/" + user._id
       );
       const dataJson = await data.json();
       setClient(dataJson);
@@ -37,11 +37,10 @@ export default function HistorialPagos() {
         <Table striped celled stackable color="orange">
           <Table.Header>
             <Table.Row>
-            <Table.HeaderCell>Cuota</Table.HeaderCell>
+              <Table.HeaderCell>Cuota</Table.HeaderCell>
               <Table.HeaderCell>Producto</Table.HeaderCell>
               <Table.HeaderCell>Fecha Pago</Table.HeaderCell>
               <Table.HeaderCell>Monto</Table.HeaderCell>
-
             </Table.Row>
           </Table.Header>
           <Table.Body>
@@ -53,7 +52,6 @@ export default function HistorialPagos() {
                     <Table.Cell>{historial.producto}</Table.Cell>
                     <Table.Cell>{formatFecha(historial.fecha)}</Table.Cell>
                     <Table.Cell>$ {historial.monto}</Table.Cell>
-
                   </Table.Row>
                 );
               })}
